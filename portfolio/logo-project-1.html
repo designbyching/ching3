@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Logo Project 1 by Design by Ching. Explore our branding work for this client."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="logo design, branding, portfolio, Logo Project 1"
+    />
+    <meta property="og:title" content="Logo Project 1—Design by Ching" />
+    <meta
+      property="og:description"
+      content="Discover our branding and logo design work for Logo Project 1."
+    />
+    <meta
+      property="og:url"
+      content="https://www.designbyching.com/portfolio/logo-project-1"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Logo Project 1—Design by Ching" />
+    <meta
+      name="twitter:description"
+      content="Discover our branding and logo design work for Logo Project 1."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://images.unsplash.com data:;"
+    />
+    <title>Logo Project 1—Design by Ching</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body id="top">
+    <!-- Header with Sticky Navbar -->
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="container nav-container">
+          <a href="../index.html" class="nav-logo">
+            <img
+              src="../assets/logo/dbc-logo.svg"
+              alt="Design by Ching Logo"
+              class="logo-img"
+            />
+          </a>
+          <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="toggle-text">MENU</span>
+          </button>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="../about.html">ABOUT</a></li>
+            <li>
+              <a href="../portfolio.html" aria-current="page">PORTFOLIO</a>
+            </li>
+            <li><a href="../services.html">SERVICES</a></li>
+            <li><a href="../testimonials.html">TESTIMONIALS</a></li>
+            <li><a href="../blog.html">BLOG</a></li>
+            <li><a href="../contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Project Section -->
+      <section class="project" id="project">
+        <div class="container project-content">
+          <h1 class="bold">Client: Logo Project 1</h1>
+          <p class="text-normal">
+            For Logo Project 1, we crafted a dynamic and modern brand identity
+            that captures the essence of their innovative vision. Our team
+            designed a versatile logo, developed a cohesive color palette, and
+            created supporting brand assets to ensure consistency across digital
+            and print media. We also provided strategic guidance to enhance
+            their market presence, resulting in increased brand recognition and
+            customer engagement.
+          </p>
+          <!-- Info Squares -->
+          <div class="project-info">
+            <div class="info-square">Country: Sydney</div>
+            <div class="info-square">Year: 2024</div>
+            <div class="info-square">Work: Branding</div>
+            <div class="info-square"></div>
+          </div>
+          <!-- Slideshow -->
+          <div class="project-slideshow">
+            <img
+              src="../assets/clients/zhai-associates/zhai-1.webp"
+              alt="Slide 1"
+              class="project-slide"
+              loading="lazy"
+            />
+            <img
+              src="../assets/clients/zhai-associates/zhai-2.webp"
+              alt="Slide 2"
+              class="project-slide"
+              loading="lazy"
+            />
+            <img
+              src="../assets/clients/zhai-associates/zhai-3.webp"
+              alt="Slide 3"
+              class="project-slide"
+              loading="lazy"
+            />
+            <img
+              src="../assets/clients/zhai-associates/zhai-4.webp"
+              alt="Slide 4"
+              class="project-slide"
+              loading="lazy"
+            />
+            <img
+              src="../assets/clients/zhai-associates/zhai-5.webp"
+              alt="Slide 5"
+              class="project-slide"
+              loading="lazy"
+            />
+            <img
+              src="../assets/clients/zhai-associates/zhai-6.webp"
+              alt="Slide 6"
+              class="project-slide"
+              loading="lazy"
+            />
+          </div>
+          <!-- Buttons -->
+          <div class="project-buttons">
+            <a href="../portfolio.html" class="button-2">Back to Portfolio</a>
+            <a href="../contact.html" class="button-1">Start a Project Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <p class="small-text">DBC | ©COPYRIGHTS 2025</p>
+        <a href="#top" class="back-to-top small-text">BACK TO TOP</a>
+      </div>
+    </footer>
+
+    <script src="../script.js" defer></script>
+    <script>
+      // Project Slideshow
+      const projectSlideshow = document.querySelector(".project-slideshow");
+      if (projectSlideshow) {
+        const slides = projectSlideshow.querySelectorAll(".project-slide");
+        let current = 0;
+
+        // Show first slide
+        slides[current].classList.add("active");
+
+        // Start interval
+        const intervalId = setInterval(() => {
+          slides[current].classList.remove("active");
+          current = (current + 1) % slides.length;
+          slides[current].classList.add("active");
+        }, 2000);
+
+        // Store interval ID to allow stopping if needed
+        projectSlideshow.dataset.interval = intervalId.toString();
+      }
+    </script>
+  </body>
+</html>

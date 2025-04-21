@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Read the latest insights on logo design, branding, and digital transformation from Design by Ching."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="blog, logo design, branding, digital transformation"
+    />
+    <!-- UPDATED: Added keywords -->
+    <meta
+      property="og:title"
+      content="Blog by Design by Ching—Directed by Mike Ching"
+    />
+    <meta
+      property="og:description"
+      content="Explore our blog for tips and insights on branding and design."
+    />
+    <meta property="og:url" content="https://www.designbyching.com/blog" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Blog by Design by Ching—Directed by Mike Ching"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore our blog for tips and insights on branding and design."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://images.unsplash.com data:;"
+    />
+    <title>Blog by Design by Ching—Directed by Mike Ching</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <!-- Header with Sticky Navbar -->
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="container nav-container">
+          <a href="index.html" class="nav-logo">
+            <img
+              src="assets/logo/dbc-logo.svg"
+              alt="Design by Ching Logo"
+              class="logo-img"
+            />
+          </a>
+          <div class="nav-toggles">
+            <div class="theme-toggle-container">
+              <label class="switch" title="Toggle day/night mode">
+                <input
+                  id="toggle"
+                  type="checkbox"
+                  aria-label="Toggle day/night mode"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="menu-toggle-container">
+              <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="toggle-text">MENU</span>
+              </button>
+            </div>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="about.html">ABOUT</a></li>
+            <li>
+              <a href="index.html#portfolio">PORTFOLIO</a>
+              <!-- UPDATED: In-page link -->
+            </li>
+            <li>
+              <a href="index.html#services">SERVICES</a>
+              <!-- UPDATED: In-page link -->
+            </li>
+            <li>
+              <a href="index.html#testimonials">TESTIMONIALS</a>
+              <!-- UPDATED: In-page link -->
+            </li>
+            <li>
+              <a href="blog.html" aria-current="page">BLOG</a>
+              <!-- UPDATED: aria-current -->
+            </li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Blog Section -->
+      <section class="blog" id="blog">
+        <div class="container">
+          <h2>Our Blog</h2>
+          <div class="grid-container">
+            <article class="card blog-card">
+              <a href="blog/article-1.html">
+                <h3 class="service-title">The Art of Logo Design</h3>
+                <p class="service-description">
+                  Discover the principles behind creating memorable logos that
+                  define a brand.
+                </p>
+              </a>
+            </article>
+            <!-- Placeholder for future articles -->
+            <article class="card blog-card">
+              <a href="blog/article-2.html">
+                <h3 class="service-title">Branding in the Digital Age</h3>
+                <p class="service-description">
+                  Learn how to build a strong brand identity in today’s digital
+                  landscape.
+                </p>
+              </a>
+            </article>
+          </div>
+          <div class="blog-buttons">
+            <a href="contact.html" class="view-more">SUBMIT A TOPIC</a>
+            <!-- UPDATED: Added button -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <p class="small-text">DBC | ©COPYRIGHTS 2025</p>
+        <a href="#top" class="back-to-top small-text">BACK TO TOP</a>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

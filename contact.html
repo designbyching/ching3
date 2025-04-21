@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact Design by Ching to start your logo design, branding, or digital transformation project."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="contact, logo design, branding, digital transformation"
+    />
+    <!-- UPDATED: Added keywords -->
+    <meta
+      property="og:title"
+      content="Contact Design by Ching—Directed by Mike Ching"
+    />
+    <meta
+      property="og:description"
+      content="Get in touch to start your next project with Design by Ching."
+    />
+    <meta property="og:url" content="https://www.designbyching.com/contact" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Contact Design by Ching—Directed by Mike Ching"
+    />
+    <meta
+      name="twitter:description"
+      content="Get in touch to start your next project with Design by Ching."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://images.unsplash.com data:;"
+    />
+    <title>Contact Design by Ching—Directed by Mike Ching</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <!-- Header with Sticky Navbar -->
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="container nav-container">
+          <a href="index.html" class="nav-logo">
+            <img
+              src="assets/logo/dbc-logo.svg"
+              alt="Design by Ching Logo"
+              class="logo-img"
+            />
+          </a>
+          <div class="nav-toggles">
+            <div class="theme-toggle-container">
+              <label class="switch" title="Toggle day/night mode">
+                <input
+                  id="toggle"
+                  type="checkbox"
+                  aria-label="Toggle day/night mode"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="menu-toggle-container">
+              <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="toggle-text">MENU</span>
+              </button>
+            </div>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="about.html">ABOUT</a></li>
+            <li>
+              <a href="index.html#portfolio">PORTFOLIO</a>
+              <!-- UPDATED: In-page link -->
+            </li>
+            <li>
+              <a href="index.html#services">SERVICES</a>
+              <!-- UPDATED: In-page link -->
+            </li>
+            <li>
+              <a href="index.html#testimonials">TESTIMONIALS</a>
+              <!-- UPDATED: In-page link -->
+            </li>
+            <li><a href="blog.html">BLOG</a></li>
+            <!-- UPDATED: Consistent link -->
+            <li>
+              <a href="contact.html" aria-current="page">CONTACT</a>
+              <!-- UPDATED: aria-current -->
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Contact Section -->
+      <section class="contact" id="contact">
+        <div class="container contact-content">
+          <h2>Contact Us</h2>
+          <p class="spaced-uppercase">Let’s Transform Your Brand</p>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-input"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="button-1">SUBMIT</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <p class="small-text">DBC | ©COPYRIGHTS 2025</p>
+        <a href="#top" class="back-to-top small-text">BACK TO TOP</a>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
