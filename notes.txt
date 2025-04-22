@@ -1,0 +1,2 @@
+how do we add a nice background image for the about intro section - let's make all the text in left half of the screen so that the bakcgound images right side is visble. have the text like a locked in to half the screen width always. then have a bkac gradient overlaying on top of the bakcground image so that the right side is transparent ans hwos the full image (you know what i mean like a gradient of black to tranpsanrecy . then  wheni add image the text is readable. here is my current about.html and CSS: 
+
