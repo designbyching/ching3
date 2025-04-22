@@ -760,7 +760,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: var(--padding-card);
-  background: var(--accent-color);
+  background: var(--frost-bg);
   z-index: 3;
 }
 
