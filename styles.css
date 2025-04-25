@@ -261,7 +261,7 @@ body.night-mode {
   position: relative;
   padding: 72px var(--intro-padding);
   text-align: left;
-  /*background-image: url('assets/image-covers/neon-oct.webp');*/
+  /*background-image: url('assets/image-covers/SVG/intro-grid.svg');*/
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -327,8 +327,8 @@ body.night-mode .intro::before {
   transition: box-shadow 0.3s ease, background 0.5s ease;
   display: flex;
   flex-direction: column;
-  align-items: left;
-  text-align: left;
+  align-items: center;
+  text-align: center;
 }
 
 .team-card:hover {
@@ -936,4 +936,68 @@ a:hover {
 
 .slideshow-next {
   right: 0;
+}
+
+/* Contact Section */
+.contact {
+  padding: var(--space-lg) 0;
+  background: var(--frost-bg);
+  backdrop-filter: blur(10px);
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 600px; /* Narrower for form readability */
+  text-align: left;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-size);
+  color: var(--text-color);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.form-input {
+  padding: 0.5rem;
+  border: 1px solid var(--text-color);
+  background: var(--bg-color);
+  font-family: var(--font-body);
+  font-size: var(--text-size);
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.form-input::placeholder {
+  color: var(--secondary-text);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button.button-1 {
+  align-self: flex-start;
 }
