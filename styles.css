@@ -576,6 +576,7 @@ h3.bold {
 .heading-large {
   font-size: 1.2rem; /* Larger than --heading-size (0.7rem) */
   line-height: 1.4; /* Slightly adjusted for readability */
+  letter-spacing: 0.05em;
 }
 
 @media (min-width: 501px) {
