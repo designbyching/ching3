@@ -168,26 +168,35 @@ body.night-mode .logo-img {
 .nav-links {
   display: none;
   position: absolute;
-  top: 3rem;
+  top: calc(100% + var(--space-md)); /* Align below navbar */
   left: 0;
   right: 0;
   width: 100%;
   padding: 0.5rem var(--container-padding);
+  padding-bottom: 9px; /* 9px bottom padding */
   text-align: right;
+  background: var(
+    --frost-bg
+  ); /* rgba(255, 255, 255, 0.8) light, rgba(0, 0, 0, 0.8) dark */
+  backdrop-filter: blur(10px); /* Frosted blur */
+  -webkit-backdrop-filter: blur(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-10px); /* Start 10px above */
   list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 3px 3px;
+  z-index: 9; /* Ensure visibility below .site-header (z-index: 10) */
 }
 
 .nav-links.active {
   display: block;
   opacity: 1;
-  transform: translateY(-10px);
-  background: var(--bg-color);
-  padding-bottom: var(--space-md);
+  transform: translateY(0);
+  backdrop-filter: blur(10px); /* Reinforce blur */
+  -webkit-backdrop-filter: blur(10px);
+  background: var(--frost-bg); /* Reinforce frosted background */
 }
 
 .nav-links li {
@@ -1287,5 +1296,65 @@ body.night-mode .process-icon {
   .radio-group {
     flex-direction: column;
     gap: var(--space-sm);
+  }
+}
+
+/* Project Page */
+.project {
+  padding: var(--space-lg) 0; /* Matches .portfolio, .services */
+}
+
+.project-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md); /* 1rem between items */
+  margin: var(--space-lg) 0; /* Spacing above/below */
+  /*border: 1px solid var(--text-color);*/
+}
+
+.project-details span {
+  font-size: var(--small-text-size); /* 0.7rem */
+  color: var(--secondary-text); /* Medium-grey light, light-grey dark */
+  /* border: 1px solid var(--text-color); */ /* Commented for future use */
+}
+
+.project-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* 3:2 ratio */
+  margin: var(--space-lg) 0; /* Spacing */
+  background: var(--card-bg); /* Fallback for loading */
+}
+
+.project-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover to fill 3:2 */
+  opacity: 0;
+  transition: opacity 1s ease; /* Matches .slide */
+}
+
+.project-slide.active {
+  opacity: 1;
+}
+
+.project-buttons {
+  display: flex;
+  gap: var(--space-md); /* Matches .brief-buttons */
+  margin-top: var(--space-lg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .project-details span {
+    flex: 1 1 100%; /* Stack on mobile */
+  }
+
+  .project-buttons {
+    flex-direction: column; /* Stack buttons */
+    gap: var(--space-md);
   }
 }
