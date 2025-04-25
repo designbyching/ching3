@@ -57,7 +57,11 @@
           <div class="nav-toggles">
             <div class="theme-toggle-container">
               <label class="switch" title="Toggle day/night mode">
-                <input id="toggle" type="checkbox" aria-label="Toggle day/night mode">
+                <input
+                  id="toggle"
+                  type="checkbox"
+                  aria-label="Toggle day/night mode"
+                />
                 <span class="slider"></span>
               </label>
             </div>
@@ -85,11 +89,43 @@
       <section class="portfolio" id="portfolio">
         <div class="container">
           <h2>Our Portfolio:</h2>
+          <!-- Filter Buttons -->
+          <div class="portfolio-filters">
+            <button
+              class="filter-button active"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              All
+            </button>
+            <button
+              class="filter-button"
+              data-filter="logo-design"
+              aria-pressed="false"
+            >
+              Logo Design
+            </button>
+            <button
+              class="filter-button"
+              data-filter="branding"
+              aria-pressed="false"
+            >
+              Branding
+            </button>
+            <button
+              class="filter-button"
+              data-filter="ui-ux"
+              aria-pressed="false"
+            >
+              UI/UX
+            </button>
+          </div>
           <div class="grid-container">
             <!-- Portfolio Card 1 -->
             <article
               class="card grid-item"
               data-project="logo-1"
+              data-category="logo-design"
               role="button"
               aria-label="Toggle Logo Project 1 slideshow"
             >
@@ -147,6 +183,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -154,6 +196,7 @@
             <article
               class="card grid-item"
               data-project="logo-2"
+              data-category="branding"
               role="button"
               aria-label="Toggle Logo Project 2 slideshow"
             >
@@ -211,6 +254,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -218,6 +267,7 @@
             <article
               class="card grid-item"
               data-project="logo-3"
+              data-category="ui-ux"
               role="button"
               aria-label="Toggle Logo Project 3 slideshow"
             >
@@ -275,6 +325,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -282,6 +338,7 @@
             <article
               class="card grid-item"
               data-project="logo-4"
+              data-category="logo-design"
               role="button"
               aria-label="Toggle Logo Project 4 slideshow"
             >
@@ -339,6 +396,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -346,6 +409,7 @@
             <article
               class="card grid-item"
               data-project="logo-5"
+              data-category="branding"
               role="button"
               aria-label="Toggle Logo Project 5 slideshow"
             >
@@ -403,6 +467,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -410,6 +480,7 @@
             <article
               class="card grid-item"
               data-project="logo-6"
+              data-category="ui-ux"
               role="button"
               aria-label="Toggle Logo Project 6 slideshow"
             >
@@ -467,6 +538,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -474,6 +551,7 @@
             <article
               class="card grid-item"
               data-project="logo-7"
+              data-category="logo-design"
               role="button"
               aria-label="Toggle Logo Project 7 slideshow"
             >
@@ -531,6 +609,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -538,6 +622,7 @@
             <article
               class="card grid-item"
               data-project="logo-8"
+              data-category="branding"
               role="button"
               aria-label="Toggle Logo Project 8 slideshow"
             >
@@ -595,6 +680,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -602,6 +693,7 @@
             <article
               class="card grid-item"
               data-project="logo-9"
+              data-category="ui-ux"
               role="button"
               aria-label="Toggle Logo Project 9 slideshow"
             >
@@ -659,6 +751,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -666,6 +764,7 @@
             <article
               class="card grid-item"
               data-project="logo-10"
+              data-category="logo-design"
               role="button"
               aria-label="Toggle Logo Project 10 slideshow"
             >
@@ -723,6 +822,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -730,6 +835,7 @@
             <article
               class="card grid-item"
               data-project="logo-11"
+              data-category="branding"
               role="button"
               aria-label="Toggle Logo Project 11 slideshow"
             >
@@ -787,6 +893,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -794,6 +906,7 @@
             <article
               class="card grid-item"
               data-project="logo-12"
+              data-category="ui-ux"
               role="button"
               aria-label="Toggle Logo Project 12 slideshow"
             >
@@ -851,6 +964,12 @@
                     class="slide"
                     loading="lazy"
                   />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
                 </div>
               </div>
             </article>
@@ -859,10 +978,6 @@
             <a href="contact.html" class="view-full-portfolio"
               >START A PROJECT</a
             >
-            <!-- UPDATED: Added button -->
-          </div>
-        </div>
-
           </div>
         </div>
       </section>

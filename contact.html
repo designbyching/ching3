@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Contact Design by Ching to start your logo design, branding, or digital transformation project."
+      content="Contact Design by Ching to start your logo design, branding, web development, or digital transformation project."
     />
     <meta name="robots" content="index, follow" />
     <meta
       name="keywords"
-      content="contact, logo design, branding, digital transformation"
+      content="contact, logo design, branding, web development, digital transformation, UI/UX"
     />
-    <!-- UPDATED: Added keywords -->
     <meta
       property="og:title"
       content="Contact Design by Ching—Directed by Mike Ching"
@@ -74,24 +73,11 @@
           </div>
           <ul class="nav-links" id="nav-links">
             <li><a href="about.html">ABOUT</a></li>
-            <li>
-              <a href="index.html#portfolio">PORTFOLIO</a>
-              <!-- UPDATED: In-page link -->
-            </li>
-            <li>
-              <a href="index.html#services">SERVICES</a>
-              <!-- UPDATED: In-page link -->
-            </li>
-            <li>
-              <a href="index.html#testimonials">TESTIMONIALS</a>
-              <!-- UPDATED: In-page link -->
-            </li>
+            <li><a href="index.html#portfolio">PORTFOLIO</a></li>
+            <li><a href="index.html#services">SERVICES</a></li>
+            <li><a href="index.html#testimonials">TESTIMONIALS</a></li>
             <li><a href="blog.html">BLOG</a></li>
-            <!-- UPDATED: Consistent link -->
-            <li>
-              <a href="contact.html" aria-current="page">CONTACT</a>
-              <!-- UPDATED: aria-current -->
-            </li>
+            <li><a href="contact.html" aria-current="page">CONTACT</a></li>
           </ul>
         </div>
       </nav>
@@ -102,9 +88,51 @@
       <!-- Contact Section -->
       <section class="contact" id="contact">
         <div class="container contact-content">
+          <!-- Three-Step Process Strip -->
+          <div class="process-strip">
+            <div class="process-step">
+              <img
+                src="assets/icons/design-brief.svg"
+                alt="Design Brief Icon"
+                class="process-icon"
+              />
+              <h3>Design Brief</h3>
+              <p class="text-normal">
+                We collaborate to define your project goals and vision.
+              </p>
+            </div>
+            <div class="process-step">
+              <img
+                src="assets/icons/design-develop.svg"
+                alt="Develop Icon"
+                class="process-icon"
+              />
+              <h3>Develop</h3>
+              <p class="text-normal">
+                Our team crafts and refines your solution.
+              </p>
+            </div>
+            <div class="process-step">
+              <img
+                src="assets/icons/deliver-support.svg"
+                alt="Deliver Icon"
+                class="process-icon"
+              />
+              <h3>Deliver</h3>
+              <p class="text-normal">
+                We launch your project with ongoing support.
+              </p>
+            </div>
+          </div>
+
           <h2>Contact Us</h2>
           <p class="spaced-uppercase">Let’s Transform Your Brand</p>
+          <p class="text-normal">
+            Contact us by filling out this form, and we’ll start the next phase
+            of your project.
+          </p>
           <form class="contact-form" id="contact-form">
+            <!-- Name -->
             <div class="form-group">
               <label for="name" class="form-label">Name</label>
               <input
@@ -114,8 +142,10 @@
                 class="form-input"
                 placeholder="Your Name"
                 required
+                aria-required="true"
               />
             </div>
+            <!-- Email -->
             <div class="form-group">
               <label for="email" class="form-label">Email</label>
               <input
@@ -125,19 +155,231 @@
                 class="form-input"
                 placeholder="Your Email"
                 required
+                aria-required="true"
               />
             </div>
+            <!-- Phone Number -->
             <div class="form-group">
-              <label for="message" class="form-label">Message</label>
+              <label for="phone" class="form-label"
+                >Phone Number (Optional)</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-input"
+                placeholder="Your Phone Number"
+              />
+            </div>
+            <!-- Service Type -->
+            <div class="form-group">
+              <fieldset>
+                <legend class="form-label">Service Type</legend>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="branding"
+                      name="service"
+                      value="branding"
+                      required
+                      aria-required="true"
+                    />
+                    <label for="branding">Branding</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="logo-design"
+                      name="service"
+                      value="logo-design"
+                    />
+                    <label for="logo-design">Logo Design</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="web-development"
+                      name="service"
+                      value="web-development"
+                    />
+                    <label for="web-development">Web Development</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="digital-transformation"
+                      name="service"
+                      value="digital-transformation"
+                    />
+                    <label for="digital-transformation"
+                      >Digital Transformation</label
+                    >
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="ui-ux"
+                      name="service"
+                      value="ui-ux"
+                    />
+                    <label for="ui-ux">UI/UX Design</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="other-service"
+                      name="service"
+                      value="other"
+                    />
+                    <label for="other-service">Other</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- Business Size -->
+            <div class="form-group">
+              <fieldset>
+                <legend class="form-label">Business Size</legend>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="startup"
+                      name="business-size"
+                      value="startup"
+                      required
+                      aria-required="true"
+                    />
+                    <label for="startup">Startup</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="sme"
+                      name="business-size"
+                      value="sme"
+                    />
+                    <label for="sme">SME (Small/Medium Enterprise)</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="corporate"
+                      name="business-size"
+                      value="corporate"
+                    />
+                    <label for="corporate">Corporate</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="non-profit"
+                      name="business-size"
+                      value="non-profit"
+                    />
+                    <label for="non-profit">Non-Profit</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="other-business"
+                      name="business-size"
+                      value="other"
+                    />
+                    <label for="other-business">Other</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- Annual Revenue -->
+            <div class="form-group">
+              <fieldset>
+                <legend class="form-label">
+                  Annual Revenue (Helps us understand your budget)
+                </legend>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="revenue-less-100k"
+                      name="revenue"
+                      value="less-100k"
+                    />
+                    <label for="revenue-less-100k">Less than $100K</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="revenue-100k-500k"
+                      name="revenue"
+                      value="100k-500k"
+                    />
+                    <label for="revenue-100k-500k">$100K - $500K</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="revenue-500k-1m"
+                      name="revenue"
+                      value="500k-1m"
+                    />
+                    <label for="revenue-500k-1m">$500K - $1M</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="revenue-1m-5m"
+                      name="revenue"
+                      value="1m-5m"
+                    />
+                    <label for="revenue-1m-5m">$1M - $5M</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="revenue-over-5m"
+                      name="revenue"
+                      value="over-5m"
+                    />
+                    <label for="revenue-over-5m">Over $5M</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="revenue-prefer-not"
+                      name="revenue"
+                      value="prefer-not"
+                      checked
+                    />
+                    <label for="revenue-prefer-not">Prefer Not to Say</label>
+                  </div>
+                </div>
+                <p class="text-normal small-text">
+                  This information is optional and helps us tailor our services
+                  to your needs.
+                </p>
+              </fieldset>
+            </div>
+            <!-- Message -->
+            <div class="form-group">
+              <label for="message" class="form-label">Project Details</label>
               <textarea
                 id="message"
                 name="message"
                 class="form-input"
-                placeholder="Your Message"
+                placeholder="Briefly describe your project. Consider including:
+- Project goals and objectives
+- Target audience
+- Design inspirations or preferences
+- Desired timeline
+- Any specific challenges or requirements"
                 required
+                aria-required="true"
               ></textarea>
             </div>
-            <button type="submit" class="button-1">SUBMIT</button>
+            <button type="submit" class="button-2">SUBMIT</button>
+            <!-- Changed from button-1 to button-2 -->
           </form>
         </div>
       </section>

@@ -993,11 +993,272 @@ a:hover {
   color: var(--secondary-text);
 }
 
+/* Textarea for Project Details */
 textarea.form-input {
   resize: vertical;
-  min-height: 100px;
+  min-height: 200px; /* Larger height for bigger box */
+  padding: 1rem; /* More spacing around text */
+  font-size: var(--text-normal); /* 0.8rem for text and input */
+}
+
+/* Ensure placeholder matches text-normal size */
+textarea.form-input::placeholder {
+  font-size: var(--text-normal); /* 0.8rem for placeholder */
 }
 
 button.button-1 {
   align-self: flex-start;
+}
+
+/* Portfolio Filters */
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  justify-content: flex-start;
+}
+
+.filter-button {
+  background: transparent;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: var(--text-size);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  box-shadow: var(--shadow-button);
+}
+
+.filter-button:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.filter-button:active {
+  transform: scale(0.95);
+}
+
+/* Hide filtered items */
+.grid-item.hidden {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .portfolio-filters {
+    justify-content: left;
+  }
+
+  .filter-button {
+    padding: 0.4rem 0.8rem;
+    font-size: var(--small-text-size);
+  }
+}
+
+/* Process Strip */
+.process-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  background: var(--frost-bg);
+  backdrop-filter: blur(10px);
+  padding: var(--space-lg);
+  border: 1px solid var(--text-color);
+  transition: background 0.5s ease;
+}
+
+.process-step {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.process-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  transition: filter 0.4s ease;
+}
+
+body.night-mode .process-icon {
+  filter: brightness(0) invert(1);
+}
+
+.process-step h3 {
+  font-size: var(--heading-size);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.process-step p {
+  font-size: var(--text-normal);
+  color: var(--secondary-text);
+  margin: 0;
+}
+
+/* Radio Buttons */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md); /* 1rem between radio option blocks */
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; /* Increased to 0.3rem for tiny bit more spacing */
+}
+
+.radio-group input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0; /* Remove default margin */
+  vertical-align: middle;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.radio-group input[type="radio"]:checked {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.radio-group input[type="radio"]:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.radio-group label {
+  font-family: var(--font-body);
+  font-size: var(--text-normal); /* Changed to 0.8rem */
+  color: var(--text-color);
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Form Group Spacing */
+.form-group fieldset {
+  border: none;
+  padding: 0;
+  margin: var(--space-md) 0;
+}
+
+.form-group legend {
+  font-family: var(--font-heading);
+  font-size: var(--text-size);
+  color: var(--text-color);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem; /* Reduced to 0.5rem for tiny spacing */
+}
+
+/* Phone Number Input */
+.form-input[type="tel"] {
+  padding: 0.5rem;
+  border: 1px solid var(--text-color);
+  background: var(--bg-color);
+  font-family: var(--font-body);
+  font-size: var(--text-size);
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+  margin-bottom: var(--space-md);
+}
+
+.form-input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.form-input[type="tel"]::placeholder {
+  color: var(--secondary-text);
+}
+
+/* Increase spacing between Annual Revenue radio buttons and optional text */
+.form-group fieldset p.text-normal.small-text {
+  margin-top: var(--space-md); /* 1rem for more spacing */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm); /* 0.1rem between options on mobile */
+  }
+
+  .radio-option {
+    flex: 0 0 calc(50% - var(--space-sm)); /* Two-column layout */
+    margin-bottom: var(--space-sm);
+  }
+
+  .process-strip {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .process-step {
+    padding: var(--space-sm);
+  }
+
+  .process-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Form Group Spacing */
+.form-group fieldset {
+  border: none;
+  padding: 0;
+  margin: var(--space-md) 0;
+}
+
+.form-group legend {
+  font-family: var(--font-heading);
+  font-size: var(--text-normal);
+  color: var(--text-color);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .process-strip {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .process-step {
+    padding: var(--space-sm);
+  }
+
+  .process-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
 }

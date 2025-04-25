@@ -5,6 +5,7 @@ const toggleText = document.querySelector(".toggle-text");
 
 if (navToggle && navLinks && toggleText) {
   navToggle.addEventListener("click", () => {
+    console.log("Navbar toggle clicked"); // Debug
     navLinks.classList.toggle("active");
     navToggle.classList.toggle("active");
     // Swap MENU/CLOSE text
@@ -17,6 +18,7 @@ if (navToggle && navLinks && toggleText) {
   const navLinksItems = document.querySelectorAll(".nav-links a");
   navLinksItems.forEach((link) => {
     link.addEventListener("click", () => {
+      console.log("Nav link clicked:", link.textContent); // Debug
       navLinks.classList.remove("active");
       navToggle.classList.remove("active");
       toggleText.textContent = "MENU";
@@ -102,9 +104,68 @@ function stopSlideshow(slideshow, slideSelector = ".slide") {
   console.log("Slideshow stopped");
 }
 
-// Portfolio Toggle and Slideshow
+// Portfolio Filter
+const filterButtons = document.querySelectorAll(".filter-button");
 const gridItems = document.querySelectorAll(".grid-item");
 
+function filterPortfolio(category) {
+  console.log("Filtering by category:", category); // Debug
+  gridItems.forEach((item) => {
+    const slideshow = item.querySelector(".slideshow");
+    // Stop slideshow and collapse if expanded
+    if (item.classList.contains("expanded")) {
+      item.classList.remove("expanded");
+      if (slideshow) {
+        stopSlideshow(slideshow, ".slide");
+      }
+    }
+
+    // Show/hide based on category
+    if (category === "all" || item.dataset.category === category) {
+      item.classList.remove("hidden");
+    } else {
+      item.classList.add("hidden");
+    }
+  });
+}
+
+if (filterButtons.length > 0) {
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      console.log("Filter button clicked:", button.dataset.filter); // Debug
+      // Update active button and ARIA
+      filterButtons.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-pressed", "false");
+      });
+      button.classList.add("active");
+      button.setAttribute("aria-pressed", "true");
+
+      // Filter portfolio
+      const category = button.dataset.filter;
+      filterPortfolio(category);
+    });
+
+    // Keyboard accessibility
+    button.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        console.log(
+          "Filter button activated via keyboard:",
+          button.dataset.filter
+        ); // Debug
+        button.click();
+      }
+    });
+  });
+
+  // Initialize with "All" filter
+  filterPortfolio("all");
+} else {
+  console.warn("No filter buttons found on this page"); // Debug
+}
+
+// Portfolio Toggle and Slideshow
 gridItems.forEach((item) => {
   item.addEventListener("click", (event) => {
     console.log(
@@ -155,6 +216,7 @@ const backToTop = document.querySelector(".back-to-top");
 if (backToTop) {
   backToTop.addEventListener("click", (e) => {
     e.preventDefault();
+    console.log("Back to top clicked"); // Debug
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -162,17 +224,25 @@ if (backToTop) {
   });
 }
 
-// Form Validation (Optional)
+// Form Validation
 const contactForm = document.querySelector(".contact-form");
 if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
+    console.log("Contact form submitted"); // Debug
     const name = contactForm.querySelector("#name").value.trim();
     const email = contactForm.querySelector("#email").value.trim();
     const message = contactForm.querySelector("#message").value.trim();
+    const service = contactForm.querySelector('input[name="service"]:checked');
+    const businessSize = contactForm.querySelector(
+      'input[name="business-size"]:checked'
+    );
 
-    if (!name || !email || !message) {
+    // Check required fields
+    if (!name || !email || !message || !service || !businessSize) {
       e.preventDefault();
-      alert("Please fill out all fields.");
+      alert(
+        "Please fill out all required fields: Name, Email, Service Type, Business Size, and Project Details."
+      );
       return;
     }
 
@@ -198,6 +268,7 @@ if (themeToggle) {
 
   // Toggle mode on change
   themeToggle.addEventListener("change", () => {
+    console.log("Theme toggle changed:", themeToggle.checked ? "night" : "day"); // Debug
     if (themeToggle.checked) {
       document.body.classList.add("night-mode");
       localStorage.setItem("theme-mode", "night");
