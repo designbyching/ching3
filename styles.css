@@ -40,6 +40,18 @@
   box-sizing: border-box;
 }
 
+/* Apply 3px border-radius to all box-like elements */
+.card,
+.form-input,
+.button-1,
+.button-2,
+.learn-more,
+.view-more,
+.filter-button,
+.process-strip {
+  border-radius: 3px;
+}
+
 /* Base Styles */
 html {
   scroll-behavior: smooth;
