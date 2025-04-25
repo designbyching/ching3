@@ -1390,15 +1390,3 @@ body.night-mode .process-icon {
 .word-cycle.fade {
   opacity: 0; /* Fades out during transition */
 }
-
-/* Slide-Up Animation for Scroll */
-.slide-up {
-  opacity: 0; /* Start invisible */
-  transform: translateY(50px); /* Start 50px below */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
-}
-
-.slide-up.visible {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Move to original position */
-}

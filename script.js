@@ -319,33 +319,3 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(changeWord, 2000); // Subsequent changes every 2 seconds
   }, 3000);
 });
-
-// Site-Wide Slide-Up Animation on Scroll
-document.addEventListener("DOMContentLoaded", () => {
-  // Select elements to animate
-  const elementsToAnimate = document.querySelectorAll(
-    ".intro, .portfolio, .services, .testimonials, .design-brief"
-  );
-
-  // Create Intersection Observer
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible"); // Add visible class when in view
-          observer.unobserve(entry.target); // Stop observing once animated
-        }
-      });
-    },
-    {
-      threshold: 0.1, // Trigger when 10% of element is visible
-      rootMargin: "0px 0px -50px 0px", // Trigger 50px before element enters viewport
-    }
-  );
-
-  // Apply slide-up class and observe elements
-  elementsToAnimate.forEach((element) => {
-    element.classList.add("slide-up");
-    observer.observe(element);
-  });
-});
