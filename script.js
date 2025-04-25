@@ -292,9 +292,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "TURN HEADS",
     "DISRUPT MARKETS",
     "THINK BRAVE",
-    "TURN HEADS",
+    "CONNECT THE DOTS",
     "CRACK THE CODE",
-    "WIN",
+    "IMPACT",
   ];
   let currentIndex = 0;
 
