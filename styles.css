@@ -1111,6 +1111,21 @@ body.night-mode .process-icon {
   margin: 0;
 }
 
+/* Hover effects for process strip */
+.process-strip {
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.process-strip:hover {
+  box-shadow: var(--shadow-button); /* 0 0 15px rgba(0, 0, 0, 0.4) */
+}
+
+/* 70% opacity for icon on individual process-step hover */
+.process-step:hover .process-icon {
+  opacity: 0.5; /* 70% opacity, 30% lighter appearance */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
 /* Radio Buttons */
 .radio-group {
   display: flex;
