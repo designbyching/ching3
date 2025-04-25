@@ -18,6 +18,7 @@
 
   /* Typography */
   --heading-size: 0.7rem;
+  --heading-large: 1.25rem;
   --text-size: 0.7rem;
   --small-text-size: 0.7rem;
   --text-cards: 0.8rem;
@@ -569,6 +570,24 @@ h1,
 h2,
 h3.bold {
   font-weight: 700;
+}
+
+/* Larger Heading Style */
+.heading-large {
+  font-size: 1.2rem; /* Larger than --heading-size (0.7rem) */
+  line-height: 1.4; /* Slightly adjusted for readability */
+}
+
+@media (min-width: 501px) {
+  .heading-large {
+    font-size: 1.5rem; /* Even larger on bigger screens */
+  }
+}
+
+@media (max-width: 500px) {
+  .heading-large {
+    font-size: 1rem; /* Slightly smaller for mobile */
+  }
 }
 
 p {
@@ -1357,4 +1376,29 @@ body.night-mode .process-icon {
     flex-direction: column; /* Stack buttons */
     gap: var(--space-md);
   }
+}
+
+/* Word Cycle Animation */
+.word-cycle {
+  display: inline-block; /* Ensures the span respects text alignment */
+  min-width: 100px; /* Prevents layout shift due to varying word lengths */
+  text-align: left; /* Aligns text consistently */
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Smooth fade transition */
+}
+
+.word-cycle.fade {
+  opacity: 0; /* Fades out during transition */
+}
+
+/* Slide-Up Animation for Scroll */
+.slide-up {
+  opacity: 0; /* Start invisible */
+  transform: translateY(50px); /* Start 50px below */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+
+.slide-up.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to original position */
 }

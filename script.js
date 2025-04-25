@@ -278,3 +278,74 @@ if (themeToggle) {
     }
   });
 }
+
+// Word Cycle Animation
+document.addEventListener("DOMContentLoaded", () => {
+  const wordCycle = document.querySelector(".word-cycle");
+  if (!wordCycle) {
+    console.error("Word cycle element not found");
+    return;
+  }
+
+  const words = [
+    "TRANSFORM BRANDS",
+    "TURN HEADS",
+    "DISRUPT MARKETS",
+    "THINK BRAVE",
+    "TURN HEADS",
+    "CRACK THE CODE",
+    "WIN",
+  ];
+  let currentIndex = 0;
+
+  function changeWord() {
+    // Add fade class to start fading out
+    wordCycle.classList.add("fade");
+
+    setTimeout(() => {
+      // Change the word after fade-out
+      wordCycle.textContent = words[currentIndex];
+      // Remove fade class to fade in
+      wordCycle.classList.remove("fade");
+      // Move to next word, loop back to 0 if at the end
+      currentIndex = (currentIndex + 1) % words.length;
+    }, 500); // Matches CSS transition duration (0.5s)
+  }
+
+  // Initial delay of 3 seconds for "IMPACT"
+  setTimeout(() => {
+    // Start cycling every 2 seconds after initial delay
+    changeWord(); // First change
+    setInterval(changeWord, 2000); // Subsequent changes every 2 seconds
+  }, 3000);
+});
+
+// Site-Wide Slide-Up Animation on Scroll
+document.addEventListener("DOMContentLoaded", () => {
+  // Select elements to animate
+  const elementsToAnimate = document.querySelectorAll(
+    ".intro, .portfolio, .services, .testimonials, .design-brief"
+  );
+
+  // Create Intersection Observer
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible"); // Add visible class when in view
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    },
+    {
+      threshold: 0.1, // Trigger when 10% of element is visible
+      rootMargin: "0px 0px -50px 0px", // Trigger 50px before element enters viewport
+    }
+  );
+
+  // Apply slide-up class and observe elements
+  elementsToAnimate.forEach((element) => {
+    element.classList.add("slide-up");
+    observer.observe(element);
+  });
+});
