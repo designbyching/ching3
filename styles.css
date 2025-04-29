@@ -321,11 +321,6 @@ body.night-mode .intro::before {
   margin-right: auto; /* Center within container */
 }
 
-/* About Hero Section */
-#about-hero {
-  /*background-image: url('assets/image-covers/neon-circles.webp');*/
-}
-
 /* About Section (Matches Mission) */
 .about {
   padding: var(--space-lg) 0;
@@ -363,6 +358,7 @@ body.night-mode .intro::before {
 .about-content h1 {
   margin-top: 0;
   font-size: var(--heading-large);
+  letter-spacing: 0.05rem;
 }
 
 .about-content .learn-more {
@@ -416,6 +412,7 @@ body.night-mode .intro::before {
   object-fit: cover;
   margin-bottom: var(--space-md);
   border: 2px solid var(--accent-color);
+  margin-top: 27px;
 }
 
 .team-name {
@@ -434,6 +431,7 @@ body.night-mode .intro::before {
   color: var(--secondary-text);
   letter-spacing: 0;
   margin: 0 0 var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .team-bio {
@@ -442,6 +440,7 @@ body.night-mode .intro::before {
   color: var(--text-color);
   letter-spacing: 0;
   margin: 0;
+  margin-bottom: var(--space-md);
 }
 
 /* Services Section */
@@ -633,7 +632,7 @@ h3.bold {
 
 @media (max-width: 500px) {
   .heading-large {
-    font-size: 1rem; /* Slightly smaller for mobile */
+    font-size: 1.2rem; /* Slightly smaller for mobile */
   }
 }
 
@@ -1179,7 +1178,7 @@ button.button-1 {
   height: 27px;
   object-fit: contain;
   transition: filter 0.4s ease;
-  opacity: 27%;:
+  opacity: 27%;
 }
 
 body.night-mode .process-icon {
@@ -1431,12 +1430,14 @@ body.night-mode .process-icon {
   display: inline-block; /* Ensures the span respects text alignment */
   min-width: 100px; /* Prevents layout shift due to varying word lengths */
   text-align: left; /* Aligns text consistently */
+  color: var(--text-color); /* #0c0c0c light mode, #ffffff dark mode */
   opacity: 1;
-  transition: opacity 0.5s ease; /* Smooth fade transition */
+  transition: opacity 0.5s ease, color 0.5s ease; /* Transition both opacity and color */
 }
 
 .word-cycle.fade {
   opacity: 0; /* Fades out during transition */
+  color: var(--accent-color); /* Yellow (#dfb011) during transition */
 }
 
 /* Add to the end of styles.css */
@@ -1477,7 +1478,7 @@ body.night-mode .process-icon {
 
 .mission-content h2 {
   margin-top: 0;
-  font-size: var(--heading-large)
+  font-size: var(--heading-large);
 }
 
 .mission-content .learn-more {
@@ -1538,6 +1539,8 @@ body.night-mode .process-icon {
   .about-content {
     order: 1; /* Text stays on top */
     text-align: left;
+    font-size: var(--heading-large);
+    letter-spacing: 0.05rem;
   }
 
   .about-image {
@@ -1569,3 +1572,4 @@ body.night-mode .process-icon {
     align-self: stretch;
     text-align: center;
   }
+}
