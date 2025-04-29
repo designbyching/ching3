@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Read the latest insights on logo design, branding, and digital transformation from Design by Ching."
+      content="Read the latest insights on logo design, branding, digital transformation, and more from Design by Ching."
     />
     <meta name="robots" content="index, follow" />
     <meta
       name="keywords"
-      content="blog, logo design, branding, digital transformation"
+      content="blog, logo design, branding, digital transformation, UI/UX, minimalist design, Sydney"
     />
-    <!-- UPDATED: Added keywords -->
     <meta
       property="og:title"
       content="Blog by Design by Ching—Directed by Mike Ching"
     />
     <meta
       property="og:description"
-      content="Explore our blog for tips and insights on branding and design."
+      content="Explore our blog for expert insights on branding, design, and digital transformation."
     />
     <meta property="og:url" content="https://www.designbyching.com/blog" />
     <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://www.designbyching.com/assets/og-image-blog.jpg"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -30,7 +33,11 @@
     />
     <meta
       name="twitter:description"
-      content="Explore our blog for tips and insights on branding and design."
+      content="Explore our blog for expert insights on branding, design, and digital transformation."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.designbyching.com/assets/og-image-blog.jpg"
     />
     <meta
       http-equiv="Content-Security-Policy"
@@ -46,7 +53,7 @@
   <body id="top">
     <!-- Header with Sticky Navbar -->
     <header class="site-header">
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Main navigation">
         <div class="container nav-container">
           <a href="index.html" class="nav-logo">
             <img
@@ -67,29 +74,21 @@
               </label>
             </div>
             <div class="menu-toggle-container">
-              <button class="nav-toggle" aria-label="Toggle navigation">
+              <button
+                class="nav-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+              >
                 <span class="toggle-text">MENU</span>
               </button>
             </div>
           </div>
-          <ul class="nav-links" id="nav-links">
+          <ul class="nav-links" id="nav-links" aria-hidden="true">
             <li><a href="about.html">ABOUT</a></li>
-            <li>
-              <a href="index.html#portfolio">PORTFOLIO</a>
-              <!-- UPDATED: In-page link -->
-            </li>
-            <li>
-              <a href="index.html#services">SERVICES</a>
-              <!-- UPDATED: In-page link -->
-            </li>
-            <li>
-              <a href="index.html#testimonials">TESTIMONIALS</a>
-              <!-- UPDATED: In-page link -->
-            </li>
-            <li>
-              <a href="blog.html" aria-current="page">BLOG</a>
-              <!-- UPDATED: aria-current -->
-            </li>
+            <li><a href="index.html#portfolio">PORTFOLIO</a></li>
+            <li><a href="index.html#services">SERVICES</a></li>
+            <li><a href="index.html#testimonials">TESTIMONIALS</a></li>
+            <li><a href="blog.html" aria-current="page">BLOG</a></li>
             <li><a href="contact.html">CONTACT</a></li>
           </ul>
         </div>
@@ -99,9 +98,9 @@
     <!-- Main Content -->
     <main>
       <!-- Blog Section -->
-      <section class="blog" id="blog">
+      <section class="blog" id="blog" aria-labelledby="blog-heading">
         <div class="container">
-          <h2>Our Blog</h2>
+          <h2 id="blog-heading" class="heading-large">Our Blog</h2>
           <div class="grid-container">
             <article class="card blog-card">
               <a href="blog/article-1.html">
@@ -112,7 +111,6 @@
                 </p>
               </a>
             </article>
-            <!-- Placeholder for future articles -->
             <article class="card blog-card">
               <a href="blog/article-2.html">
                 <h3 class="service-title">Branding in the Digital Age</h3>
@@ -122,17 +120,115 @@
                 </p>
               </a>
             </article>
+            <article class="card blog-card">
+              <a href="blog/article-3.html">
+                <h3 class="service-title">The Power of Minimalist Branding</h3>
+                <p class="service-description">
+                  Discover how less can be more in creating memorable and
+                  impactful brand identities.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-4.html">
+                <h3 class="service-title">UI/UX Trends Shaping 2025</h3>
+                <p class="service-description">
+                  Explore emerging trends in user interface and experience
+                  design for the future.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-5.html">
+                <h3 class="service-title">
+                  Digital Transformation: A Blueprint for Success
+                </h3>
+                <p class="service-description">
+                  Strategies to adopt digital tools and processes for business
+                  growth.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-6.html">
+                <h3 class="service-title">
+                  Designing for Accessibility in Digital Products
+                </h3>
+                <p class="service-description">
+                  Create inclusive digital experiences for all users with best
+                  practices.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-7.html">
+                <h3 class="service-title">The Role of AI in Modern Design</h3>
+                <p class="service-description">
+                  How AI tools are transforming the design process and what it
+                  means for creatives.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-8.html">
+                <h3 class="service-title">
+                  Building a Seamless Omnichannel Experience
+                </h3>
+                <p class="service-description">
+                  Unify brand touchpoints across digital and physical channels.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-9.html">
+                <h3 class="service-title">
+                  Typography in Digital Design: Best Practices
+                </h3>
+                <p class="service-description">
+                  Choose and implement fonts for readable, impactful digital
+                  interfaces.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-10.html">
+                <h3 class="service-title">The Future of AR in Branding</h3>
+                <p class="service-description">
+                  Use augmented reality to enhance brand engagement and
+                  storytelling.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-11.html">
+                <h3 class="service-title">
+                  Sustainable Design: Eco-Friendly Digital Practices
+                </h3>
+                <p class="service-description">
+                  Reduce the environmental impact of digital design with
+                  sustainable practices.
+                </p>
+              </a>
+            </article>
+            <article class="card blog-card">
+              <a href="blog/article-12.html">
+                <h3 class="service-title">Crafting Compelling Brand Stories</h3>
+                <p class="service-description">
+                  Use storytelling to differentiate your brand and connect with
+                  audiences.
+                </p>
+              </a>
+            </article>
           </div>
           <div class="blog-buttons">
             <a href="contact.html" class="view-more">SUBMIT A TOPIC</a>
-            <!-- UPDATED: Added button -->
           </div>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" aria-label="Footer">
       <div class="container footer-container">
         <p class="small-text">DBC | ©COPYRIGHTS 2025</p>
         <a href="#top" class="back-to-top small-text">BACK TO TOP</a>
