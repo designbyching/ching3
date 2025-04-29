@@ -20,7 +20,7 @@
   --heading-size: 0.8rem;
   --heading-large: 1.25rem;
   --text-size: 0.8rem;
-  --small-text-size: 0.8rem;
+  --small-text-size: 0.7rem;
   --text-cards: 0.8rem;
   --text-normal: 0.9rem;
 
@@ -164,7 +164,7 @@ body.night-mode .logo-img {
 
 .toggle-text {
   font-family: var(--font-body);
-  font-size: var(--text-size);
+  font-size: var(--small-text-size);
   color: var(--text-color);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -218,7 +218,7 @@ body.night-mode .logo-img {
 
 .nav-links a {
   color: var(--text-color);
-  font-size: var(--text-size);
+  font-size: var(--small-text-size);
   font-family: var(--font-body);
   text-decoration: none;
   text-transform: uppercase;
@@ -656,6 +656,13 @@ p.text-normal {
 .small-text {
   font-size: var(--small-text-size);
   color: var(--secondary-text);
+}
+
+.small-text-uppercase {
+  font-size: var(--small-text-size);
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 a {
@@ -1193,7 +1200,7 @@ body.night-mode .process-icon {
 }
 
 .process-step p {
-  font-size: var(--text-normal);
+  font-size: var(--text-cards);
   color: var(--secondary-text);
   margin: 0;
 }
