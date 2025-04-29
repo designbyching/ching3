@@ -326,7 +326,7 @@ body.night-mode .intro::before {
   /*background-image: url('assets/image-covers/neon-circles.webp');*/
 }
 
-/* About Section (Styled like Mission) */
+/* About Section (Matches Mission) */
 .about {
   padding: var(--space-lg) 0;
   background: var(--frost-bg);
@@ -336,8 +336,8 @@ body.night-mode .intro::before {
 
 .about-container {
   display: flex;
-  align-items: flex-start; /* Align text and image to the top */
-  gap: var(--space-lg);
+  align-items: center; /* Align text and image to the top */
+  gap: 72px;
 }
 
 .about-content {
@@ -362,12 +362,12 @@ body.night-mode .intro::before {
 
 .about-content h1 {
   margin-top: 0;
+  font-size: var(--heading-large);
 }
 
-.about-content .brief-buttons {
-  display: flex;
-  gap: var(--space-md);
-  margin-top: var(--space-sm);
+.about-content .learn-more {
+  align-self: flex-start;
+  margin-top: var(--space-md); /* Adds 1rem space above the button */
 }
 
 .brief-buttons {
@@ -1179,6 +1179,7 @@ button.button-1 {
   height: 27px;
   object-fit: contain;
   transition: filter 0.4s ease;
+  opacity: 27%;:
 }
 
 body.night-mode .process-icon {
@@ -1209,7 +1210,7 @@ body.night-mode .process-icon {
 
 /* 70% opacity for icon on individual process-step hover */
 .process-step:hover .process-icon {
-  opacity: 0.5; /* 70% opacity, 30% lighter appearance */
+  opacity: 0.8; /* 70% opacity, 30% lighter appearance */
   transition: opacity 0.3s ease; /* Smooth transition */
 }
 
@@ -1450,8 +1451,8 @@ body.night-mode .process-icon {
 
 .mission-container {
   display: flex;
-  align-items: flex-start; /* Align text and image to the top */
-  gap: var(--space-lg);
+  align-items: center; /* Align text and image to the top */
+  gap: 72px;
 }
 
 .mission-content {
@@ -1476,10 +1477,12 @@ body.night-mode .process-icon {
 
 .mission-content h2 {
   margin-top: 0;
+  font-size: var(--heading-large)
 }
 
 .mission-content .learn-more {
   align-self: flex-start;
+  margin-top: var(--space-md); /* Adds 1rem space above the button */
 }
 
 /* FAQs Section (Unchanged) */
@@ -1526,7 +1529,7 @@ body.night-mode .process-icon {
 }
 
 /* Responsive Adjustments (Updated for About) */
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .about-container {
     flex-direction: column;
     gap: var(--space-md);
@@ -1542,9 +1545,9 @@ body.night-mode .process-icon {
     order: 2; /* Image stacks below text */
   }
 
-  .about-content .brief-buttons {
-    flex-direction: column;
-    gap: var(--space-md);
+  .about-content .learn-more {
+    align-self: stretch;
+    text-align: center;
   }
 
   .mission-container {
@@ -1566,4 +1569,3 @@ body.night-mode .process-icon {
     align-self: stretch;
     text-align: center;
   }
-}
