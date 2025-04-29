@@ -319,3 +319,27 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(changeWord, 2000); // Subsequent changes every 2 seconds
   }, 3000);
 });
+
+// Mobile touch/click effect for service and testimonial cards
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".service-card, .testimonial-card");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      console.log("Card tapped:", card.className); // Debug
+      // Toggle active class
+      if (card.classList.contains("active")) {
+        card.classList.remove("active");
+      } else {
+        // Remove active from all cards to prevent multiple active states
+        cards.forEach((c) => c.classList.remove("active"));
+        card.classList.add("active");
+
+        // Remove active class after 1 second for natural effect
+        setTimeout(() => {
+          card.classList.remove("active");
+        }, 1000);
+      }
+    });
+  });
+});

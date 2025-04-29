@@ -1714,3 +1714,96 @@ body.night-mode .process-icon {
     text-align: center;
   }
 }
+
+/* Blog Card Image Styling */
+.blog-card-img {
+  width: 100%;
+  height: 270px; /* Fixed height for consistent card appearance */
+  object-fit: cover; /* Ensures image fills space without distortion */
+  border-radius: 3px; /* Matches site-wide border-radius */
+  border: 1px solid var(--text-color); /* Consistent with other images */
+  margin-bottom: var(--space-md); /* Space between image and title */
+  transition: transform 0.3s ease; /* Subtle hover effect */
+}
+
+.blog-card:hover .blog-card-img {
+  transform: scale(1.02) translateY(-2px); /* Slight zoom and move up on hover for interactivity */
+}
+
+/* Adjust blog card padding to accommodate image */
+.blog-card {
+  padding: var(--padding-card); /* Existing padding */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm); /* Ensure consistent spacing */
+}
+
+/* Ensure text remains readable */
+.blog-card .service-title {
+  margin: 0 0 var(--space-sm); /* Reduced margin to fit image */
+}
+
+.blog-card .service-description {
+  margin: 0; /* Remove default margin for tighter layout */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .blog-card-img {
+    height: 150px; /* Smaller height on mobile for compact cards */
+  }
+}
+
+/* Service Card Image Styling */
+.service-card-img {
+  width: 100%;
+  height: 150px; /* Matches .blog-card-img for consistency */
+  object-fit: cover; /* Ensures image fills space without distortion */
+  border-radius: 3px; /* Matches site-wide border-radius */
+  border: 1px solid var(--text-color); /* Consistent with other images */
+  margin-bottom: var(--space-md); /* Space between image and title */
+  transition: transform 0.3s ease; /* Subtle hover effect */
+}
+
+.service-card:hover .service-card-img {
+  transform: scale(1.02) translateY(-2px); /* Matches .blog-card-img hover */
+}
+
+/* Adjust service card padding to accommodate image */
+.service-card {
+  padding: var(--padding-card); /* Existing padding */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm); /* Ensure consistent spacing */
+}
+
+/* Ensure text remains readable */
+.service-card .service-title {
+  margin: 0 0 var(--space-sm); /* Reduced margin to fit image */
+}
+
+.service-card .service-description {
+  margin: 0; /* Remove default margin for tighter layout */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .service-card-img {
+    height: 120px; /* Smaller height on mobile, matches .blog-card-img */
+  }
+}
+
+/* Mobile Active State for Service and Testimonial Cards */
+@media (max-width: 500px) {
+  .service-card.active {
+    box-shadow: var(--shadow-portfolio);
+  }
+
+  .service-card.active .service-card-img {
+    transform: scale(1.02) translateY(-2px);
+  }
+
+  .testimonial-card.active {
+    box-shadow: var(--shadow-portfolio);
+  }
+}
