@@ -41,8 +41,8 @@ body.night-mode {
   --card-bg: #333333;
   --frost-bg: rgba(0, 0, 0, 0.8);
   --secondary-text: #cccccc;
-  --shadow-portfolio: 0 0 15px rgba(255, 196, 0, 0.654); /* Subtle accent color shadow */
-  --shadow-button: 0 0 15px rgb(255, 196, 0.654); /* Subtle accent color shadow */
+  --shadow-portfolio: 0 0 15px rgba(255, 196, 0, 0.9); /* Subtle accent color shadow */
+  --shadow-button: 0 0 15px rgb(255, 196, 0.9); /* Subtle accent color shadow */
 }
 
 /* Global Reset */
