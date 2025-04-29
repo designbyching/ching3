@@ -34,6 +34,17 @@
   --intro-padding: var(--space-sm); /* Adjustable padding for intro section */
 }
 
+/* Night Mode Styles */
+body.night-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --card-bg: #333333;
+  --frost-bg: rgba(0, 0, 0, 0.8);
+  --secondary-text: #cccccc;
+  --shadow-portfolio: 0 0 15px rgba(255, 196, 0, 0.654); /* Subtle accent color shadow */
+  --shadow-button: 0 0 15px rgb(255, 196, 0.654); /* Subtle accent color shadow */
+}
+
 /* Global Reset */
 * {
   margin: 0;
@@ -269,15 +280,6 @@ input:checked + .slider:before {
   box-shadow: inset -6px -3px 0 0 var(--accent-color);
 }
 
-/* Night Mode Styles */
-body.night-mode {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --card-bg: #333333;
-  --frost-bg: rgba(0, 0, 0, 0.8);
-  --secondary-text: #cccccc;
-}
-
 /* Intro Section */
 .intro {
   position: relative;
@@ -322,6 +324,50 @@ body.night-mode .intro::before {
 /* About Hero Section */
 #about-hero {
   /*background-image: url('assets/image-covers/neon-circles.webp');*/
+}
+
+/* About Section (Styled like Mission) */
+.about {
+  padding: var(--space-lg) 0;
+  background: var(--frost-bg);
+  backdrop-filter: blur(10px);
+  transition: background 0.5s ease;
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start; /* Align text and image to the top */
+  gap: var(--space-lg);
+}
+
+.about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-image {
+  flex: 1;
+  max-width: 50%;
+}
+
+.about-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--text-color);
+}
+
+.about-content h1 {
+  margin-top: 0;
+}
+
+.about-content .brief-buttons {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
 }
 
 .brief-buttons {
@@ -1129,8 +1175,8 @@ button.button-1 {
 }
 
 .process-icon {
-  width: 42px;
-  height: 42px;
+  width: 27px;
+  height: 27px;
   object-fit: contain;
   transition: filter 0.4s ease;
 }
@@ -1309,8 +1355,8 @@ body.night-mode .process-icon {
   }
 
   .process-icon {
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
   }
 
   .radio-group {
@@ -1390,4 +1436,134 @@ body.night-mode .process-icon {
 
 .word-cycle.fade {
   opacity: 0; /* Fades out during transition */
+}
+
+/* Add to the end of styles.css */
+
+/* Mission Section (Unchanged) */
+.mission {
+  padding: var(--space-lg) 0;
+  background: var(--frost-bg);
+  backdrop-filter: blur(10px);
+  transition: background 0.5s ease;
+}
+
+.mission-container {
+  display: flex;
+  align-items: flex-start; /* Align text and image to the top */
+  gap: var(--space-lg);
+}
+
+.mission-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mission-image {
+  flex: 1;
+  max-width: 50%;
+}
+
+.mission-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--text-color);
+}
+
+.mission-content h2 {
+  margin-top: 0;
+}
+
+.mission-content .learn-more {
+  align-self: flex-start;
+}
+
+/* FAQs Section (Unchanged) */
+.faqs {
+  padding: var(--space-lg) 0;
+}
+
+.faqs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  border: 1px solid var(--text-color);
+  padding: var(--padding-card);
+  border-radius: 3px;
+  transition: box-shadow 0.3s ease, background 0.5s ease;
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-portfolio);
+}
+
+.faq-question {
+  font-family: var(--font-heading);
+  font-size: var(--heading-size);
+  color: var(--text-color);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  display: block;
+}
+
+.faq-answer {
+  font-family: var(--font-body);
+  font-size: var(--text-normal);
+  color: var(--secondary-text);
+  margin-top: var(--space-sm);
+}
+
+/* Responsive Adjustments (Updated for About) */
+@media (max-width: 500px) {
+  .about-container {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .about-content {
+    order: 1; /* Text stays on top */
+    text-align: left;
+  }
+
+  .about-image {
+    max-width: 100%;
+    order: 2; /* Image stacks below text */
+  }
+
+  .about-content .brief-buttons {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .mission-container {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .mission-image {
+    max-width: 100%;
+    order: 2; /* Image stacks below text */
+  }
+
+  .mission-content {
+    order: 1; /* Text stays on top */
+    text-align: left;
+  }
+
+  .mission-content .learn-more {
+    align-self: stretch;
+    text-align: center;
+  }
 }

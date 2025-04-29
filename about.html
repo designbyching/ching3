@@ -5,28 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="About Design by Ching, led by Mike Ching. Learn about our mission and team."
+      content="About Design by Ching, a Sydney-based design studio led by Mike Ching. Discover our mission, team, FAQs, and latest insights."
     />
     <meta name="robots" content="index, follow" />
     <meta
       name="keywords"
-      content="about, branding, design, digital transformation, Mike Ching"
+      content="about, branding, logo design, digital transformation, UI/UX, web development, Sydney, Australia, Mike Ching"
     />
     <meta property="og:title" content="About Design by Ching" />
     <meta
       property="og:description"
-      content="Learn about our mission and expertise in logo design, branding, and digital transformation."
+      content="Learn about our Sydney-based design studio, our mission to create impactful brands, and meet the team behind your next project."
     />
     <meta
       property="og:url"
       content="https://www.designbyching.com/about.html"
     />
     <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://www.designbyching.com/assets/og-image-about.jpg"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="About Design by Ching" />
     <meta
       name="twitter:description"
-      content="Learn about our mission and expertise in logo design, branding, and digital transformation."
+      content="Learn about our Sydney-based design studio, our mission to create impactful brands, and meet the team behind your next project."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.designbyching.com/assets/og-image-about.jpg"
     />
     <meta
       http-equiv="Content-Security-Policy"
@@ -42,9 +50,9 @@
   <body id="top">
     <!-- Header with Sticky Navbar -->
     <header class="site-header">
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Main navigation">
         <div class="container nav-container">
-          <a href="index.html" class="nav-logo">
+          <a href="index.html" class="nav-logo" aria-current="page">
             <img
               src="assets/logo/dbc-logo.svg"
               alt="Design by Ching Logo"
@@ -63,14 +71,18 @@
               </label>
             </div>
             <div class="menu-toggle-container">
-              <button class="nav-toggle" aria-label="Toggle navigation">
+              <button
+                class="nav-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+              >
                 <span class="toggle-text">MENU</span>
               </button>
             </div>
           </div>
-          <ul class="nav-links" id="nav-links">
+          <ul class="nav-links" id="nav-links" aria-hidden="true">
             <li><a href="about.html" aria-current="page">ABOUT</a></li>
-            <li><a href="index.html#portfolio">PORTFOLIO</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
             <li><a href="index.html#services">SERVICES</a></li>
             <li><a href="index.html#testimonials">TESTIMONIALS</a></li>
             <li><a href="blog.html">BLOG</a></li>
@@ -82,77 +94,216 @@
 
     <!-- Main Content -->
     <main>
-      <!-- Hero Section -->
-      <section class="intro hero" id="about-hero">
-        <div class="container intro-content">
-          <h1 class="h1 bold">ABOUT DESIGN BY CHING</h1>
-          <p class="spaced-uppercase">
-            CREATING IMPACTFUL BRANDS WITH PASSION AND PRECISION
-          </p>
-          <p class="spaced-uppercase">
-            Directed by Mike Ching | “Turning Chaos into Cash”
-          </p>
-          <div class="brief-buttons">
-            <a href="contact.html" class="button-1">GET IN TOUCH</a>
-            <a href="index.html#services" class="button-2">OUR SERVICES</a>
+      <!-- About Section (Styled like Mission) -->
+      <section class="about" id="about" aria-labelledby="about-heading">
+        <div class="container about-container">
+          <div class="about-image">
+            <img
+              src="assets/image-covers/connect.jpg"
+              alt="Design by Ching creative process"
+              class="about-img"
+              loading="lazy"
+            />
+          </div>
+          <div class="about-content">
+            <h1 class="h1 bold heading-large" id="about-heading">
+              ABOUT DESIGN BY CHING
+            </h1>
+            <p class="spaced-uppercase">
+              CRAFTING IMPACTFUL BRANDS WITH VISION AND PRECISION
+            </p>
+            <p class="spaced-uppercase">
+              Sydney-Based, Globally Driven | Directed by Mike Ching
+            </p>
+            <div class="brief-buttons">
+              <a href="contact.html" class="button-1">GET IN TOUCH</a>
+              <a href="index.html#services" class="button-2"
+                >EXPLORE SERVICES</a
+              >
+            </div>
           </div>
         </div>
       </section>
 
       <!-- About Team Section -->
-      <section class="about-team" id="about-team">
+      <section
+        class="about-team"
+        id="about-team"
+        aria-labelledby="team-heading"
+      >
         <div class="container">
-          <h2>Our Team</h2>
+          <h2 id="team-heading">Meet Our Team</h2>
           <div class="team-grid">
             <article class="card team-card">
               <img
                 src="assets/team/mike-ching.jpg"
-                alt="Mike Ching"
+                alt="Mike Ching, Founder and Creative Director"
                 class="team-image"
                 loading="lazy"
               />
               <h3 class="team-name">Mike Ching</h3>
               <p class="team-role">Founder & Creative Director</p>
               <p class="team-bio">
-                Mike leads with a vision to transform brands through innovative
-                design and strategy, with over 15 years of experience.
+                With over 15 years of experience, Mike leads our studio with a
+                vision to create brands that inspire and endure.
               </p>
             </article>
             <article class="card team-card">
               <img
                 src="assets/team/jane-doe.jpg"
-                alt="Jane Doe"
+                alt="Jane Doe, Lead Designer"
                 class="team-image"
                 loading="lazy"
               />
               <h3 class="team-name">Jane Doe</h3>
               <p class="team-role">Lead Designer</p>
               <p class="team-bio">
-                Jane specializes in UI/UX and branding, crafting intuitive
-                experiences that resonate with audiences.
+                Jane crafts intuitive UI/UX and bold branding that captivate
+                audiences and elevate user experiences.
               </p>
             </article>
             <article class="card team-card">
               <img
                 src="assets/team/john-smith.jpg"
-                alt="John Smith"
+                alt="John Smith, Lead Developer"
                 class="team-image"
                 loading="lazy"
               />
               <h3 class="team-name">John Smith</h3>
               <p class="team-role">Lead Developer</p>
               <p class="team-bio">
-                John builds robust, scalable solutions, ensuring seamless
-                digital transformations for our clients.
+                John builds scalable, high-performance digital solutions,
+                ensuring seamless functionality for every project.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission Section -->
+      <section class="mission" id="mission" aria-labelledby="mission-heading">
+        <div class="container mission-container">
+          <div class="mission-content">
+            <h2 id="mission-heading">Our Mission</h2>
+            <p class="text-normal">
+              At Design by Ching, we transform ideas into unforgettable brand
+              experiences. Based in the vibrant heart of Sydney, Australia, our
+              full-stack design studio delivers world-class branding, UI/UX, and
+              digital transformation services to clients worldwide. Armed with
+              cutting-edge tools and a passion for innovation, we turn chaos
+              into clarity, crafting solutions that resonate and drive success.
+            </p>
+            <a href="contact.html" class="learn-more">START YOUR JOURNEY</a>
+          </div>
+          <div class="mission-image">
+            <img
+              src="assets/clients/ozstream/cover/ozstream-uiux.webp"
+              alt="Design by Ching studio workspace in Sydney"
+              class="mission-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Blog Articles Section -->
+      <section
+        class="insights-updates"
+        id="featured-insights"
+        aria-labelledby="insights-heading"
+      >
+        <div class="container">
+          <h2 id="insights-heading">Featured Insights</h2>
+          <div class="insights-grid">
+            <article class="card blog-card">
+              <h3 class="blog-title">The Power of Minimalist Branding</h3>
+              <p class="blog-excerpt">
+                Discover how less can be more in creating memorable and
+                impactful brand identities.
+              </p>
+              <a href="blog/minimalist-branding.html" class="blog-link"
+                >READ MORE</a
+              >
+            </article>
+            <article class="card blog-card">
+              <h3 class="blog-title">UI/UX Trends to Watch in 2025</h3>
+              <p class="blog-excerpt">
+                Stay ahead with the latest trends shaping user experiences in
+                the digital landscape.
+              </p>
+              <a href="blog/uiux-trends-2025.html" class="blog-link"
+                >READ MORE</a
+              >
+            </article>
+            <article class="card blog-card">
+              <h3 class="blog-title">
+                Scaling Your Business with Digital Tools
+              </h3>
+              <p class="blog-excerpt">
+                Learn how to leverage technology to streamline operations and
+                drive growth.
+              </p>
+              <a href="blog/digital-transformation.html" class="blog-link"
+                >READ MORE</a
+              >
+            </article>
+          </div>
+          <a href="blog.html" class="view-more">VIEW ALL ARTICLES</a>
+        </div>
+      </section>
+
+      <!-- FAQs Section -->
+      <section class="faqs" id="faqs" aria-labelledby="faqs-heading">
+        <div class="container">
+          <h2 id="faqs-heading">Frequently Asked Questions</h2>
+          <div class="faqs-grid">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                What services does Design by Ching offer?
+              </summary>
+              <p class="faq-answer text-normal">
+                We provide a full spectrum of services, including logo design,
+                branding, UI/UX design, web development, and digital
+                transformation, tailored to your business needs.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                How long does a typical project take?
+              </summary>
+              <p class="faq-answer text-normal">
+                Project timelines vary based on scope. A logo design may take
+                2-4 weeks, while comprehensive digital projects can span 2-6
+                months. We’ll provide a detailed timeline during consultation.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                Do you work with international clients?
+              </summary>
+              <p class="faq-answer text-normal">
+                Absolutely! While based in Sydney, we serve clients worldwide,
+                leveraging remote collaboration tools to ensure seamless
+                communication and delivery.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">
+                What tools do you use for design and development?
+              </summary>
+              <p class="faq-answer text-normal">
+                Our full-stack team uses industry-leading tools like Figma,
+                Adobe Creative Suite, React, Node.js, and WordPress, ensuring
+                cutting-edge solutions for every project.
+              </p>
+            </details>
           </div>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" aria-label="Footer">
       <div class="container footer-container">
         <p class="small-text">DBC | ©COPYRIGHTS 2025</p>
         <a href="#top" class="back-to-top small-text">BACK TO TOP</a>
