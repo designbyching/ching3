@@ -4,13 +4,14 @@
   --accent-color: #dfb011; /* DBC-blue for logo */
   --bg-color: #ffffff; /* White */
   --text-color: #0c0c0c; /* Rich-black */
-  --card-bg: #ebebeb; /* Lightest-grey for cards */
+  /* --card-bg: #ebebeb; /* Lightest-grey for cards - archive card bacground*/
+  --card-bg: rgba(255, 255, 255, 0.4); /* Frosted white */
   --frost-bg: rgba(255, 255, 255, 0.8); /* Frosted white */
   --secondary-text: #4d4d4d; /* Medium-grey for secondary text */
 
   /* Shadows */
-  --shadow-portfolio: 0 0 15px rgba(0, 0, 0, 0.4); /* Portfolio card hover */
-  --shadow-button: 0 0 15px rgba(0, 0, 0, 0.4); /* Button hover */
+  --shadow-portfolio: 0 0 15px rgba(0, 0, 0, 0.3); /* Portfolio card hover */
+  --shadow-button: 0 0 15px rgba(0, 0, 0, 0.3); /* Button hover */
 
   /* Font Settings */
   --font-heading: "Lato", sans-serif;
@@ -34,17 +35,6 @@
   --intro-padding: var(--space-sm); /* Adjustable padding for intro section */
 }
 
-/* Night Mode Styles */
-body.night-mode {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --card-bg: #333333;
-  --frost-bg: rgba(0, 0, 0, 0.8);
-  --secondary-text: #cccccc;
-  --shadow-portfolio: 0 0 15px rgba(255, 196, 0, 0.9); /* Subtle accent color shadow */
-  --shadow-button: 0 0 15px rgb(255, 196, 0.9); /* Subtle accent color shadow */
-}
-
 /* Global Reset */
 * {
   margin: 0;
@@ -64,6 +54,51 @@ body.night-mode {
   border-radius: 3px;
 }
 
+body.night-mode [style*="border"],
+body.night-mode .card,
+body.night-mode .form-input,
+body.night-mode .button-2,
+body.night-mode .learn-more,
+body.night-mode .view-more,
+body.night-mode .filter-button,
+body.night-mode .process-strip,
+body.night-mode .service-card,
+body.night-mode .testimonial-card,
+body.night-mode .blog-card,
+body.night-mode .team-card,
+body.night-mode .about-img,
+body.night-mode .mission-img,
+body.night-mode .service-section,
+body.night-mode .service-areas,
+body.night-mode .faq-item,
+body.night-mode .service-card-img,
+body.night-mode .service-hero-img {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Day mode (light mode) borders */
+body:not(.night-mode) [style*="border"],
+body:not(.night-mode) .card,
+body:not(.night-mode) .form-input,
+body:not(.night-mode) .button-2,
+body:not(.night-mode) .learn-more,
+body:not(.night-mode) .view-more,
+body:not(.night-mode) .filter-button,
+body:not(.night-mode) .process-strip,
+body:not(.night-mode) .service-card,
+body:not(.night-mode) .testimonial-card,
+body:not(.night-mode) .blog-card,
+body:not(.night-mode) .team-card,
+body:not(.night-mode) .about-img,
+body:not(.night-mode) .mission-img,
+body:not(.night-mode) .service-section,
+body:not(.night-mode) .service-areas,
+body:not(.night-mode) .faq-item,
+body:not(.night-mode) .service-card-img,
+body:not(.night-mode) .service-hero-img {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
 /* Base Styles */
 html {
   scroll-behavior: smooth;
@@ -71,6 +106,9 @@ html {
 
 body {
   background: var(--bg-color);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.02) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 50%, transparent 50%);
+  background-size: 4px 4px; /* Small noise grain */
   color: var(--text-color);
   font-family: var(--font-body);
   font-size: var(--text-size);
@@ -79,6 +117,25 @@ body {
   flex-direction: column;
   min-height: 100vh;
   transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Night Mode Styles */
+body.night-mode {
+  background: var(--bg-color);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.076) 100%,
+      transparent 100%
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 50%, transparent 50%);
+  background-size: 4px 4px;
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --border-color: rgba(255, 255, 255, 0.5);
+  --card-bg: #333333;
+  --frost-bg: rgba(0, 0, 0, 0.8);
+  --secondary-text: #cccccc;
+  --shadow-portfolio: 0 0 15px rgba(255, 196, 0, 0.9);
+  --shadow-button: 0 0 15px rgb(255, 196, 0.9);
 }
 
 main {
@@ -285,10 +342,10 @@ input:checked + .slider:before {
   position: relative;
   padding: 72px var(--intro-padding);
   text-align: left;
-  /*background-image: url('assets/image-covers/SVG/intro-grid.svg');*/
+  /*background-image: url('assets/image-covers/SVG/intro-grid.svg')
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .intro::before {
@@ -298,17 +355,17 @@ input:checked + .slider:before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
+  /*background: linear-gradient(
     to bottom,
     rgb(221, 221, 221),
     rgba(255, 255, 255, 0.5)
-  ); /* White gradient in light mode */
+  ); White gradient in light mode */
   z-index: 1;
 }
 
-body.night-mode .intro::before {
-  background: rgba(0, 0, 0, 0.3); /* Dark overlay in night mode */
-}
+/* body.night-mode .intro::before {
+ background: rgba(0, 0, 0, 0.3);  Dark overlay in night mode
+} --- you can add a backgroun dhere in dark mode*/
 
 .intro-content {
   position: relative;
@@ -324,9 +381,9 @@ body.night-mode .intro::before {
 /* About Section (Matches Mission) */
 .about {
   padding: var(--space-lg) 0;
-  background: var(--frost-bg);
+  /*background: var(--frost-bg);
   backdrop-filter: blur(10px);
-  transition: background 0.5s ease;
+  transition: background 0.5s ease; */
 }
 
 .about-container {
@@ -478,15 +535,17 @@ body.night-mode .intro::before {
   text-transform: uppercase;
   margin: 0 0 var(--space-lg);
   text-align: left;
+  margin-bottom: 0.5rem; /* Reduced from implicit 1rem gap */
 }
 
 .service-description {
   font-family: var(--font-body);
-  font-size: var(--text-cards);
+  font-size: var(--text-normal);
   color: var(--secondary-text);
   letter-spacing: 0;
   text-align: left;
   margin-top: auto;
+  margin-bottom: 1.5rem; /* Increased from implicit 1rem gap */
 }
 
 /* Testimonials Section */
@@ -1034,8 +1093,8 @@ a:hover {
 /* Contact Section */
 .contact {
   padding: var(--space-lg) 0;
-  background: var(--frost-bg);
-  backdrop-filter: blur(10px);
+  /* background: var(--frost-bg);
+  backdrop-filter: blur(10px); */
 }
 
 .contact-content {
@@ -1452,9 +1511,9 @@ body.night-mode .process-icon {
 /* Mission Section (Unchanged) */
 .mission {
   padding: var(--space-lg) 0;
-  background: var(--frost-bg);
+  /*background: var(--frost-bg);
   backdrop-filter: blur(10px);
-  transition: background 0.5s ease;
+  transition: background 0.5s ease; */
 }
 
 .mission-container {
@@ -1584,7 +1643,7 @@ body.night-mode .process-icon {
 /* Blog Article Styling */
 .article {
   padding: var(--space-lg) 0;
-  background: var(--frost-bg);
+  /*background: var(--frost-bg);
   backdrop-filter: blur(10px);
   transition: background 0.5s ease;
 }
@@ -1805,5 +1864,130 @@ body.night-mode .process-icon {
 
   .testimonial-card.active {
     box-shadow: var(--shadow-portfolio);
+  }
+}
+
+/* Services Section Enhancements */
+.service-section {
+  margin-bottom: var(--space-xl);
+  background: var(--card-bg);
+  border: 1px solid var(--text-color);
+  border-radius: 3px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, background 0.5s ease;
+}
+
+.service-section:hover {
+  box-shadow: var(--shadow-portfolio);
+}
+
+.service-image {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.service-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.service-section:hover .service-hero-img {
+  transform: scale(1.05);
+}
+
+.service-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--space-lg);
+  gap: var(--space-xl);
+}
+
+.service-details {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.service-areas {
+  flex: 1;
+  min-width: 300px;
+  /*background: var(--frost-bg);*/
+  padding: 2rem; /* Increased from var(--space-md) (1rem) */
+  border-radius: 3px;
+  border: 1px solid var(--text-color);
+}
+
+.service-areas h4 {
+  font-family: var(--font-heading);
+  font-size: var(--heading-size);
+  color: var(--text-color);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.service-areas ul {
+  font-family: var(--font-body);
+  font-size: var(--text-cards);
+  color: var(--secondary-text);
+  letter-spacing: 0;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.service-areas li {
+  margin-bottom: var(--space-sm);
+}
+
+/* Animation for fade-in */
+.service-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.service-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-details .button-1 {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem; /* Slightly reduced from implicit 1rem gap */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 800px) {
+  .service-content {
+    flex-direction: column;
+  }
+
+  .service-details,
+  .service-areas {
+    min-width: 100%;
+  }
+
+  .service-image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .service-image {
+    height: 200px;
+  }
+
+  .service-details .button-1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem; /* Slightly reduced from implicit 1rem gap */
   }
 }
