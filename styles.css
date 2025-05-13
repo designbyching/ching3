@@ -1070,32 +1070,75 @@ a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--accent-color); /* Yellow (#dfb011) */
-  color: var(--bg-color); /* White (#ffffff) or black (#000000) based on mode */
+  background: none; /* Transparent background */
+  color: transparent; /* Hide default text, use ::before for arrow */
   border: none;
   font-size: var(--text-normal); /* 0.9rem */
   font-weight: 100;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   z-index: 5;
-  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevent overflow */
 }
 
+/* Pseudo-elements for arrows */
+.slideshow-prev::before,
+.slideshow-next::before {
+  content: "<"; /* Left arrow */
+  color: grey; /* Middle grey (#808080) */
+  font-size: var(--text-normal); /* 0.9rem */
+  font-weight: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.slideshow-next::before {
+  content: ">"; /* Right arrow */
+}
+
+/* Hover state: Arrow changes to darker grey */
+.slideshow-prev:hover::before,
+.slideshow-next:hover::before {
+  color: #555555; /* Darker grey for contrast */
+}
+
+/* Active state: Arrow turns yellow */
+.slideshow-prev:active::before,
+.slideshow-next:active::before {
+  color: var(--accent-color); /* Yellow (#dfb011) */
+}
+
+/* Border radius */
 .slideshow-prev {
   left: 0;
-  border-top-right-radius: 9px; /* Rounded top-right corner */
-  border-bottom-right-radius: 9px; /* Rounded bottom-right corner */
+  border-top-right-radius: 9px; /* Rounded top-right */
+  border-bottom-right-radius: 9px; /* Rounded bottom-right */
 }
 
 .slideshow-next {
   right: 0;
-  border-top-left-radius: 9px; /* Rounded top-left corner */
-  border-bottom-left-radius: 9px; /* Rounded bottom-left corner */
+  border-top-left-radius: 9px; /* Rounded top-left */
+  border-bottom-left-radius: 9px; /* Rounded bottom-left */
 }
 
-.slideshow-prev:hover,
-.slideshow-next:hover {
-  background: var(--text-color); /* Changes to text-color on hover */
+/* Prevent overflow in portfolio box */
+.grid-item .slideshow {
+  position: relative;
+  overflow: hidden; /* Ensure buttons stay within bounds */
+}
+
+/* Mobile touch adjustments */
+@media (hover: none) {
+  .slideshow-prev:hover::before,
+  .slideshow-next:hover::before {
+    color: grey; /* Keep middle grey on mobile hover */
+  }
 }
 
 /* Contact Section */
