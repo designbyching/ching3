@@ -867,11 +867,60 @@ a:hover {
   text-transform: uppercase;
 }
 
+/* Toggle Icon Enhancements */
+/* Toggle Icon Enhancements */
 .toggle-expand,
 .toggle-collapse {
   font-size: var(--text-normal);
   color: var(--text-color);
   cursor: pointer;
+  position: relative; /* For positioning the circle */
+  width: 24px; /* Fixed size for consistency */
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+/* Circle for toggle icons */
+.toggle-expand::before,
+.toggle-collapse::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--card-bg); /* Light-grey in light mode, dark in night mode */
+  opacity: 0.5;
+  z-index: -1; /* Behind the icon */
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+/* Yellow circle when hovering over the entire card (for +) */
+.grid-item:hover .toggle-expand::before {
+  background: var(--accent-color); /* Yellow #dfb011 */
+  opacity: 1; /* Fully visible */
+}
+
+/* Yellow circle when hovering over the close button (×) */
+.toggle-collapse:hover::before {
+  background: var(--accent-color); /* Yellow #dfb011 */
+  opacity: 1; /* Fully visible */
+}
+
+/* Accent color circle when card is expanded */
+.grid-item.expanded .toggle-expand::before {
+  background: var(--accent-color); /* #dfb011 */
+  opacity: 1;
+}
+
+/* Temporary highlight for toggle-expand and toggle-collapse click */
+.toggle-expand.highlight::before,
+.toggle-collapse.highlight::before {
+  background: var(--accent-color); /* #dfb011 */
+  opacity: 1;
+  transition: opacity 0.3s ease, background 0.3s ease;
 }
 
 .grid-item:hover .project-title {

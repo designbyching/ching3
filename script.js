@@ -167,39 +167,75 @@ if (filterButtons.length > 0) {
 
 // Portfolio Toggle and Slideshow
 gridItems.forEach((item) => {
+  // Handle click on the entire card
   item.addEventListener("click", (event) => {
+    const target = event.target;
+    const link = target.closest("a");
+    const isNavButton = target.closest(".slideshow-prev, .slideshow-next");
+    const isCollapseToggle = target.closest(".toggle-collapse");
+
+    // Debug log
     console.log(
       "Grid item clicked:",
       item.dataset.project,
       "Target:",
-      event.target.tagName,
-      event.target.className
-    ); // Debug
-    const link = event.target.closest("a");
-    if (link) {
-      event.stopPropagation(); // Prevent card toggle when clicking links
-      return; // Allow link navigation
+      target.tagName,
+      target.className
+    );
+
+    // Prevent toggle if clicking a link, navigation button, or collapse toggle
+    if (link || isNavButton || isCollapseToggle) {
+      event.stopPropagation(); // Prevent bubbling to card
+      return; // Allow link navigation or button action
     }
 
-    const slideshow = item.querySelector(".slideshow");
-    if (!slideshow) {
-      console.log("No slideshow found for", item.dataset.project);
-      return; // Skip if no slideshow
-    }
+    // Only expand if not already expanded
+    if (!item.classList.contains("expanded")) {
+      const slideshow = item.querySelector(".slideshow");
+      if (!slideshow) {
+        console.log("No slideshow found for", item.dataset.project);
+        return; // Skip if no slideshow
+      }
 
-    // Toggle expanded state
-    gridItems.forEach((i) => i !== item && i.classList.remove("expanded"));
-    item.classList.toggle("expanded");
+      // Add highlight to toggle-expand
+      const expandToggle = item.querySelector(".toggle-expand");
+      if (expandToggle) {
+        expandToggle.classList.add("highlight");
+        setTimeout(() => {
+          expandToggle.classList.remove("highlight");
+        }, 300); // Remove after 300ms
+      }
 
-    // Start or stop slideshow
-    if (item.classList.contains("expanded")) {
+      // Close other expanded cards
+      gridItems.forEach((i) => i !== item && i.classList.remove("expanded"));
+      item.classList.add("expanded");
+
+      // Start slideshow
       console.log("Starting slideshow for", item.dataset.project);
       startSlideshow(slideshow, ".slide");
-    } else {
-      console.log("Stopping slideshow for", item.dataset.project);
-      stopSlideshow(slideshow, ".slide");
     }
   });
+
+  // Handle click on the collapse toggle ("×")
+  const collapseToggle = item.querySelector(".toggle-collapse");
+  if (collapseToggle) {
+    collapseToggle.addEventListener("click", (event) => {
+      event.stopPropagation(); // Prevent bubbling to card
+      console.log("Collapse toggle clicked for", item.dataset.project);
+
+      // Add highlight class for 300ms
+      collapseToggle.classList.add("highlight");
+      setTimeout(() => {
+        collapseToggle.classList.remove("highlight");
+      }, 300); // Remove after 300ms
+
+      const slideshow = item.querySelector(".slideshow");
+      if (slideshow) {
+        stopSlideshow(slideshow, ".slide");
+      }
+      item.classList.remove("expanded");
+    });
+  }
 });
 
 // Project Page Slideshow
