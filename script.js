@@ -358,111 +358,155 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Project Page Slideshow
 document.addEventListener("DOMContentLoaded", () => {
-  const projectSlideshow = document.querySelector(".project-slideshow");
-  if (!projectSlideshow) {
-    console.log("No project slideshow found on this page");
-    return;
-  }
+  const slideshow = document.querySelector(".project-slideshow");
+  if (!slideshow) return;
 
-  const projectSlides = projectSlideshow.querySelectorAll(".project-slide");
-  if (projectSlides.length === 0) {
-    console.error("No slides found in project slideshow");
-    return;
-  }
+  const slides = slideshow.querySelectorAll(".project-slide");
+  const dots = slideshow.querySelectorAll(".slideshow-dots .dot");
+  const playPauseBtn = slideshow.querySelector(".slideshow-play-pause");
+  let currentIndex = 0;
+  let isPlaying = false;
+  let intervalId = null;
+  let isDragging = false;
+  let startX = 0;
+  let currentX = 0;
+  const swipeThreshold = 50; // Min pixels to trigger slide change
 
-  const playPauseButton = projectSlideshow.querySelector(
-    ".slideshow-play-pause"
-  );
-  const dots = projectSlideshow.querySelectorAll(".slideshow-dots .dot");
-  let projectCurrent = 0;
-  let isProjectPlaying = false;
-  let projectIntervalId = null;
-
-  // Initialize first slide and dot
-  projectSlides[projectCurrent].classList.add("active");
-  dots[projectCurrent].classList.add("active");
-  console.log(
-    "Project slideshow initialized, first slide:",
-    projectSlides[projectCurrent].src
-  );
-
-  // Show specific slide
-  function showProjectSlide(index) {
-    projectSlides[projectCurrent].classList.remove("active");
-    dots[projectCurrent].classList.remove("active");
-    projectCurrent = (index + projectSlides.length) % projectSlides.length;
-    projectSlides[projectCurrent].classList.add("active");
-    dots[projectCurrent].classList.add("active");
-    console.log(
-      "Switched to project slide:",
-      projectSlides[projectCurrent].src
-    );
+  // Show slide at index
+  function showSlide(index) {
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+    currentIndex = index;
+    console.log(`Showing slide ${currentIndex}`);
   }
 
   // Start slideshow
-  function startProjectSlideshow() {
-    if (isProjectPlaying) return;
-    isProjectPlaying = true;
-    playPauseButton.classList.remove("paused"); // Remove .paused when playing (shows ❚❚)
-    projectIntervalId = setInterval(() => {
-      showProjectSlide(projectCurrent + 1);
+  function startSlideshow() {
+    if (isPlaying) return;
+    isPlaying = true;
+    playPauseBtn.classList.remove("paused");
+    intervalId = setInterval(() => {
+      showSlide(currentIndex + 1);
     }, 3000);
     console.log("Project slideshow started");
   }
 
-  // Stop slideshow
-  function stopProjectSlideshow() {
-    if (!isProjectPlaying) return;
-    isProjectPlaying = false;
-    playPauseButton.classList.add("paused"); // Add .paused when paused (shows ▶)
-    clearInterval(projectIntervalId);
+  // Pause slideshow
+  function pauseSlideshow() {
+    if (!isPlaying) return;
+    isPlaying = false;
+    playPauseBtn.classList.add("paused");
+    clearInterval(intervalId);
     console.log("Project slideshow paused");
   }
 
-  // Play/Pause button handler
-  if (playPauseButton) {
-    playPauseButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log(
-        "Play/Pause clicked, current state:",
-        isProjectPlaying ? "playing" : "paused"
-      );
-      if (isProjectPlaying) {
-        stopProjectSlideshow();
-      } else {
-        startProjectSlideshow();
-      }
-    });
-    playPauseButton.addEventListener("touchstart", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log("Play/Pause touched");
-      if (isProjectPlaying) {
-        stopProjectSlideshow();
-      } else {
-        startProjectSlideshow();
-      }
-    });
-  }
+  // Toggle play/pause
+  playPauseBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      pauseSlideshow();
+    } else {
+      startSlideshow();
+    }
+  });
 
   // Dot navigation
   dots.forEach((dot, index) => {
-    dot.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log("Dot clicked, index:", index);
-      if (index !== projectCurrent) {
-        showProjectSlide(index);
-        if (isProjectPlaying) {
-          stopProjectSlideshow();
-          startProjectSlideshow(); // Restart slideshow
-        }
-      }
+    dot.addEventListener("click", () => {
+      pauseSlideshow();
+      showSlide(index);
+      console.log(`Dot clicked, index: ${index}`);
     });
   });
 
-  // Initialize paused state
-  playPauseButton.classList.add("paused"); // Start paused, show ▶
-  console.log("Project slideshow initialized in paused state");
+  // Touch events for swipe
+  slideshow.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    pauseSlideshow(); // Pause on touch
+    isDragging = true;
+    console.log("Touch started");
+  });
+
+  slideshow.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    currentX = e.touches[0].clientX;
+    e.preventDefault(); // Prevent scrolling during swipe
+  });
+
+  slideshow.addEventListener("touchend", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    const deltaX = startX - currentX;
+    if (Math.abs(deltaX) > swipeThreshold) {
+      if (deltaX > 0) {
+        // Swipe left (next)
+        showSlide(currentIndex + 1);
+        console.log("Swiped left");
+      } else {
+        // Swipe right (previous)
+        showSlide(currentIndex - 1);
+        console.log("Swiped right");
+      }
+    }
+    if (!playPauseBtn.classList.contains("paused")) {
+      startSlideshow(); // Resume if was playing
+    }
+  });
+
+  // Mouse events for drag
+  slideshow.addEventListener("mousedown", (e) => {
+    startX = e.clientX;
+    pauseSlideshow(); // Pause on drag
+    isDragging = true;
+    slideshow.style.cursor = "grabbing";
+    console.log("Mouse drag started");
+    e.preventDefault(); // Prevent text selection
+  });
+
+  slideshow.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    currentX = e.clientX;
+  });
+
+  slideshow.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    slideshow.style.cursor = "grab";
+    const deltaX = startX - currentX;
+    if (Math.abs(deltaX) > swipeThreshold) {
+      if (deltaX > 0) {
+        // Drag left (next)
+        showSlide(currentIndex + 1);
+        console.log("Dragged left");
+      } else {
+        // Drag right (previous)
+        showSlide(currentIndex - 1);
+        console.log("Dragged right");
+      }
+    }
+    if (!playPauseBtn.classList.contains("paused")) {
+      startSlideshow(); // Resume if was playing
+    }
+  });
+
+  slideshow.addEventListener("mouseleave", () => {
+    if (isDragging) {
+      isDragging = false;
+      slideshow.style.cursor = "grab";
+      if (!playPauseBtn.classList.contains("paused")) {
+        startSlideshow();
+      }
+    }
+  });
+
+  // Initialize
+  showSlide(currentIndex);
+  playPauseBtn.classList.add("paused"); // Start paused
+  slideshow.style.cursor = "grab"; // Indicate draggable
+  console.log("Project slideshow initialized");
 });
