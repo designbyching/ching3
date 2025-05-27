@@ -5,41 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Logo Project 2 by Design by Ching. Explore our branding work for this client."
+      content="Design by Ching project: Ozstream Empowering Australians. Explore our branding, UI/UX design, and digital marketing work."
     />
     <meta name="robots" content="index, follow" />
     <meta
       name="keywords"
-      content="logo design, branding, portfolio, Logo Project 2"
+      content="UI/UX design, branding, digital marketing, app design, portfolio"
     />
-    <meta property="og:title" content="Logo Project 2—Design by Ching" />
+    <meta
+      property="og:title"
+      content="Design by Ching: Ozstream Empowering Australians"
+    />
     <meta
       property="og:description"
-      content="Discover our branding and logo design work for Logo Project 2."
+      content="Discover our work on Ozstream, including branding, UI/UX design, and digital marketing."
     />
     <meta
       property="og:url"
-      content="https://www.designbyching.com/portfolio/logo-project-2"
+      content="https://www.designbyching.com/portfolio/empowering-australians"
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Logo Project 2—Design by Ching" />
+    <meta
+      name="twitter:title"
+      content="Design by Ching: Ozstream Empowering Australians"
+    />
     <meta
       name="twitter:description"
-      content="Discover our branding and logo design work for Logo Project 2."
+      content="Discover our work on Ozstream, including branding, UI/UX, design, and digital marketing."
     />
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://images.unsplash.com data:;"
     />
-    <title>Logo Project 2—Design by Ching</title>
+    <title>Design by Ching: Ozstream Empowering Australians</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body id="top">
+  <body id="page-top">
     <!-- Header with Sticky Navbar -->
     <header class="site-header">
       <nav class="navbar">
@@ -51,9 +57,23 @@
               class="logo-img"
             />
           </a>
-          <button class="nav-toggle" aria-label="Toggle navigation">
-            <span class="toggle-text">MENU</span>
-          </button>
+          <div class="nav-toggles">
+            <div class="theme-toggle-container">
+              <label class="switch" title="Toggle day/night mode">
+                <input
+                  id="toggle"
+                  type="checkbox"
+                  aria-label="Toggle day/night mode"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="menu-toggle-container">
+              <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="toggle-text">MENU</span>
+              </button>
+            </div>
+          </div>
           <ul class="nav-links" id="nav-links">
             <li><a href="../about.html">ABOUT</a></li>
             <li>
@@ -72,67 +92,246 @@
     <main>
       <!-- Project Section -->
       <section class="project" id="project">
-        <div class="container project-content">
-          <h1 class="bold">Client: Logo Project 2</h1>
-          <p class="text-normal">
-            For Logo Project 2, we crafted a dynamic and modern brand identity
-            that captures the essence of their innovative vision. Our team
-            designed a versatile logo, developed a cohesive color palette, and
-            created supporting brand assets to ensure consistency across digital
-            and print media. We also provided strategic guidance to enhance
-            their market presence, resulting in increased brand recognition and
-            customer engagement.
-          </p>
-          <!-- Info Squares -->
-          <div class="project-info">
-            <div class="info-square">Country: Sydney</div>
-            <div class="info-square">Year: 2024</div>
-            <div class="info-square">Work: Branding</div>
-            <div class="info-square"></div>
+        <div class="container">
+          <!-- Intro Image -->
+          <div class="project-intro-image">
+            <img
+              src="../assets/clients/ozstream/cover/ozstream-card.webp"
+              alt="Ozstream Empowering Australians Project Intro"
+              class="project-hero-img"
+              loading="lazy"
+            />
           </div>
-          <!-- Slideshow -->
+
+          <!-- Project Title -->
+          <h2 class="bold heading-large">Ozstream Empowering Australians</h2>
+
+          <!-- Project Description -->
+          <p class="text-normal">
+            For Ozstream, we created a dynamic brand identity to empower
+            Australian businesses through innovative digital solutions. Our team
+            designed a modern logo, developed intuitive UI/UX for their mobile
+            app, and crafted a targeted digital marketing campaign. The project
+            aimed to enhance user engagement and establish Ozstream as a leader
+            in digital transformation.
+          </p>
+
+          <!-- Project Details -->
+          <div class="project-details">
+            <div class="detail-item">
+              <span class="detail-title">Client</span>
+              <span class="detail-text">Ozstream</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">Location</span>
+              <span class="detail-text">Melbourne, Australia</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">Year</span>
+              <span class="detail-text">2024</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">Work</span>
+              <span class="detail-text"
+                >Branding, UI/UX, Digital Marketing</span
+              >
+            </div>
+          </div>
+
+          <!-- Interactive Slideshow -->
           <div class="project-slideshow">
             <img
-              src="../assets/clients/ozstream/ozstream-1.webp"
+              src="../assets/clients/ozstream/cover/ozstream-card.webp"
               alt="Slide 1"
-              class="project-slide"
+              class="project-slide active"
               loading="lazy"
             />
             <img
-              src="../assets/clients/ozstream/ozstream-2.webp"
+              src="../assets/clients/ozstream/cover/ozstream-app.webp"
               alt="Slide 2"
               class="project-slide"
               loading="lazy"
             />
             <img
-              src="../assets/clients/ozstream/ozstream-3.webp"
+              src="../assets/clients/ozstream/cover/ozstream-poster.webp"
               alt="Slide 3"
               class="project-slide"
               loading="lazy"
             />
             <img
-              src="../assets/clients/ozstream/ozstream-4.webp"
+              src="../assets/clients/ozstream/cover/ozstream-uiux.webp"
               alt="Slide 4"
               class="project-slide"
               loading="lazy"
             />
             <img
-              src="../assets/clients/ozstream/ozstream-5.webp"
+              src="../assets/clients/ozstream/cover/ozstream-bottles.webp"
               alt="Slide 5"
               class="project-slide"
               loading="lazy"
             />
-            <img
-              src="../assets/clients/ozstream/ozstream-6.webp"
-              alt="Slide 6"
-              class="project-slide"
-              loading="lazy"
-            />
+            <!-- Slideshow Controls -->
+            <div class="slideshow-controls">
+              <button
+                class="slideshow-play-pause"
+                aria-label="Play or pause slideshow"
+              >
+                <span class="play-icon">▶</span>
+                <span class="pause-icon">❚❚</span>
+              </button>
+              <div class="slideshow-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+              </div>
+            </div>
           </div>
-          <!-- Buttons -->
+
+          <!-- Related Portfolio -->
+          <div class="related-portfolio">
+            <h2>Related Projects</h2>
+            <div class="grid-container">
+              <article
+                class="card grid-item"
+                data-project="logo-1"
+                role="button"
+                aria-label="Toggle The Criminal Lawyer slideshow"
+              >
+                <img
+                  src="../assets/clients/zhai-associates/zhai-cover/zhai-card.webp"
+                  alt="The Criminal Lawyer"
+                  class="project-image"
+                  loading="lazy"
+                />
+                <div class="card-header">
+                  <span class="project-title">The Criminal Lawyer</span>
+                  <span class="toggle-expand">+</span>
+                </div>
+                <div class="grid-item-content">
+                  <div class="expanded-header">
+                    <a href="../portfolio/logo-project-1.html" class="view-item"
+                      >VIEW PROJECT</a
+                    >
+                    <span class="toggle-collapse">×</span>
+                  </div>
+                  <div class="slideshow">
+                    <img
+                      src="../assets/clients/zhai-associates/zhai-cover/zhai-card.webp"
+                      alt="Slide 1"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/zhai-associates/zhai-cover/zhai-associate-1.webp"
+                      alt="Slide 2"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/zhai-associates/zhai-cover/zhai-icons.webp"
+                      alt="Slide 3"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/zhai-associates/zhai-cover/zhai-reception.webp"
+                      alt="Slide 4"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/zhai-associates/zhai-cover/zhai-billboard.webp"
+                      alt="Slide 5"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <button class="slideshow-prev" aria-label="Previous slide">
+                      <
+                    </button>
+                    <button class="slideshow-next" aria-label="Next slide">
+                      >
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article
+                class="card grid-item"
+                data-project="logo-3"
+                role="button"
+                aria-label="Toggle Connecting Customers slideshow"
+              >
+                <img
+                  src="../assets/clients/petti-petti/petti-cover/petti-coconut.webp"
+                  alt="Connecting Customers"
+                  class="project-image"
+                  loading="lazy"
+                />
+                <div class="card-header">
+                  <span class="project-title">Connecting Customers</span>
+                  <span class="toggle-expand">+</span>
+                </div>
+                <div class="grid-item-content">
+                  <div class="expanded-header">
+                    <a href="../portfolio/logo-project-3.html" class="view-item"
+                      >VIEW PROJECT</a
+                    >
+                    <span class="toggle-collapse">×</span>
+                  </div>
+                  <div class="slideshow">
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-card.webp"
+                      alt="Slide 1"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-chiropractor.webp"
+                      alt="Slide 2"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-laptop.webp"
+                      alt="Slide 3"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-mobile.webp"
+                      alt="Slide 4"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-business-card.webp"
+                      alt="Slide 5"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-logo.webp"
+                      alt="Slide 6"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <button class="slideshow-prev" aria-label="Previous slide">
+                      <
+                    </button>
+                    <button class="slideshow-next" aria-label="Next slide">
+                      >
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Project Buttons -->
           <div class="project-buttons">
             <a href="../portfolio.html" class="button-2">Back to Portfolio</a>
-            <a href="../contact.html" class="button-1">Start a Project Now</a>
+            <a href="../contact.html" class="button-1">Start a Project</a>
           </div>
         </div>
       </section>
@@ -147,26 +346,5 @@
     </footer>
 
     <script src="../script.js" defer></script>
-    <script>
-      // Project Slideshow
-      const projectSlideshow = document.querySelector(".project-slideshow");
-      if (projectSlideshow) {
-        const slides = projectSlideshow.querySelectorAll(".project-slide");
-        let current = 0;
-
-        // Show first slide
-        slides[current].classList.add("active");
-
-        // Start interval
-        const intervalId = setInterval(() => {
-          slides[current].classList.remove("active");
-          current = (current + 1) % slides.length;
-          slides[current].classList.add("active");
-        }, 2000);
-
-        // Store interval ID to allow stopping if needed
-        projectSlideshow.dataset.interval = intervalId.toString();
-      }
-    </script>
   </body>
 </html>

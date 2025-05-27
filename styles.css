@@ -1971,3 +1971,202 @@ body.night-mode .process-icon {
     margin-bottom: 1.5rem; /* Slightly reduced from implicit 1rem gap */
   }
 }
+
+/* Project Intro Image */
+.project-intro-image {
+  width: 100%;
+  max-width: 1200px;
+  margin: var(--space-lg) 0;
+}
+
+.project-hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+
+.project-intro-image:hover .project-hero-img {
+  transform: scale(1.02);
+}
+
+/* Project Details */
+.project-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns desktop */
+  gap: var(--space-sm); /* Tighter gap */
+  margin: var(--space-lg) 0;
+  padding: var(--space-md); /* Reduced padding */
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: box-shadow 0.3s ease;
+}
+
+.project-details:hover {
+  box-shadow: var(--shadow-portfolio);
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* Tight spacing between title and text */
+}
+
+.detail-title {
+  font-family: var(--font-heading);
+  font-size: var(--small-text-size); /* 0.7rem */
+  color: var(--text-color);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.detail-text {
+  font-family: var(--font-body);
+  font-size: var(--text-normal); /* 0.9rem */
+  color: var(--secondary-text);
+}
+
+/* Slideshow Controls */
+.slideshow-controls {
+  position: absolute;
+  bottom: var(--space-md); /* Increased padding from --space-sm */
+  left: var(--space-lg); /* Increased padding from --space-md */
+  right: var(--space-lg); /* Increased padding from --space-md */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px; /* Matches day/night toggle height, change here to adjust */
+  z-index: 5;
+}
+
+/* Slideshow Play/Pause Button */
+.slideshow-play-pause {
+  background: var(--card-bg); /* Light grey (day) or dark (night) */
+  border: none;
+  border-radius: 50%; /* Circular shape */
+  width: 24px; /* Fixed size */
+  height: 24px; /* Fixed size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: var(--small-text-size); /* 0.7rem */
+  color: var(--text-color); /* Icon color: black (day) or white (night) */
+  padding: var(--space-xs); /* Small padding */
+  transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.slideshow-play-pause:hover {
+  background: var(--accent-color); /* Yellow #dfb011 on hover */
+}
+
+/* Icon visibility */
+.slideshow-play-pause .play-icon {
+  display: inline; /* Show ▶ by default */
+}
+.slideshow-play-pause .pause-icon {
+  display: none; /* Hide ❚❚ by default */
+}
+.slideshow-play-pause.paused .play-icon {
+  display: inline; /* Show ▶ when paused */
+}
+.slideshow-play-pause.paused .pause-icon {
+  display: none; /* Hide ❚❚ when paused */
+}
+.slideshow-play-pause:not(.paused) .play-icon {
+  display: none; /* Hide ▶ when playing */
+}
+.slideshow-play-pause:not(.paused) .pause-icon {
+  display: inline; /* Show ❚❚ when playing */
+}
+
+/* Dot Navigation */
+.slideshow-dots {
+  display: flex;
+  gap: var(--space-md); /* Increased from --space-sm for more spacing */
+  align-items: center;
+}
+
+.dot {
+  width: 10px; /* Change this to adjust inactive dot size */
+  height: 10px; /* Change this to adjust inactive dot size */
+  background: var(--secondary-text);
+  border-radius: 50%; /* Circular for inactive */
+  cursor: pointer;
+  padding: var(--space-xs); /* Added padding for breathing room */
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease,
+    border-radius 0.3s ease;
+}
+
+.dot.active {
+  width: 16px; /* Horizontal expansion for cylinder shape */
+  height: 10px; /* Same height as inactive */
+  background: var(--accent-color);
+  border-radius: 5px; /* Rounded rectangle for cylinder shape */
+}
+
+/* Related Portfolio */
+.related-portfolio {
+  margin: var(--space-xl) 0;
+}
+
+.related-portfolio h2 {
+  margin-bottom: var(--space-md);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  @media (max-width: 500px) {
+    .project-details {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns mobile */
+      gap: var(--space-md); /* Even tighter */
+      padding: var(--space-md);
+    }
+
+    .detail-item {
+      gap: 0.2rem;
+    }
+
+    .detail-title {
+      font-size: calc(var(--small-text-size) - 0.05rem); /* Slightly smaller */
+    }
+
+    .detail-text {
+      font-size: calc(var(--text-normal) - 0.1rem); /* 0.8rem */
+    }
+  }
+
+  .slideshow-controls {
+    bottom: var(--space-md); /* Adjusted for mobile */
+    left: var(--space-md); /* Adjusted for mobile */
+    right: var(--space-md); /* Adjusted for mobile */
+    height: 20px; /* Matches mobile day/night toggle height, change here to adjust */
+  }
+
+  .slideshow-play-pause {
+    width: 20px; /* Matches mobile height, change here to adjust size */
+    height: 20px; /* Matches mobile height, change here to adjust size */
+    padding: var(--space-md);
+  }
+
+  .slideshow-dots {
+    gap: var(--space-md); /* Slightly reduced for mobile */
+  }
+
+  .dot {
+    width: 8px; /* Change this for mobile inactive dot size */
+    height: 8px; /* Change this for mobile inactive dot size */
+    padding: var(--space-xs);
+  }
+
+  .dot.active {
+    width: 14px; /* Horizontal expansion for mobile */
+    height: 8px; /* Same height as inactive */
+    border-radius: 4px; /* Rounded rectangle for mobile */
+  }
+}

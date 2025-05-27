@@ -5,20 +5,18 @@ const toggleText = document.querySelector(".toggle-text");
 
 if (navToggle && navLinks && toggleText) {
   navToggle.addEventListener("click", () => {
-    console.log("Navbar toggle clicked"); // Debug
+    console.log("Navbar toggle clicked");
     navLinks.classList.toggle("active");
     navToggle.classList.toggle("active");
-    // Swap MENU/CLOSE text
     toggleText.textContent = navLinks.classList.contains("active")
       ? "CLOSE"
       : "MENU";
   });
 
-  // Close mobile nav on link click
   const navLinksItems = document.querySelectorAll(".nav-links a");
   navLinksItems.forEach((link) => {
     link.addEventListener("click", () => {
-      console.log("Nav link clicked:", link.textContent); // Debug
+      console.log("Nav link clicked:", link.textContent);
       navLinks.classList.remove("active");
       navToggle.classList.remove("active");
       toggleText.textContent = "MENU";
@@ -26,7 +24,7 @@ if (navToggle && navLinks && toggleText) {
   });
 }
 
-// Slideshow Functionality
+// Slideshow Functionality (for index.html)
 function startSlideshow(slideshow, slideSelector = ".slide") {
   if (!slideshow) {
     console.error("Slideshow element not found");
@@ -39,36 +37,32 @@ function startSlideshow(slideshow, slideSelector = ".slide") {
   }
   let current = 0;
 
-  // Show first slide
   slides[current].classList.add("active");
   console.log("First slide activated:", slides[current].src);
 
-  // Function to switch to a specific slide
   function showSlide(index) {
     slides[current].classList.remove("active");
-    current = (index + slides.length) % slides.length; // Ensure index stays in bounds
+    current = (index + slides.length) % slides.length;
     slides[current].classList.add("active");
     console.log("Switched to slide:", slides[current].src);
   }
 
-  // Start interval
   let intervalId = setInterval(() => {
     showSlide(current + 1);
   }, 3000);
   slideshow.dataset.interval = intervalId.toString();
 
-  // Add button event listeners
   const prevButton = slideshow.querySelector(".slideshow-prev");
   const nextButton = slideshow.querySelector(".slideshow-next");
 
   const handleButtonClick = (event, direction) => {
-    event.stopPropagation(); // Stop bubbling to .grid-item
-    event.preventDefault(); // Prevent default behavior
-    clearInterval(Number(slideshow.dataset.interval)); // Pause slideshow
+    event.stopPropagation();
+    event.preventDefault();
+    clearInterval(Number(slideshow.dataset.interval));
     showSlide(direction === "prev" ? current - 1 : current + 1);
     slideshow.dataset.interval = setInterval(() => {
       showSlide(current + 1);
-    }, 3000).toString(); // Resume slideshow
+    }, 3000).toString();
   };
 
   if (prevButton) {
@@ -109,10 +103,9 @@ const filterButtons = document.querySelectorAll(".filter-button");
 const gridItems = document.querySelectorAll(".grid-item");
 
 function filterPortfolio(category) {
-  console.log("Filtering by category:", category); // Debug
+  console.log("Filtering by category:", category);
   gridItems.forEach((item) => {
     const slideshow = item.querySelector(".slideshow");
-    // Stop slideshow and collapse if expanded
     if (item.classList.contains("expanded")) {
       item.classList.remove("expanded");
       if (slideshow) {
@@ -120,7 +113,6 @@ function filterPortfolio(category) {
       }
     }
 
-    // Show/hide based on category
     if (category === "all" || item.dataset.category === category) {
       item.classList.remove("hidden");
     } else {
@@ -132,8 +124,7 @@ function filterPortfolio(category) {
 if (filterButtons.length > 0) {
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      console.log("Filter button clicked:", button.dataset.filter); // Debug
-      // Update active button and ARIA
+      console.log("Filter button clicked:", button.dataset.filter);
       filterButtons.forEach((btn) => {
         btn.classList.remove("active");
         btn.setAttribute("aria-pressed", "false");
@@ -141,40 +132,35 @@ if (filterButtons.length > 0) {
       button.classList.add("active");
       button.setAttribute("aria-pressed", "true");
 
-      // Filter portfolio
       const category = button.dataset.filter;
       filterPortfolio(category);
     });
 
-    // Keyboard accessibility
     button.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         console.log(
           "Filter button activated via keyboard:",
           button.dataset.filter
-        ); // Debug
+        );
         button.click();
       }
     });
   });
 
-  // Initialize with "All" filter
   filterPortfolio("all");
 } else {
-  console.warn("No filter buttons found on this page"); // Debug
+  console.warn("No filter buttons found on this page");
 }
 
 // Portfolio Toggle and Slideshow
 gridItems.forEach((item) => {
-  // Handle click on the entire card
   item.addEventListener("click", (event) => {
     const target = event.target;
     const link = target.closest("a");
     const isNavButton = target.closest(".slideshow-prev, .slideshow-next");
     const isCollapseToggle = target.closest(".toggle-collapse");
 
-    // Debug log
     console.log(
       "Grid item clicked:",
       item.dataset.project,
@@ -183,51 +169,44 @@ gridItems.forEach((item) => {
       target.className
     );
 
-    // Prevent toggle if clicking a link, navigation button, or collapse toggle
     if (link || isNavButton || isCollapseToggle) {
-      event.stopPropagation(); // Prevent bubbling to card
-      return; // Allow link navigation or button action
+      event.stopPropagation();
+      return;
     }
 
-    // Only expand if not already expanded
     if (!item.classList.contains("expanded")) {
       const slideshow = item.querySelector(".slideshow");
       if (!slideshow) {
         console.log("No slideshow found for", item.dataset.project);
-        return; // Skip if no slideshow
+        return;
       }
 
-      // Add highlight to toggle-expand
       const expandToggle = item.querySelector(".toggle-expand");
       if (expandToggle) {
         expandToggle.classList.add("highlight");
         setTimeout(() => {
           expandToggle.classList.remove("highlight");
-        }, 300); // Remove after 300ms
+        }, 300);
       }
 
-      // Close other expanded cards
       gridItems.forEach((i) => i !== item && i.classList.remove("expanded"));
       item.classList.add("expanded");
 
-      // Start slideshow
       console.log("Starting slideshow for", item.dataset.project);
       startSlideshow(slideshow, ".slide");
     }
   });
 
-  // Handle click on the collapse toggle ("×")
   const collapseToggle = item.querySelector(".toggle-collapse");
   if (collapseToggle) {
     collapseToggle.addEventListener("click", (event) => {
-      event.stopPropagation(); // Prevent bubbling to card
+      event.stopPropagation();
       console.log("Collapse toggle clicked for", item.dataset.project);
 
-      // Add highlight class for 300ms
       collapseToggle.classList.add("highlight");
       setTimeout(() => {
         collapseToggle.classList.remove("highlight");
-      }, 300); // Remove after 300ms
+      }, 300);
 
       const slideshow = item.querySelector(".slideshow");
       if (slideshow) {
@@ -238,21 +217,12 @@ gridItems.forEach((item) => {
   }
 });
 
-// Project Page Slideshow
-document.addEventListener("DOMContentLoaded", () => {
-  const projectSlideshow = document.querySelector(".project-slideshow");
-  if (projectSlideshow) {
-    console.log("Initializing project slideshow");
-    startSlideshow(projectSlideshow, ".project-slide");
-  }
-});
-
 // Smooth Scroll for Back to Top
 const backToTop = document.querySelector(".back-to-top");
 if (backToTop) {
   backToTop.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log("Back to top clicked"); // Debug
+    console.log("Back to top clicked");
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -264,7 +234,7 @@ if (backToTop) {
 const contactForm = document.querySelector(".contact-form");
 if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
-    console.log("Contact form submitted"); // Debug
+    console.log("Contact form submitted");
     const name = contactForm.querySelector("#name").value.trim();
     const email = contactForm.querySelector("#email").value.trim();
     const message = contactForm.querySelector("#message").value.trim();
@@ -273,7 +243,6 @@ if (contactForm) {
       'input[name="business-size"]:checked'
     );
 
-    // Check required fields
     if (!name || !email || !message || !service || !businessSize) {
       e.preventDefault();
       alert(
@@ -282,7 +251,6 @@ if (contactForm) {
       return;
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       e.preventDefault();
@@ -293,18 +261,15 @@ if (contactForm) {
 
 // Theme Toggle
 const themeToggle = document.getElementById("toggle");
-
 if (themeToggle) {
-  // Load saved mode on page load
   const savedMode = localStorage.getItem("theme-mode");
   if (savedMode === "night") {
     document.body.classList.add("night-mode");
     themeToggle.checked = true;
   }
 
-  // Toggle mode on change
   themeToggle.addEventListener("change", () => {
-    console.log("Theme toggle changed:", themeToggle.checked ? "night" : "day"); // Debug
+    console.log("Theme toggle changed:", themeToggle.checked ? "night" : "day");
     if (themeToggle.checked) {
       document.body.classList.add("night-mode");
       localStorage.setItem("theme-mode", "night");
@@ -335,43 +300,31 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
 
   function changeWord() {
-    // Add fade class to start fading out
     wordCycle.classList.add("fade");
-
     setTimeout(() => {
-      // Change the word after fade-out
       wordCycle.textContent = words[currentIndex];
-      // Remove fade class to fade in
       wordCycle.classList.remove("fade");
-      // Move to next word, loop back to 0 if at the end
       currentIndex = (currentIndex + 1) % words.length;
-    }, 500); // Matches CSS transition duration (0.5s)
+    }, 500);
   }
 
-  // Initial delay of 3 seconds for "IMPACT"
   setTimeout(() => {
-    // Start cycling every 2 seconds after initial delay
-    changeWord(); // First change
-    setInterval(changeWord, 2000); // Subsequent changes every 2 seconds
+    changeWord();
+    setInterval(changeWord, 2000);
   }, 3000);
 });
 
 // Mobile touch/click effect for service and testimonial cards
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".service-card, .testimonial-card");
-
   cards.forEach((card) => {
-    card.addEventListener("click", (event) => {
-      console.log("Card tapped:", card.className); // Debug
-      // Toggle active class
+    card.addEventListener("click", () => {
+      console.log("Card tapped:", card.className);
       if (card.classList.contains("active")) {
         card.classList.remove("active");
       } else {
-        // Remove active from all cards to prevent multiple active states
         cards.forEach((c) => c.classList.remove("active"));
         card.classList.add("active");
-
-        // Remove active class after 1 second for natural effect
         setTimeout(() => {
           card.classList.remove("active");
         }, 1000);
@@ -383,7 +336,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // Service Section Fade-In Animation
 document.addEventListener("DOMContentLoaded", () => {
   const serviceSections = document.querySelectorAll(".service-section");
-
   const observerOptions = {
     root: null,
     rootMargin: "0px",
@@ -402,4 +354,115 @@ document.addEventListener("DOMContentLoaded", () => {
   serviceSections.forEach((section) => {
     observer.observe(section);
   });
+});
+
+// Project Page Slideshow
+document.addEventListener("DOMContentLoaded", () => {
+  const projectSlideshow = document.querySelector(".project-slideshow");
+  if (!projectSlideshow) {
+    console.log("No project slideshow found on this page");
+    return;
+  }
+
+  const projectSlides = projectSlideshow.querySelectorAll(".project-slide");
+  if (projectSlides.length === 0) {
+    console.error("No slides found in project slideshow");
+    return;
+  }
+
+  const playPauseButton = projectSlideshow.querySelector(
+    ".slideshow-play-pause"
+  );
+  const dots = projectSlideshow.querySelectorAll(".slideshow-dots .dot");
+  let projectCurrent = 0;
+  let isProjectPlaying = false;
+  let projectIntervalId = null;
+
+  // Initialize first slide and dot
+  projectSlides[projectCurrent].classList.add("active");
+  dots[projectCurrent].classList.add("active");
+  console.log(
+    "Project slideshow initialized, first slide:",
+    projectSlides[projectCurrent].src
+  );
+
+  // Show specific slide
+  function showProjectSlide(index) {
+    projectSlides[projectCurrent].classList.remove("active");
+    dots[projectCurrent].classList.remove("active");
+    projectCurrent = (index + projectSlides.length) % projectSlides.length;
+    projectSlides[projectCurrent].classList.add("active");
+    dots[projectCurrent].classList.add("active");
+    console.log(
+      "Switched to project slide:",
+      projectSlides[projectCurrent].src
+    );
+  }
+
+  // Start slideshow
+  function startProjectSlideshow() {
+    if (isProjectPlaying) return;
+    isProjectPlaying = true;
+    playPauseButton.classList.remove("paused"); // Remove .paused when playing (shows ❚❚)
+    projectIntervalId = setInterval(() => {
+      showProjectSlide(projectCurrent + 1);
+    }, 3000);
+    console.log("Project slideshow started");
+  }
+
+  // Stop slideshow
+  function stopProjectSlideshow() {
+    if (!isProjectPlaying) return;
+    isProjectPlaying = false;
+    playPauseButton.classList.add("paused"); // Add .paused when paused (shows ▶)
+    clearInterval(projectIntervalId);
+    console.log("Project slideshow paused");
+  }
+
+  // Play/Pause button handler
+  if (playPauseButton) {
+    playPauseButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log(
+        "Play/Pause clicked, current state:",
+        isProjectPlaying ? "playing" : "paused"
+      );
+      if (isProjectPlaying) {
+        stopProjectSlideshow();
+      } else {
+        startProjectSlideshow();
+      }
+    });
+    playPauseButton.addEventListener("touchstart", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log("Play/Pause touched");
+      if (isProjectPlaying) {
+        stopProjectSlideshow();
+      } else {
+        startProjectSlideshow();
+      }
+    });
+  }
+
+  // Dot navigation
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log("Dot clicked, index:", index);
+      if (index !== projectCurrent) {
+        showProjectSlide(index);
+        if (isProjectPlaying) {
+          stopProjectSlideshow();
+          startProjectSlideshow(); // Restart slideshow
+        }
+      }
+    });
+  });
+
+  // Initialize paused state
+  playPauseButton.classList.add("paused"); // Start paused, show ▶
+  console.log("Project slideshow initialized in paused state");
 });

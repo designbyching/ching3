@@ -22,7 +22,7 @@
     />
     <meta
       property="og:url"
-      content="https://www.designbyching.com/portfolio/logo-project-1"
+      content="https://www.designbyching.com/portfolio/the-criminal-lawyer"
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -93,7 +93,20 @@
       <!-- Project Section -->
       <section class="project" id="project">
         <div class="container">
-          <h2>The Criminal Lawyer</h2>
+          <!-- Intro Image -->
+          <div class="project-intro-image">
+            <img
+              src="../assets/clients/zhai-associates/zhai-card.webp"
+              alt="The Criminal Lawyer Project Intro"
+              class="project-hero-img"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Project Title -->
+          <h2 class="bold heading-large">The Criminal Lawyer</h2>
+
+          <!-- Project Description -->
           <p class="text-normal">
             For The Criminal Lawyer, we delivered a comprehensive branding
             overhaul to establish a bold, trustworthy identity. Our team crafted
@@ -103,17 +116,33 @@
             professional ethos while ensuring a modern, user-friendly digital
             presence.
           </p>
+
+          <!-- Project Details -->
           <div class="project-details">
-            <span class="small-text">Client: Client1</span>
-            <span class="small-text">Location: Sydney, Australia</span>
-            <span class="small-text">Year: 2023</span>
-            <span class="small-text">Work: Branding, Packaging, Website</span>
+            <div class="detail-item">
+              <span class="detail-title">Client</span>
+              <span class="detail-text">Zhai & Associates</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">Location</span>
+              <span class="detail-text">Sydney, Australia</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">Year</span>
+              <span class="detail-text">2023</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-title">Work</span>
+              <span class="detail-text">Branding, Packaging, Website</span>
+            </div>
           </div>
+
+          <!-- Interactive Slideshow -->
           <div class="project-slideshow">
             <img
               src="../assets/clients/zhai-associates/zhai-card.webp"
               alt="Slide 1"
-              class="project-slide"
+              class="project-slide active"
               loading="lazy"
             />
             <img
@@ -141,7 +170,7 @@
               loading="lazy"
             />
             <img
-              src="../assets/clients/zhai-associates/zhai-bilboard.webp"
+              src="../assets/clients/zhai-associates/zhai-billboard.webp"
               alt="Slide 6"
               class="project-slide"
               loading="lazy"
@@ -152,29 +181,167 @@
               class="project-slide"
               loading="lazy"
             />
-            <img
-              src="../assets/clients/zhai-associates/zhai-card.webp"
-              alt="Slide 8"
-              class="project-slide"
-              loading="lazy"
-            />
-            <img
-              src="../assets/clients/zhai-associates/zhai-reception.webp"
-              alt="Slide 9"
-              class="project-slide"
-              loading="lazy"
-            />
-            <img
-              src="../assets/clients/zhai-associates/zhai-associate-2.webp"
-              alt="Slide 10"
-              class="project-slide"
-              loading="lazy"
-            />
-            <button class="slideshow-prev" aria-label="Previous slide">
-              &lt;
-            </button>
-            <button class="slideshow-next" aria-label="Next slide">&gt;</button>
+            <!-- Slideshow Controls -->
+            <div class="slideshow-controls">
+              <button
+                class="slideshow-play-pause"
+                aria-label="Play or pause slideshow"
+              >
+                <span class="play-icon">▶</span>
+                <span class="pause-icon">❚❚</span>
+              </button>
+              <div class="slideshow-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+                <span class="dot" data-slide="6"></span>
+              </div>
+            </div>
           </div>
+
+          <!-- Related Portfolio -->
+          <div class="related-portfolio">
+            <h2>Related Projects</h2>
+            <div class="grid-container">
+              <article
+                class="card grid-item"
+                data-project="logo-2"
+                role="button"
+                aria-label="Toggle Empowering Australians slideshow"
+              >
+                <img
+                  src="../assets/clients/ozstream/cover/ozstream-card.webp"
+                  alt="Empowering Australians"
+                  class="project-image"
+                  loading="lazy"
+                />
+                <div class="card-header">
+                  <span class="project-title">Empowering Australians</span>
+                  <span class="toggle-expand">+</span>
+                </div>
+                <div class="grid-item-content">
+                  <div class="expanded-header">
+                    <a href="../portfolio/logo-project-2.html" class="view-item"
+                      >VIEW PROJECT</a
+                    >
+                    <span class="toggle-collapse">×</span>
+                  </div>
+                  <div class="slideshow">
+                    <img
+                      src="../assets/clients/ozstream/cover/ozstream-card.webp"
+                      alt="Slide 1"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/ozstream/cover/ozstream-app.webp"
+                      alt="Slide 2"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/ozstream/cover/ozstream-poster.webp"
+                      alt="Slide 3"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/ozstream/cover/ozstream-uiux.webp"
+                      alt="Slide 4"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/ozstream/cover/ozstream-bottles.webp"
+                      alt="Slide 5"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <button class="slideshow-prev" aria-label="Previous slide">
+                      <
+                    </button>
+                    <button class="slideshow-next" aria-label="Next slide">
+                      >
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article
+                class="card grid-item"
+                data-project="logo-3"
+                role="button"
+                aria-label="Toggle Connecting Customers slideshow"
+              >
+                <img
+                  src="../assets/clients/petti-petti/petti-cover/petti-coconut.webp"
+                  alt="Connecting Customers"
+                  class="project-image"
+                  loading="lazy"
+                />
+                <div class="card-header">
+                  <span class="project-title">Connecting Customers</span>
+                  <span class="toggle-expand">+</span>
+                </div>
+                <div class="grid-item-content">
+                  <div class="expanded-header">
+                    <a href="../portfolio/logo-project-3.html" class="view-item"
+                      >VIEW PROJECT</a
+                    >
+                    <span class="toggle-collapse">×</span>
+                  </div>
+                  <div class="slideshow">
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-card.webp"
+                      alt="Slide 1"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-chiropractor.webp"
+                      alt="Slide 2"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-laptop.webp"
+                      alt="Slide 3"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-mobile.webp"
+                      alt="Slide 4"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-business-card.webp"
+                      alt="Slide 5"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <img
+                      src="../assets/clients/backspace-chiro/backspace-cover/backspace-logo.webp"
+                      alt="Slide 6"
+                      class="slide"
+                      loading="lazy"
+                    />
+                    <button class="slideshow-prev" aria-label="Previous slide">
+                      <
+                    </button>
+                    <button class="slideshow-next" aria-label="Next slide">
+                      >
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Project Buttons -->
           <div class="project-buttons">
             <a href="../portfolio.html" class="button-2">Back to Portfolio</a>
             <a href="../contact.html" class="button-1">Start a Project</a>
@@ -192,5 +359,6 @@
     </footer>
 
     <script src="../script.js" defer></script>
+    <script src="../project-slideshow.js" defer></script>
   </body>
 </html>
