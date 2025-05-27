@@ -11,7 +11,7 @@
     255,
     255,
     255,
-    0.4
+    0.7
   ); /* Light-grey for cards with transparency */
   --frost-bg: rgba(255, 255, 255, 0.8); /* Frosted white */
   --secondary-text: #4d4d4d; /* Medium-grey for secondary text */
@@ -234,7 +234,7 @@ body.night-mode .logo-img {
 
 .nav-links li {
   list-style: none;
-  margin: var(--space-sm) 0;
+  margin: var(--space-md) 0;
 }
 
 .nav-links a {
@@ -759,7 +759,7 @@ a:hover {
   display: inline-block;
   padding: 0.5rem 1.5rem;
   border: 1px solid var(--border-color);
-  background: transparent;
+  background: var(--card-bg);
   color: var(--text-color);
   font-family: var(--font-body);
   font-size: var(--text-size);
