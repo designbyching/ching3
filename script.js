@@ -56,7 +56,7 @@ function startSlideshow(slideshow, slideSelector = ".slide") {
   // Start auto-advance
   let intervalId = setInterval(() => {
     showSlide(current + 1);
-  }, 3000);
+  }, 2000);
   slideshow.dataset.interval = intervalId.toString();
 
   // Pause slideshow
@@ -70,7 +70,7 @@ function startSlideshow(slideshow, slideSelector = ".slide") {
     pauseSlideshow(); // Clear any existing interval
     intervalId = setInterval(() => {
       showSlide(current + 1);
-    }, 3000);
+    }, 2000);
     slideshow.dataset.interval = intervalId.toString();
   }
 
