@@ -36,10 +36,12 @@ function startSlideshow(slideshow, slideSelector = ".slide") {
     return;
   }
   let current = 0;
+  let isDragging = false;
+  let startX = 0;
+  let currentX = 0;
+  const swipeThreshold = 50; // Min pixels to trigger slide change
 
-  slides[current].classList.add("active");
-  console.log("First slide activated:", slides[current].src);
-
+  // Show slide at index
   function showSlide(index) {
     slides[current].classList.remove("active");
     current = (index + slides.length) % slides.length;
@@ -47,22 +49,41 @@ function startSlideshow(slideshow, slideSelector = ".slide") {
     console.log("Switched to slide:", slides[current].src);
   }
 
+  // Initialize first slide
+  slides[current].classList.add("active");
+  console.log("First slide activated:", slides[current].src);
+
+  // Start auto-advance
   let intervalId = setInterval(() => {
     showSlide(current + 1);
   }, 3000);
   slideshow.dataset.interval = intervalId.toString();
 
+  // Pause slideshow
+  function pauseSlideshow() {
+    clearInterval(Number(slideshow.dataset.interval));
+    delete slideshow.dataset.interval;
+  }
+
+  // Resume slideshow
+  function resumeSlideshow() {
+    pauseSlideshow(); // Clear any existing interval
+    intervalId = setInterval(() => {
+      showSlide(current + 1);
+    }, 3000);
+    slideshow.dataset.interval = intervalId.toString();
+  }
+
+  // Prev/Next button handlers
   const prevButton = slideshow.querySelector(".slideshow-prev");
   const nextButton = slideshow.querySelector(".slideshow-next");
 
   const handleButtonClick = (event, direction) => {
     event.stopPropagation();
     event.preventDefault();
-    clearInterval(Number(slideshow.dataset.interval));
+    pauseSlideshow();
     showSlide(direction === "prev" ? current - 1 : current + 1);
-    slideshow.dataset.interval = setInterval(() => {
-      showSlide(current + 1);
-    }, 3000).toString();
+    resumeSlideshow();
   };
 
   if (prevButton) {
@@ -82,6 +103,83 @@ function startSlideshow(slideshow, slideSelector = ".slide") {
       handleButtonClick(event, "next")
     );
   }
+
+  // Touch events for swipe
+  slideshow.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    pauseSlideshow();
+    isDragging = true;
+    console.log("Touch started on portfolio slideshow");
+  });
+
+  slideshow.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    currentX = e.touches[0].clientX;
+    e.preventDefault(); // Prevent scrolling during swipe
+  });
+
+  slideshow.addEventListener("touchend", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    const deltaX = startX - currentX;
+    if (Math.abs(deltaX) > swipeThreshold) {
+      if (deltaX > 0) {
+        // Swipe left (next)
+        showSlide(current + 1);
+        console.log("Swiped left on portfolio slideshow");
+      } else {
+        // Swipe right (previous)
+        showSlide(current - 1);
+        console.log("Swiped right on portfolio slideshow");
+      }
+    }
+    resumeSlideshow(); // Resume auto-advance
+  });
+
+  // Mouse events for drag
+  slideshow.addEventListener("mousedown", (e) => {
+    startX = e.clientX;
+    pauseSlideshow();
+    isDragging = true;
+    slideshow.style.cursor = "grabbing";
+    console.log("Mouse drag started on portfolio slideshow");
+    e.preventDefault(); // Prevent text selection
+  });
+
+  slideshow.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    currentX = e.clientX;
+  });
+
+  slideshow.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    slideshow.style.cursor = "grab";
+    const deltaX = startX - currentX;
+    if (Math.abs(deltaX) > swipeThreshold) {
+      if (deltaX > 0) {
+        // Drag left (next)
+        showSlide(current + 1);
+        console.log("Dragged left on portfolio slideshow");
+      } else {
+        // Drag right (previous)
+        showSlide(current - 1);
+        console.log("Dragged right on portfolio slideshow");
+      }
+    }
+    resumeSlideshow(); // Resume auto-advance
+  });
+
+  slideshow.addEventListener("mouseleave", () => {
+    if (isDragging) {
+      isDragging = false;
+      slideshow.style.cursor = "grab";
+      resumeSlideshow();
+    }
+  });
+
+  // Set initial cursor
+  slideshow.style.cursor = "grab";
 }
 
 function stopSlideshow(slideshow, slideSelector = ".slide") {
