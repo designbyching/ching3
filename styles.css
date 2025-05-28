@@ -740,7 +740,7 @@ a:hover {
 .button-1 {
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  border: none;
+  border: 1px solid var(--border-color);
   background: var(--text-color); /* Black in light, white in dark */
   color: var(--bg-color); /* White in light, black in dark */
   font-family: var(--font-body);
@@ -804,7 +804,7 @@ a:hover {
   display: inline-block;
   padding: 0.5rem 1.5rem;
   border: 1px solid var(--border-color);
-  background: transparent;
+  background: var(--card-bg);
   color: var(--text-color);
   font-family: var(--font-body);
   font-size: var(--text-size);
@@ -814,8 +814,24 @@ a:hover {
   transition: box-shadow 0.3s ease;
 }
 
-.learn-more:hover,
-.view-more:hover {
+.view-more:hover,
+.learn-more:hover {
+  background: var(--accent-color); /* Yellow background */
+  color: var(--text-color); /* Black in light, white in dark */
+  box-shadow: var(--shadow-button);
+}
+
+.night-mode .view-more,
+.night-mode .learn-more {
+  background: var(--card-bg); /* White background */
+  color: #ffffff; /* Black text */
+  border: 1px solid var(--border-color);
+}
+
+.night-mode .view-more:hover,
+.night-mode .learn-more:hover {
+  background: var(--accent-color); /* Yellow background */
+  color: var(--bg-color); /* Black text */
   box-shadow: var(--shadow-button);
 }
 
