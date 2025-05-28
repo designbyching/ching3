@@ -1018,6 +1018,9 @@ a:hover {
   background: var(--card-bg);
   z-index: 2;
   opacity: 1;
+  user-select: none; /* Prevent text/image selection during drag */
+  -webkit-user-drag: none; /* Prevent image dragging in Safari */
+  touch-action: pan-y; /* Allow vertical scrolling, block horizontal */
 }
 
 .slide {
