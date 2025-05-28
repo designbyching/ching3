@@ -741,8 +741,8 @@ a:hover {
   display: inline-block;
   padding: 0.5rem 1.5rem;
   border: none;
-  background: var(--text-color);
-  color: var(--bg-color);
+  background: var(--text-color); /* Black in light, white in dark */
+  color: var(--bg-color); /* White in light, black in dark */
   font-family: var(--font-body);
   font-size: var(--text-size);
   font-weight: 400;
@@ -755,21 +755,47 @@ a:hover {
   box-shadow: var(--shadow-button);
 }
 
+.night-mode .button-1 {
+  background: var(--card-bg); /* Dark background */
+  color: var(--text-color); /* White text */
+  border: 1px solid var(--border-color); /* Match button-2 style */
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.night-mode .button-1:hover {
+  color: var(--accent-color); /* Yellow text */
+  box-shadow: var(--shadow-button);
+}
+
 .button-2 {
   display: inline-block;
   padding: 0.5rem 1.5rem;
   border: 1px solid var(--border-color);
-  background: var(--card-bg);
-  color: var(--text-color);
+  background: var(--card-bg); /* White in light, dark in dark */
+  color: var(--text-color); /* Black in light, white in dark */
   font-family: var(--font-body);
   font-size: var(--text-size);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  transition: box-shadow 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button-2:hover {
+  background: var(--accent-color); /* Yellow background */
+  color: var(--text-color); /* Black in light, white in dark */
+  box-shadow: var(--shadow-button);
+}
+
+.night-mode .button-2 {
+  background: #ffffff; /* White background */
+  color: var(--bg-color); /* Black text */
+  border: 1px solid var(--border-color);
+}
+
+.night-mode .button-2:hover {
+  background: var(--accent-color); /* Yellow background */
+  color: var(--bg-color); /* Black text */
   box-shadow: var(--shadow-button);
 }
 
