@@ -36,7 +36,7 @@
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://images.unsplash.com data:;"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://images.unsplash.com data:; frame-src https://www.youtube.com;"
     />
     <title>Design by Ching: The Criminal Lawyer Project</title>
     <link
@@ -108,13 +108,14 @@
 
           <!-- Project Description -->
           <p class="text-normal">
-            For The Criminal Lawyer, we delivered a comprehensive branding
-            overhaul to establish a bold, trustworthy identity. Our team crafted
-            a distinctive logo, designed sleek packaging for promotional
-            materials, and developed a responsive website to enhance client
-            engagement. The project focused on aligning the brand with its
-            professional ethos while ensuring a modern, user-friendly digital
-            presence.
+            For Zhai & Associates, we crafted a bold brand identity with a
+            striking logo, sleek packaging, and a responsive website to boost
+            client engagement. Beyond design, Raymond Zhai, the visionary behind
+            the firm, skyrocketed to fame by sharing expert advice on TikTok,
+            amassing millions of views. His viral success caught the attention
+            of The Daily Telegraph and The Today Show, putting Zhai & Associates
+            in the national spotlight. This collaborative triumph showcases the
+            power of creative strategy and innovative outreach.
           </p>
 
           <!-- Project Details -->
@@ -183,13 +184,12 @@
             />
             <!-- Slideshow Controls -->
             <div class="slideshow-controls">
-              <button
-                class="slideshow-play-pause"
-                aria-label="Play or pause slideshow"
-              >
-                <span class="play-icon">▶</span>
-                <span class="pause-icon">❚❚</span>
-              </button>
+              <img
+                src="../assets/icons/swipe.svg"
+                alt="Swipe to navigate"
+                class="swipe-icon"
+                aria-hidden="true"
+              />
               <div class="slideshow-dots">
                 <span class="dot active" data-slide="0"></span>
                 <span class="dot" data-slide="1"></span>
@@ -199,6 +199,19 @@
                 <span class="dot" data-slide="5"></span>
                 <span class="dot" data-slide="6"></span>
               </div>
+            </div>
+          </div>
+
+          <!-- Video Embed -->
+          <div class="video-container" data-video-id="gg6jPlsbPJY">
+            <div class="video-cover">
+              <img
+                src="../assets/clients/zhai-associates/zhai-bilboard.webp"
+                alt="Zhai & Associates Video Cover"
+                class="video-cover-image"
+                loading="lazy"
+              />
+              <span class="video-play-text">PRESS TO PLAY</span>
             </div>
           </div>
 

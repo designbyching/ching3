@@ -2083,80 +2083,82 @@ body.night-mode .process-icon {
 /* Slideshow Controls */
 .slideshow-controls {
   position: absolute;
-  bottom: var(--space-lg); /* Increased padding from --space-sm */
-  left: var(--space-lg); /* Increased padding from --space-md */
-  right: var(--space-lg); /* Increased padding from --space-md */
+  bottom: var(--space-lg); /* Matches existing padding */
+  left: var(--space-lg);
+  right: var(--space-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 24px; /* Matches day/night toggle height, change here to adjust */
+  height: 24px; /* Matches dot height */
   z-index: 5;
 }
 
-/* Slideshow Play/Pause Button */
-.slideshow-play-pause {
-  background: var(--card-bg); /* Light grey (day) or dark (night) */
-  border: none;
-  border-radius: 50%; /* Circular shape */
-  width: 24px; /* Fixed size */
-  height: 24px; /* Fixed size */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: var(--small-text-size); /* 0.7rem */
-  color: var(--text-color); /* Icon color: black (day) or white (night) */
-  padding: var(--space-xs); /* Small padding */
-  transition: background 0.3s ease; /* Smooth background transition */
+/* Swipe Icon */
+.swipe-icon {
+  width: 24px; /* Matches control height */
+  height: 24px;
+  opacity: 0.7; /* Slightly faded for subtlety */
+  transition: opacity 0.3s ease;
 }
 
-.slideshow-play-pause:hover {
-  background: var(--accent-color); /* Yellow #dfb011 on hover */
-}
-
-/* Icon visibility */
-.slideshow-play-pause .play-icon {
-  display: inline; /* Show ▶ by default */
-}
-.slideshow-play-pause .pause-icon {
-  display: none; /* Hide ❚❚ by default */
-}
-.slideshow-play-pause.paused .play-icon {
-  display: inline; /* Show ▶ when paused */
-}
-.slideshow-play-pause.paused .pause-icon {
-  display: none; /* Hide ❚❚ when paused */
-}
-.slideshow-play-pause:not(.paused) .play-icon {
-  display: none; /* Hide ▶ when playing */
-}
-.slideshow-play-pause:not(.paused) .pause-icon {
-  display: inline; /* Show ❚❚ when playing */
+.swipe-icon:hover {
+  opacity: 1; /* Full opacity on hover */
 }
 
 /* Dot Navigation */
 .slideshow-dots {
   display: flex;
-  gap: var(--space-md); /* Increased from --space-sm for more spacing */
+  gap: var(--space-md); /* Matches existing spacing */
   align-items: center;
 }
 
 .dot {
-  width: 10px; /* Change this to adjust inactive dot size */
-  height: 10px; /* Change this to adjust inactive dot size */
+  width: 10px;
+  height: 10px;
   background: var(--secondary-text);
-  border-radius: 50%; /* Circular for inactive */
+  border-radius: 50%;
   cursor: pointer;
-  padding: var(--space-xs); /* Added padding for breathing room */
+  padding: var(--space-xs);
   transition: width 0.3s ease, height 0.3s ease, background 0.3s ease,
     border-radius 0.3s ease;
 }
 
 .dot.active {
-  width: 16px; /* Horizontal expansion for cylinder shape */
-  height: 10px; /* Same height as inactive */
+  width: 33px;
+  height: 10px;
   background: var(--accent-color);
-  border-radius: 5px; /* Rounded rectangle for cylinder shape */
+  border-radius: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .slideshow-controls {
+    bottom: var(--space-md);
+    left: var(--space-md);
+    right: var(--space-md);
+    height: 20px;
+  }
+
+  .swipe-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .slideshow-dots {
+    gap: var(--space-md);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    padding: var(--space-xs);
+  }
+
+  .dot.active {
+    width: 27px;
+    height: 8px;
+    border-radius: 4px;
+  }
 }
 
 /* Related Portfolio */
@@ -2217,5 +2219,81 @@ body.night-mode .process-icon {
     width: 14px; /* Horizontal expansion for mobile */
     height: 8px; /* Same height as inactive */
     border-radius: 4px; /* Rounded rectangle for mobile */
+  }
+}
+
+/* Video Container */
+.video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Standard video aspect ratio */
+  margin: var(--space-lg) 0; /* Matches project-slideshow spacing */
+  cursor: pointer;
+  border-radius: var(--border-radius); /* 3px */
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.video-container:hover {
+  box-shadow: var(--shadow-portfolio); /* Matches card hover */
+  transform: scale(1.02); /* Matches blog-card-img/service-card-img hover */
+}
+
+.video-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg); /* Fallback background */
+}
+
+.video-cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Matches project-slide styling */
+  border-radius: var(--border-radius); /* 3px */
+}
+
+.video-play-text {
+  position: absolute;
+  font-family: var(--font-heading);
+  font-size: var(--heading-size); /* 0.8rem */
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.2em; /* Matches site typography */
+  background: var(--frost-bg); /* Frosted background for readability */
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius); /* 3px */
+  border: 1px solid var(--border-color);
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-container:hover .video-play-text {
+  background: var(--accent-color); /* Yellow on hover */
+  color: var(--bg-color); /* Black in light, white in dark */
+  box-shadow: var(--shadow-button); /* Matches button hover */
+}
+
+.video-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--border-radius); /* 3px */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .video-container {
+    margin: var(--space-md) 0; /* Reduced spacing for mobile */
+  }
+
+  .video-play-text {
+    font-size: var(--small-text-size); /* 0.7rem for mobile */
+    padding: 0.4rem 0.8rem; /* Matches filter-button mobile */
   }
 }

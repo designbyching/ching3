@@ -461,9 +461,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const slides = slideshow.querySelectorAll(".project-slide");
   const dots = slideshow.querySelectorAll(".slideshow-dots .dot");
-  const playPauseBtn = slideshow.querySelector(".slideshow-play-pause");
   let currentIndex = 0;
-  let isPlaying = false;
   let intervalId = null;
   let isDragging = false;
   let startX = 0;
@@ -486,38 +484,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Start slideshow
   function startSlideshow() {
-    if (isPlaying) return;
-    isPlaying = true;
-    playPauseBtn.classList.remove("paused");
     intervalId = setInterval(() => {
       showSlide(currentIndex + 1);
     }, 3000);
     console.log("Project slideshow started");
   }
 
-  // Pause slideshow
+  // Pause slideshow temporarily for interactions
   function pauseSlideshow() {
-    if (!isPlaying) return;
-    isPlaying = false;
-    playPauseBtn.classList.add("paused");
     clearInterval(intervalId);
-    console.log("Project slideshow paused");
+    console.log("Project slideshow paused temporarily");
   }
 
-  // Toggle play/pause
-  playPauseBtn.addEventListener("click", () => {
-    if (isPlaying) {
-      pauseSlideshow();
-    } else {
-      startSlideshow();
-    }
-  });
+  // Resume slideshow
+  function resumeSlideshow() {
+    pauseSlideshow(); // Clear existing interval
+    startSlideshow();
+  }
 
   // Dot navigation
   dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
+    dot.addEventListener("click", (e) => {
+      e.stopPropagation();
       pauseSlideshow();
       showSlide(index);
+      resumeSlideshow();
       console.log(`Dot clicked, index: ${index}`);
     });
   });
@@ -525,8 +516,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Touch events for swipe
   slideshow.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
-    pauseSlideshow(); // Pause on touch
     isDragging = true;
+    pauseSlideshow();
     console.log("Touch started");
   });
 
@@ -551,16 +542,14 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Swiped right");
       }
     }
-    if (!playPauseBtn.classList.contains("paused")) {
-      startSlideshow(); // Resume if was playing
-    }
+    resumeSlideshow();
   });
 
   // Mouse events for drag
   slideshow.addEventListener("mousedown", (e) => {
     startX = e.clientX;
-    pauseSlideshow(); // Pause on drag
     isDragging = true;
+    pauseSlideshow();
     slideshow.style.cursor = "grabbing";
     console.log("Mouse drag started");
     e.preventDefault(); // Prevent text selection
@@ -587,24 +576,57 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Dragged right");
       }
     }
-    if (!playPauseBtn.classList.contains("paused")) {
-      startSlideshow(); // Resume if was playing
-    }
+    resumeSlideshow();
   });
 
   slideshow.addEventListener("mouseleave", () => {
     if (isDragging) {
       isDragging = false;
       slideshow.style.cursor = "grab";
-      if (!playPauseBtn.classList.contains("paused")) {
-        startSlideshow();
-      }
+      resumeSlideshow();
     }
+  });
+
+  // Prevent unintended clicks on images
+  slideshow.addEventListener("click", (e) => {
+    if (e.target.closest(".dot")) {
+      return;
+    }
+    e.stopPropagation();
   });
 
   // Initialize
   showSlide(currentIndex);
-  playPauseBtn.classList.add("paused"); // Start paused
-  slideshow.style.cursor = "grab"; // Indicate draggable
+  startSlideshow(); // Start auto immediately
+  slideshow.style.cursor = "grab";
   console.log("Project slideshow initialized");
+});
+
+// Video Container Click-to-Play
+document.addEventListener("DOMContentLoaded", () => {
+  const videoContainers = document.querySelectorAll(".video-container");
+  videoContainers.forEach((container) => {
+    const videoId = container.dataset.videoId;
+    if (!videoId) {
+      console.error("No video ID found for video container", container);
+      return;
+    }
+
+    container.addEventListener("click", () => {
+      console.log(`Video container clicked, loading video ID: ${videoId}`);
+      // Replace cover with iframe
+      container.innerHTML = `
+        <iframe
+          class="video-iframe"
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+          title="Video Content"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      `;
+      // Remove cursor pointer since video is now loaded
+      container.style.cursor = "default";
+    });
+  });
 });
