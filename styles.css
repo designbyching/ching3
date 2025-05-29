@@ -2039,7 +2039,7 @@ body.night-mode .process-icon {
 
 .project-intro-image:hover .project-hero-img {
   /*transform: scale(1.02); */
-  box-shadow: var(--shadow-portfolio);
+  /*box-shadow: var(--shadow-portfolio);*/
 }
 
 /* Project Details */
@@ -2055,9 +2055,9 @@ body.night-mode .process-icon {
   transition: box-shadow 0.3s ease;
 }
 
-.project-details:hover {
+/*.project-details:hover {
   box-shadow: var(--shadow-portfolio);
-}
+} */
 
 .detail-item {
   display: flex;
