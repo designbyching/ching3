@@ -24,7 +24,7 @@ if (navToggle && navLinks && toggleText) {
   });
 }
 
-// Slideshow Functionality (for index.html)
+// Slideshow Functionality (for index.html and portfolio.html)
 function startSlideshow(slideshow, slideSelector = ".slide") {
   if (!slideshow) {
     console.error("Slideshow element not found");
@@ -38,7 +38,9 @@ function startSlideshow(slideshow, slideSelector = ".slide") {
   let current = 0;
   let isDragging = false;
   let startX = 0;
+  let startY = 0; // Track vertical start position
   let currentX = 0;
+  let currentY = 0; // Track vertical current position
   const swipeThreshold = 50; // Min pixels to trigger slide change
 
   // Show slide at index
@@ -107,21 +109,30 @@ function startSlideshow(slideshow, slideSelector = ".slide") {
   // Touch events for swipe
   slideshow.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
-    pauseSlideshow();
+    startY = e.touches[0].clientY; // Capture vertical position
     isDragging = true;
+    pauseSlideshow();
     console.log("Touch started on portfolio slideshow");
   });
 
   slideshow.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
     currentX = e.touches[0].clientX;
-    e.preventDefault(); // Prevent scrolling during swipe
+    currentY = e.touches[0].clientY; // Track vertical position
+    const deltaX = Math.abs(startX - currentX);
+    const deltaY = Math.abs(startY - currentY);
+    // Only prevent default if horizontal movement dominates (swipe)
+    if (deltaX > deltaY && deltaX > 10) {
+      // Threshold to avoid jitter
+      e.preventDefault(); // Block scrolling for horizontal swipe
+    }
   });
 
   slideshow.addEventListener("touchend", () => {
     if (!isDragging) return;
     isDragging = false;
     const deltaX = startX - currentX;
+    // Only trigger slide change if horizontal movement exceeds threshold
     if (Math.abs(deltaX) > swipeThreshold) {
       if (deltaX > 0) {
         // Swipe left (next)
