@@ -33,7 +33,7 @@
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://images.unsplash.com data:;"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; frame-src https://www.youtube.com;"
     />
     <title>Contact Design by Ching—Directed by Mike Ching</title>
     <link
@@ -88,43 +88,6 @@
       <!-- Contact Section -->
       <section class="contact" id="contact">
         <div class="container contact-content">
-          <!-- Three-Step Process Strip -->
-          <div class="process-strip">
-            <div class="process-step">
-              <img
-                src="assets/icons/design-brief.svg"
-                alt="Design Brief Icon"
-                class="process-icon"
-              />
-              <h3>Design Brief</h3>
-              <p class="text-normal">
-                We collaborate to define your project goals and vision.
-              </p>
-            </div>
-            <div class="process-step">
-              <img
-                src="assets/icons/design-develop.svg"
-                alt="Develop Icon"
-                class="process-icon"
-              />
-              <h3>Develop</h3>
-              <p class="text-normal">
-                Our team crafts and refines your solution.
-              </p>
-            </div>
-            <div class="process-step">
-              <img
-                src="assets/icons/deliver-support.svg"
-                alt="Deliver Icon"
-                class="process-icon"
-              />
-              <h3>Deliver</h3>
-              <p class="text-normal">
-                We launch your project with ongoing support.
-              </p>
-            </div>
-          </div>
-
           <h2>Contact Us</h2>
           <p class="spaced-uppercase">Let’s Transform Your Brand</p>
           <p class="text-normal">
@@ -379,7 +342,42 @@
               ></textarea>
             </div>
             <button type="submit" class="button-2">SUBMIT</button>
-            <!-- Changed from button-1 to button-2 -->
+            <!-- Process Strip Moved Here -->
+            <div class="process-strip">
+              <div class="process-step">
+                <img
+                  src="assets/icons/design-brief.svg"
+                  alt="Design Brief Icon"
+                  class="process-icon"
+                />
+                <h3>Design Brief</h3>
+                <p class="text-normal">
+                  We collaborate to define your project goals and vision.
+                </p>
+              </div>
+              <div class="process-step">
+                <img
+                  src="assets/icons/design-develop.svg"
+                  alt="Develop Icon"
+                  class="process-icon"
+                />
+                <h3>Develop</h3>
+                <p class="text-normal">
+                  Our team crafts and refines your solution.
+                </p>
+              </div>
+              <div class="process-step">
+                <img
+                  src="assets/icons/deliver-support.svg"
+                  alt="Deliver Icon"
+                  class="process-icon"
+                />
+                <h3>Deliver</h3>
+                <p class="text-normal">
+                  We launch your project with ongoing support.
+                </p>
+              </div>
+            </div>
           </form>
         </div>
       </section>

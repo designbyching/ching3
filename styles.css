@@ -2233,6 +2233,9 @@ body.night-mode .process-icon {
   overflow: hidden;
   border: 1px solid var(--border-color);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background: var(
+    --bg-color
+  ); /* Solid background: #ffffff light, #000000 night */
 }
 
 .video-container:hover {
