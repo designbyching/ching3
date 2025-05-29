@@ -1440,7 +1440,7 @@ body.night-mode .process-icon {
 .radio-option {
   display: flex;
   align-items: center;
-  gap: 0.3rem; /* Increased to 0.3rem for tiny bit more spacing */
+  gap: 0.4rem; /* Increased to 0.3rem for tiny bit more spacing */
 }
 
 .radio-group input[type="radio"] {
@@ -1460,10 +1460,10 @@ body.night-mode .process-icon {
   border-color: var(--accent-color);
 }
 
-.radio-group input[type="radio"]:focus {
+/* .radio-group input[type="radio"]:focus {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
-}
+} */
 
 .radio-group label {
   font-family: var(--font-body);
