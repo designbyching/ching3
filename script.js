@@ -454,152 +454,168 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Project Page Slideshow
+// Multiple Project Slideshows
 document.addEventListener("DOMContentLoaded", () => {
-  const slideshow = document.querySelector(".project-slideshow");
-  if (!slideshow) return;
+  // Initialize all slideshows
+  const slideshows = document.querySelectorAll(".project-slideshow");
+  slideshows.forEach((slideshow, slideshowIndex) => {
+    const slides = slideshow.querySelectorAll(".project-slide");
+    const dots = slideshow.querySelectorAll(".slideshow-dots .dot");
+    let currentIndex = 0;
+    let intervalId = null;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0; // Track vertical start position
+    let currentX = 0;
+    let currentY = 0; // Track vertical current position
+    const swipeThreshold = 50; // Min pixels to trigger slide change
 
-  const slides = slideshow.querySelectorAll(".project-slide");
-  const dots = slideshow.querySelectorAll(".slideshow-dots .dot");
-  let currentIndex = 0;
-  let intervalId = null;
-  let isDragging = false;
-  let startX = 0;
-  let currentX = 0;
-  const swipeThreshold = 50; // Min pixels to trigger slide change
+    // Show slide at index
+    function showSlide(index) {
+      if (index >= slides.length) index = 0;
+      if (index < 0) index = slides.length - 1;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+      currentIndex = index;
+      console.log(
+        `Slideshow ${slideshowIndex + 1} showing slide ${currentIndex}`
+      );
+    }
 
-  // Show slide at index
-  function showSlide(index) {
-    if (index >= slides.length) index = 0;
-    if (index < 0) index = slides.length - 1;
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
+    // Start slideshow
+    function startSlideshow() {
+      intervalId = setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, 3000);
+      console.log(`Slideshow ${slideshowIndex + 1} started`);
+    }
+
+    // Pause slideshow temporarily for interactions
+    function pauseSlideshow() {
+      clearInterval(intervalId);
+      console.log(`Slideshow ${slideshowIndex + 1} paused temporarily`);
+    }
+
+    // Resume slideshow
+    function resumeSlideshow() {
+      pauseSlideshow(); // Clear existing interval
+      startSlideshow();
+    }
+
+    // Dot navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", (e) => {
+        e.stopPropagation();
+        pauseSlideshow();
+        showSlide(index);
+        resumeSlideshow();
+        console.log(
+          `Slideshow ${slideshowIndex + 1} dot clicked, index: ${index}`
+        );
+      });
     });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
-    });
-    currentIndex = index;
-    console.log(`Showing slide ${currentIndex}`);
-  }
 
-  // Start slideshow
-  function startSlideshow() {
-    intervalId = setInterval(() => {
-      showSlide(currentIndex + 1);
-    }, 3000);
-    console.log("Project slideshow started");
-  }
-
-  // Pause slideshow temporarily for interactions
-  function pauseSlideshow() {
-    clearInterval(intervalId);
-    console.log("Project slideshow paused temporarily");
-  }
-
-  // Resume slideshow
-  function resumeSlideshow() {
-    pauseSlideshow(); // Clear existing interval
-    startSlideshow();
-  }
-
-  // Dot navigation
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", (e) => {
-      e.stopPropagation();
+    // Touch events for swipe
+    slideshow.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY; // Capture vertical position
+      isDragging = true;
       pauseSlideshow();
-      showSlide(index);
-      resumeSlideshow();
-      console.log(`Dot clicked, index: ${index}`);
+      console.log(`Slideshow ${slideshowIndex + 1} touch started`);
     });
-  });
 
-  // Touch events for swipe
-  slideshow.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-    pauseSlideshow();
-    console.log("Touch started");
-  });
-
-  slideshow.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    currentX = e.touches[0].clientX;
-    e.preventDefault(); // Prevent scrolling during swipe
-  });
-
-  slideshow.addEventListener("touchend", () => {
-    if (!isDragging) return;
-    isDragging = false;
-    const deltaX = startX - currentX;
-    if (Math.abs(deltaX) > swipeThreshold) {
-      if (deltaX > 0) {
-        // Swipe left (next)
-        showSlide(currentIndex + 1);
-        console.log("Swiped left");
-      } else {
-        // Swipe right (previous)
-        showSlide(currentIndex - 1);
-        console.log("Swiped right");
+    slideshow.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      currentX = e.touches[0].clientX;
+      currentY = e.touches[0].clientY; // Track vertical position
+      const deltaX = Math.abs(startX - currentX);
+      const deltaY = Math.abs(startY - currentY);
+      // Only prevent default if horizontal movement dominates (swipe)
+      if (deltaX > deltaY && deltaX > 10) {
+        // Threshold to avoid jitter
+        e.preventDefault(); // Block scrolling for horizontal swipe
       }
-    }
-    resumeSlideshow();
-  });
+    });
 
-  // Mouse events for drag
-  slideshow.addEventListener("mousedown", (e) => {
-    startX = e.clientX;
-    isDragging = true;
-    pauseSlideshow();
-    slideshow.style.cursor = "grabbing";
-    console.log("Mouse drag started");
-    e.preventDefault(); // Prevent text selection
-  });
-
-  slideshow.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    currentX = e.clientX;
-  });
-
-  slideshow.addEventListener("mouseup", () => {
-    if (!isDragging) return;
-    isDragging = false;
-    slideshow.style.cursor = "grab";
-    const deltaX = startX - currentX;
-    if (Math.abs(deltaX) > swipeThreshold) {
-      if (deltaX > 0) {
-        // Drag left (next)
-        showSlide(currentIndex + 1);
-        console.log("Dragged left");
-      } else {
-        // Drag right (previous)
-        showSlide(currentIndex - 1);
-        console.log("Dragged right");
+    slideshow.addEventListener("touchend", () => {
+      if (!isDragging) return;
+      isDragging = false;
+      const deltaX = startX - currentX;
+      // Only trigger slide change if horizontal movement exceeds threshold
+      if (Math.abs(deltaX) > swipeThreshold) {
+        if (deltaX > 0) {
+          // Swipe left (next)
+          showSlide(currentIndex + 1);
+          console.log(`Slideshow ${slideshowIndex + 1} swiped left`);
+        } else {
+          // Swipe right (previous)
+          showSlide(currentIndex - 1);
+          console.log(`Slideshow ${slideshowIndex + 1} swiped right`);
+        }
       }
-    }
-    resumeSlideshow();
-  });
+      resumeSlideshow();
+    });
 
-  slideshow.addEventListener("mouseleave", () => {
-    if (isDragging) {
+    // Mouse events for drag
+    slideshow.addEventListener("mousedown", (e) => {
+      startX = e.clientX;
+      isDragging = true;
+      pauseSlideshow();
+      slideshow.style.cursor = "grabbing";
+      console.log(`Slideshow ${slideshowIndex + 1} mouse drag started`);
+      e.preventDefault(); // Prevent text selection
+    });
+
+    slideshow.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      currentX = e.clientX;
+    });
+
+    slideshow.addEventListener("mouseup", () => {
+      if (!isDragging) return;
       isDragging = false;
       slideshow.style.cursor = "grab";
+      const deltaX = startX - currentX;
+      if (Math.abs(deltaX) > swipeThreshold) {
+        if (deltaX > 0) {
+          // Drag left (next)
+          showSlide(currentIndex + 1);
+          console.log(`Slideshow ${slideshowIndex + 1} dragged left`);
+        } else {
+          // Drag right (previous)
+          showSlide(currentIndex - 1);
+          console.log(`Slideshow ${slideshowIndex + 1} dragged right`);
+        }
+      }
       resumeSlideshow();
-    }
-  });
+    });
 
-  // Prevent unintended clicks on images
-  slideshow.addEventListener("click", (e) => {
-    if (e.target.closest(".dot")) {
-      return;
-    }
-    e.stopPropagation();
-  });
+    slideshow.addEventListener("mouseleave", () => {
+      if (isDragging) {
+        isDragging = false;
+        slideshow.style.cursor = "grab";
+        resumeSlideshow();
+      }
+    });
 
-  // Initialize
-  showSlide(currentIndex);
-  startSlideshow(); // Start auto immediately
-  slideshow.style.cursor = "grab";
-  console.log("Project slideshow initialized");
+    // Prevent unintended clicks on images
+    slideshow.addEventListener("click", (e) => {
+      if (e.target.closest(".dot")) {
+        return;
+      }
+      e.stopPropagation();
+    });
+
+    // Initialize
+    showSlide(currentIndex);
+    startSlideshow(); // Start auto immediately
+    slideshow.style.cursor = "grab";
+    console.log(`Slideshow ${slideshowIndex + 1} initialized`);
+  });
 });
 
 // Video Container Click-to-Play
