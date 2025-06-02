@@ -42,6 +42,33 @@
   --intro-padding: var(--space-sm); /* Adjustable padding for intro section */
 }
 
+/* Custom Underline for Mike Ching */
+.custom-underline {
+  text-decoration: none; /* Remove default underline */
+  border-bottom: var(--underline-thickness, 1px) solid
+    var(--underline-color, var(--text-color)); /* Adjustable thickness and color */
+  padding-bottom: var(
+    --underline-offset,
+    1px
+  ); /* Adjustable offset from text */
+  transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+.custom-underline:hover {
+  border-bottom-color: var(--accent-color); /* Yellow underline on hover */
+  color: var(--accent-color); /* Matches existing link hover behavior */
+}
+
+/* Night Mode Adjustments */
+body.night-mode .custom-underline {
+  border-bottom-color: var(--text-color); /* White in night mode */
+}
+
+body.night-mode .custom-underline:hover {
+  border-bottom-color: var(--accent-color); /* Yellow underline on hover */
+  color: var(--accent-color); /* Yellow text on hover */
+}
+
 /* Night Mode Styles */
 body.night-mode {
   background: var(--bg-color);
@@ -447,7 +474,7 @@ input:checked + .slider:before {
 
 .team-role {
   font-family: var(--font-body);
-  font-size: var(--small-text-size);
+  font-size: var(--text-size);
   color: var(--secondary-text);
   letter-spacing: 0;
   margin: 0 0 var(--space-sm);
@@ -456,7 +483,7 @@ input:checked + .slider:before {
 
 .team-bio {
   font-family: var(--font-body);
-  font-size: var(--text-cards);
+  font-size: var(--text-normal);
   color: var(--text-color);
   letter-spacing: 0;
   margin: 0;
@@ -709,10 +736,15 @@ p {
 p.spaced-uppercase {
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  opacity: 0.7;
 }
 
 p.text-normal {
   font-size: var(--text-normal);
+}
+
+p.bold {
+  font-weight: 700;
 }
 
 .small-text {
@@ -2037,10 +2069,10 @@ body.night-mode .process-icon {
   transition: transform 0.3s ease;
 }
 
-.project-intro-image:hover .project-hero-img {
-  /*transform: scale(1.02); */
-  /*box-shadow: var(--shadow-portfolio);*/
-}
+/*.project-intro-image:hover .project-hero-img {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-portfolio);
+} */
 
 /* Project Details */
 .project-details {
