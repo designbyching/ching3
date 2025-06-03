@@ -759,6 +759,10 @@ p.bold {
   letter-spacing: 0.2em;
 }
 
+.paragraph-spacing {
+  margin-top: var(--space-md); /* or use a specific value like 1.5rem */
+}
+
 a {
   color: var(--text-color);
   text-decoration: none;
