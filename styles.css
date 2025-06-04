@@ -520,8 +520,8 @@ input:checked + .slider:before {
   font-family: var(--font-heading);
   font-size: var(--heading-size);
   color: var(--text-color);
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 0 0 var(--space-lg);
   text-align: left;
@@ -530,12 +530,12 @@ input:checked + .slider:before {
 
 .service-description {
   font-family: var(--font-body);
-  font-size: var(--text-size);
+  font-size: var(--text-normal);
   color: var(--secondary-text);
   letter-spacing: 0;
   text-align: left;
   margin-top: auto;
-  margin-bottom: 1.5rem; /* Increased from implicit 1rem gap */
+  margin-bottom: 0.5rem; /* Increased from implicit 1rem gap */
 }
 
 /* Testimonials Section */
@@ -869,6 +869,20 @@ a:hover {
   background: var(--accent-color); /* Yellow background */
   color: var(--bg-color); /* Black text */
   box-shadow: var(--shadow-button);
+}
+
+/* View More Text Link Container */
+.view-more-text-link {
+  margin-top: var(--space-lg); /* 1rem spacing above the link */
+  text-align: left; /* Aligns with service-areas text */
+}
+
+/* Optional: Ensure the link inherits font properties for consistency */
+.view-more-text-link .custom-underline {
+  font-family: var(--font-body);
+  font-size: var(--text-size); /* 0.8rem, matches other text */
+  text-transform: uppercase; /* Matches site typography */
+  letter-spacing: 0.2em; /* Matches nav and button typography */
 }
 
 /* Components */
@@ -1931,41 +1945,33 @@ body.night-mode .process-icon {
 }
 
 /* Adjust service card padding to accommodate image */
+/* Service Card Link Styling */
 .service-card {
-  padding: var(--padding-card); /* Existing padding */
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm); /* Ensure consistent spacing */
+  position: relative; /* For positioning pseudo-elements */
+  text-decoration: none; /* Remove underline from link */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
 }
 
-/* Ensure text remains readable */
-.service-card .service-title {
-  margin: 0 0 var(--space-sm); /* Reduced margin to fit image */
+.service-card:hover {
+  box-shadow: var(--shadow-portfolio); /* Matches existing hover */
+  transform: translateY(-2px); /* Slight lift for interactivity */
 }
 
-.service-card .service-description {
-  margin: 0; /* Remove default margin for tighter layout */
+.service-card:focus {
+  outline: 2px solid var(--accent-color); /* Accessible focus state */
+  outline-offset: 2px;
 }
 
-/* Responsive Adjustments */
+/* Prevent image hover effect from triggering independently */
+.service-card:hover .service-card-img {
+  transform: none; /* Override existing image hover to avoid double scaling */
+}
+
+/* Mobile active state for service cards */
 @media (max-width: 500px) {
-  .service-card-img {
-    height: 150px; /* Smaller height on mobile, matches .blog-card-img */
-  }
-}
-
-/* Mobile Active State for Service and Testimonial Cards */
-@media (max-width: 500px) {
-  .service-card.active {
+  .service-card:active {
     box-shadow: var(--shadow-portfolio);
-  }
-
-  .service-card.active .service-card-img {
-    transform: scale(1.02) translateY(-2px);
-  }
-
-  .testimonial-card.active {
-    box-shadow: var(--shadow-portfolio);
+    transform: translateY(-2px);
   }
 }
 
@@ -2029,7 +2035,7 @@ body.night-mode .process-icon {
   font-family: var(--font-heading);
   font-size: var(--heading-size);
   color: var(--text-color);
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: var(--space-md);
@@ -2040,7 +2046,7 @@ body.night-mode .process-icon {
   font-size: var(--text-cards);
   color: var(--secondary-text);
   letter-spacing: 0;
-  padding-left: 1.5rem;
+  padding-left: 1rem;
   margin: 0;
 }
 

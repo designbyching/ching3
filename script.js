@@ -477,16 +477,16 @@ document.addEventListener("DOMContentLoaded", () => {
   animateWord();
 });
 
-// Mobile touch/click effect for service and testimonial cards
+// Mobile touch/click effect for testimonial cards only
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".service-card, .testimonial-card");
-  cards.forEach((card) => {
+  const testimonialCards = document.querySelectorAll(".testimonial-card");
+  testimonialCards.forEach((card) => {
     card.addEventListener("click", () => {
-      console.log("Card tapped:", card.className);
+      console.log("Testimonial card tapped:", card.className);
       if (card.classList.contains("active")) {
         card.classList.remove("active");
       } else {
-        cards.forEach((c) => c.classList.remove("active"));
+        testimonialCards.forEach((c) => c.classList.remove("active"));
         card.classList.add("active");
         setTimeout(() => {
           card.classList.remove("active");
