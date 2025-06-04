@@ -519,12 +519,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Multiple Project Slideshows
+// Multiple Project and Service Slideshows
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize all slideshows
-  const slideshows = document.querySelectorAll(".project-slideshow");
+  const slideshows = document.querySelectorAll(
+    ".project-slideshow, .service-slideshow"
+  );
   slideshows.forEach((slideshow, slideshowIndex) => {
-    const slides = slideshow.querySelectorAll(".project-slide");
+    const isServiceSlideshow =
+      slideshow.classList.contains("service-slideshow");
+    const slideSelector = isServiceSlideshow
+      ? ".service-slide"
+      : ".project-slide";
+    const slides = slideshow.querySelectorAll(slideSelector);
     const dots = slideshow.querySelectorAll(".slideshow-dots .dot");
     let currentIndex = 0;
     let intervalId = null;
@@ -547,7 +554,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       currentIndex = index;
       console.log(
-        `Slideshow ${slideshowIndex + 1} showing slide ${currentIndex}`
+        `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+          slideshowIndex + 1
+        } showing slide ${currentIndex + 1}`
       );
     }
 
@@ -556,13 +565,21 @@ document.addEventListener("DOMContentLoaded", () => {
       intervalId = setInterval(() => {
         showSlide(currentIndex + 1);
       }, 3000);
-      console.log(`Slideshow ${slideshowIndex + 1} started`);
+      console.log(
+        `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+          slideshowIndex + 1
+        } started`
+      );
     }
 
     // Pause slideshow temporarily for interactions
     function pauseSlideshow() {
       clearInterval(intervalId);
-      console.log(`Slideshow ${slideshowIndex + 1} paused temporarily`);
+      console.log(
+        `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+          slideshowIndex + 1
+        } paused temporarily`
+      );
     }
 
     // Resume slideshow
@@ -579,7 +596,9 @@ document.addEventListener("DOMContentLoaded", () => {
         showSlide(index);
         resumeSlideshow();
         console.log(
-          `Slideshow ${slideshowIndex + 1} dot clicked, index: ${index}`
+          `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+            slideshowIndex + 1
+          } dot clicked, index: ${index}`
         );
       });
     });
@@ -590,7 +609,11 @@ document.addEventListener("DOMContentLoaded", () => {
       startY = e.touches[0].clientY; // Capture vertical position
       isDragging = true;
       pauseSlideshow();
-      console.log(`Slideshow ${slideshowIndex + 1} touch started`);
+      console.log(
+        `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+          slideshowIndex + 1
+        } touch started`
+      );
     });
 
     slideshow.addEventListener("touchmove", (e) => {
@@ -601,7 +624,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const deltaY = Math.abs(startY - currentY);
       // Only prevent default if horizontal movement dominates (swipe)
       if (deltaX > deltaY && deltaX > 10) {
-        // Threshold to avoid jitter
         e.preventDefault(); // Block scrolling for horizontal swipe
       }
     });
@@ -615,11 +637,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (deltaX > 0) {
           // Swipe left (next)
           showSlide(currentIndex + 1);
-          console.log(`Slideshow ${slideshowIndex + 1} swiped left`);
+          console.log(
+            `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+              slideshowIndex + 1
+            } swiped left`
+          );
         } else {
           // Swipe right (previous)
           showSlide(currentIndex - 1);
-          console.log(`Slideshow ${slideshowIndex + 1} swiped right`);
+          console.log(
+            `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+              slideshowIndex + 1
+            } swiped right`
+          );
         }
       }
       resumeSlideshow();
@@ -631,7 +661,11 @@ document.addEventListener("DOMContentLoaded", () => {
       isDragging = true;
       pauseSlideshow();
       slideshow.style.cursor = "grabbing";
-      console.log(`Slideshow ${slideshowIndex + 1} mouse drag started`);
+      console.log(
+        `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+          slideshowIndex + 1
+        } mouse drag started`
+      );
       e.preventDefault(); // Prevent text selection
     });
 
@@ -649,11 +683,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (deltaX > 0) {
           // Drag left (next)
           showSlide(currentIndex + 1);
-          console.log(`Slideshow ${slideshowIndex + 1} dragged left`);
+          console.log(
+            `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+              slideshowIndex + 1
+            } dragged left`
+          );
         } else {
           // Drag right (previous)
           showSlide(currentIndex - 1);
-          console.log(`Slideshow ${slideshowIndex + 1} dragged right`);
+          console.log(
+            `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+              slideshowIndex + 1
+            } dragged right`
+          );
         }
       }
       resumeSlideshow();
@@ -679,7 +721,11 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentIndex);
     startSlideshow(); // Start auto immediately
     slideshow.style.cursor = "grab";
-    console.log(`Slideshow ${slideshowIndex + 1} initialized`);
+    console.log(
+      `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
+        slideshowIndex + 1
+      } initialized`
+    );
   });
 });
 

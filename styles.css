@@ -2003,6 +2003,51 @@ body.night-mode .process-icon {
   transition: transform 0.3s ease;
 }
 
+/* Service Slideshow */
+.service-slideshow {
+  position: relative;
+  width: 100%;
+
+  aspect-ratio: 3 / 2; /* Matches .project-slideshow */
+  margin: 0;
+  background: var(--card-bg); /* Fallback for loading */
+  user-select: none; /* Prevent selection during drag */
+  -webkit-user-drag: none; /* Prevent image dragging */
+  touch-action: pan-y; /* Allow vertical scrolling */
+  border-bottom: 1px solid var(--border-color); /* Matches .service-hero-img */
+  overflow: hidden;
+  border-radius: 3px 3px 0 0; /* Matches .service-section */
+}
+
+/* Reuse .project-slide for .service-slide */
+.service-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.service-slide.active {
+  opacity: 1;
+}
+
+/* Reuse existing .slideshow-controls, .swipe-icon, .slideshow-dots, .dot 
+@media (max-width: 800px) {
+  .service-slideshow {
+    height: 400px; 
+  }
+}
+
+@media (max-width: 500px) {
+  .service-slideshow {
+    height: 300px;
+  }
+}
+
 /*.service-section:hover .service-hero-img {
   transform: scale(1.05);
 }*/
@@ -2084,13 +2129,13 @@ body.night-mode .process-icon {
   }
 
   .service-image {
-    height: 500px;
+    height: 400px;
   }
 }
 
 @media (max-width: 500px) {
   .service-image {
-    height: 400px;
+    height: 300px;
   }
 
   .service-details .button-1 {
@@ -2163,21 +2208,22 @@ body.night-mode .process-icon {
 /* Slideshow Controls */
 .slideshow-controls {
   position: absolute;
-  bottom: var(--space-lg); /* Matches existing padding */
-  left: var(--space-lg);
-  right: var(--space-lg);
+  bottom: var(--space-md); /* Reduce from 2rem to 1rem to stay inside */
+  left: var(--space-md); /* 1rem padding */
+  right: var(--space-md);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 24px; /* Matches dot height */
+  height: 24px;
   z-index: 5;
+  background: transparent; /* Ensure no white background */
 }
 
 /* Swipe Icon */
 .swipe-icon {
   width: 24px; /* Matches control height */
   height: 24px;
-  opacity: 0.7; /* Slightly faded for subtlety */
+  /* opacity: 0.7; Slightly faded for subtlety */
   transition: opacity 0.3s ease;
 }
 
@@ -2190,6 +2236,7 @@ body.night-mode .process-icon {
   display: flex;
   gap: var(--space-md); /* Matches existing spacing */
   align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 .dot {
