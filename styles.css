@@ -369,6 +369,19 @@ input:checked + .slider:before {
   margin-right: auto; /* Center within container */
 }
 
+/* Intro Text Container */
+.intro-text-container {
+  max-width: 800px; /* 2/3 of 1200px */
+  margin: 0; /* Align with intro-content */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 800px) {
+  .intro-text-container {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+}
+
 /* About Section (Matches Mission) */
 .about {
   padding: var(--space-lg) 0;
