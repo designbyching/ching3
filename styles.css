@@ -1682,38 +1682,56 @@ body.night-mode .process-icon {
 }
 
 /* Word Cycle Animation */
-/* Word Cycle Animation */
 .word-cycle {
   display: inline-block;
   min-width: 200px; /* Accommodates "TRANSFORM BRANDS" */
   text-align: left;
   color: var(--text-color);
   opacity: 0; /* Hide initially */
-  transform: translateY(20px); /* Start below */
-  transition: opacity 0.5s ease, color 0.5s ease, transform 0.5s ease;
+  white-space: nowrap; /* Prevent wrapping */
+  position: relative; /* For cursor positioning */
+  font-family: inherit; /* Match heading font */
 }
-.word-cycle.fade {
-  opacity: 0;
+
+.word-cycle.typing {
+  opacity: 1; /* Show when typing starts */
+}
+
+/* Blinking cursor */
+.word-cycle::after {
+  content: "|";
+  display: inline-block;
   color: var(--accent-color); /* Yellow (#dfb011) */
+  margin-left: 2px;
+  animation: blink 0.7s step-end infinite;
+  opacity: 0; /* Hidden initially */
 }
-.word-cycle.slide-up {
-  animation: slideUp 0.5s ease-in-out forwards; /* 0.5s slide-up */
+
+.word-cycle.typing::after {
+  opacity: 1; /* Show cursor when typing */
 }
-@keyframes slideUp {
-  0% {
+
+@keyframes blink {
+  50% {
     opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
-/* Reset for fade transitions after initial animation */
-.word-cycle.cycled {
-  animation: none; /* Clear animation */
-  opacity: 1; /* Default for fade transitions */
-  transform: translateY(0);
+
+/* Ensure layout stability */
+.heading-large {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+@media (min-width: 501px) {
+  .heading-large {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .heading-large {
+    font-size: 1.2rem;
+  }
 }
 
 /* FAQs Section (Unchanged) */

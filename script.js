@@ -397,52 +397,84 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const words = [
-    "DEFINE.",
-    "INSPIRE.",
-    "RESONATE.",
-    "INFLUENCE.",
-    "ENDURE.",
-    "LAST.",
-  ];
+  const words = ["UNFORGETTABLE.", "CONNECT THE DOTS.", "LAST."];
   let currentIndex = 0;
+  let isFirstLoad = true;
 
-  function changeWord(isFirstLoad = false) {
+  function typeWord(text, callback) {
+    let i = 0;
+    wordCycle.textContent = "";
+    wordCycle.classList.add("typing");
+    const typeInterval = setInterval(() => {
+      if (i < text.length) {
+        wordCycle.textContent += text[i];
+        i++;
+      } else {
+        clearInterval(typeInterval);
+        console.log("Typed:", text);
+        callback();
+      }
+    }, 100); // 100ms per letter
+  }
+
+  function deleteWord(text, callback) {
+    let i = text.length;
+    const deleteInterval = setInterval(() => {
+      if (i > 0) {
+        wordCycle.textContent = text.substring(0, i - 1);
+        i--;
+      } else {
+        clearInterval(deleteInterval);
+        wordCycle.classList.remove("typing");
+        console.log("Deleted:", text);
+        callback();
+      }
+    }, 100); // 100ms per letter
+  }
+
+  function animateWord() {
     if (isFirstLoad) {
-      // Slide up "LAST." after 1 second
+      isFirstLoad = false;
+      // Start typing "LAST." after 1 second
       setTimeout(() => {
-        wordCycle.classList.add("slide-up");
-        console.log("Sliding up 'LAST.' after 1s delay");
+        console.log("Starting to type 'LAST.'");
+        typeWord("LAST.", () => {
+          // Display for 3 seconds, then delete
+          setTimeout(() => {
+            deleteWord("LAST.", () => {
+              // Start cycling words
+              cycleWords();
+            });
+          }, 3000);
+        });
       }, 1000);
-      // Transition to first word after 3 seconds
-      setTimeout(() => {
-        wordCycle.classList.remove("slide-up");
-        wordCycle.classList.add("cycled"); // Enable fade transitions
-        console.log("Removing slide-up, starting fade cycle with cycled class");
-        changeWord(); // Show first word
-        // Start cycling after initial sequence
-        setInterval(() => {
-          console.log("Cycling to next word");
-          changeWord();
-        }, 3000);
-      }, 4000); // 1s delay + 3s display
       return;
     }
 
-    // Fade animation for subsequent words
-    console.log("Fading to next word:", words[currentIndex]);
-    wordCycle.classList.add("fade");
+    // Cycle through words
+    const currentWord = words[currentIndex];
+    typeWord(currentWord, () => {
+      // Display for ~1.5s (adjusted for 3s cycle)
+      setTimeout(() => {
+        deleteWord(currentWord, () => {
+          currentIndex = (currentIndex + 1) % words.length;
+          cycleWords();
+        });
+      }, 1500);
+    });
+  }
+
+  function cycleWords() {
+    // Ensure 3-second cycle
     setTimeout(() => {
-      wordCycle.textContent = words[currentIndex];
-      wordCycle.classList.remove("fade");
-      currentIndex = (currentIndex + 1) % words.length;
-      console.log("Changed word to:", wordCycle.textContent);
-    }, 500); // 0.5s fade duration matches CSS
+      console.log("Cycling to next word");
+      animateWord();
+    }, 100); // Small delay to avoid overlap
   }
 
   // Start animation
   console.log("Starting word cycle animation");
-  changeWord(true);
+  animateWord();
 });
 
 // Mobile touch/click effect for service and testimonial cards
