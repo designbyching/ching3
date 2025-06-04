@@ -757,3 +757,77 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Intersection Observer for intro testimonials animation
+  const introTestimonials = document.querySelector(".intro-testimonials");
+  const testimonialCircles = document.querySelectorAll(".testimonial-circle");
+  const happyClients = document.querySelector(".happy-clients");
+  const happyClientsNumber = document.querySelector(".happy-clients-number");
+
+  if (!introTestimonials || !happyClients || !happyClientsNumber) {
+    console.warn(
+      "Intro testimonials, happy clients, or happy clients number element not found"
+    );
+    return;
+  }
+
+  // Function to animate the counting from 0 to target
+  function animateCountUp(element, target, duration) {
+    let start = 0;
+    const increment = target / (duration / 16); // ~60fps (16ms per frame)
+    const startTime = performance.now();
+
+    function updateCount(timestamp) {
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1); // Clamp to 1
+      const current = Math.floor(progress * target);
+      element.textContent = current;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        element.textContent = target; // Ensure final value is exact
+        console.log(`Finished counting to ${target}`);
+      }
+    }
+
+    requestAnimationFrame(updateCount);
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log("Intro testimonials section is intersecting");
+          // Add animate class to circles with staggered delays
+          testimonialCircles.forEach((circle, index) => {
+            setTimeout(() => {
+              circle.classList.add("animate");
+              console.log(`Circle ${index + 1} animated at ${index * 200}ms`);
+            }, index * 200); // 200ms delay between each circle
+          });
+
+          // Add animate class to happy-clients and start counting after all circles
+          const circleAnimationDelay = testimonialCircles.length * 200; // 5 * 200ms = 1000ms
+          setTimeout(() => {
+            happyClients.classList.add("animate");
+            const targetNumber = parseInt(
+              happyClientsNumber.getAttribute("data-target"),
+              10
+            );
+            animateCountUp(happyClientsNumber, targetNumber, 1500); // Count up over 1.5 seconds
+            console.log(
+              `Happy Clients animated and counting started after ${circleAnimationDelay}ms`
+            );
+          }, circleAnimationDelay);
+
+          observer.unobserve(entry.target); // Stop observing after animation
+        }
+      });
+    },
+    { threshold: 0.5 } // Trigger when 50% of the section is in view
+  );
+
+  observer.observe(introTestimonials);
+});

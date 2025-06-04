@@ -382,6 +382,189 @@ input:checked + .slider:before {
   }
 }
 
+/* Intro Testimonials Container */
+.intro-testimonials {
+  margin-top: var(--space-lg); /* 2rem spacing below paragraph */
+}
+
+/* Testimonial Row (Images + Text) */
+.testimonial-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align with intro-content */
+  gap: var(--space-sm); /* Small gap between images and text */
+}
+
+/* Testimonial Images Container */
+.testimonial-images-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 132px; /* Approximate width for 5 overlapping 33px images */
+  height: 33px; /* Matches new circle size */
+  text-decoration: none; /* Remove underline from link */
+}
+
+/* Testimonial Circle Images */
+.testimonial-circle {
+  width: 33px; /* Slightly larger than process-icon (27px) */
+  height: 33px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  position: absolute;
+  opacity: 0; /* Hidden initially for animation */
+  transition: transform 0.8s ease, opacity 0.8s ease; /* Easing animation */
+}
+
+/* Overlapping Positions for 5 Circles */
+.testimonial-circle-1 {
+  left: 0;
+  z-index: 5;
+}
+
+.testimonial-circle-2 {
+  left: 22px; /* Overlap by ~1/3 of 33px (~11px visible per overlap) */
+  z-index: 4;
+}
+
+.testimonial-circle-3 {
+  left: 44px;
+  z-index: 3;
+}
+
+.testimonial-circle-4 {
+  left: 66px;
+  z-index: 2;
+}
+
+.testimonial-circle-5 {
+  left: 88px;
+  z-index: 1;
+}
+
+/* Animation for Circles (Slide from Right to Left) */
+.testimonial-circle-1.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.testimonial-circle-1 {
+  transform: translateX(150px); /* Start off-screen to the right */
+}
+
+.testimonial-circle-2.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.testimonial-circle-2 {
+  transform: translateX(172px); /* Staggered start positions */
+}
+
+.testimonial-circle-3.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.testimonial-circle-3 {
+  transform: translateX(194px);
+}
+
+.testimonial-circle-4.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.testimonial-circle-4 {
+  transform: translateX(216px);
+}
+
+.testimonial-circle-5.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.testimonial-circle-5 {
+  transform: translateX(238px);
+}
+
+/* Hover Effect for Testimonial Images */
+.testimonial-images-container:hover .testimonial-circle {
+  opacity: 0.8; /* Slight fade on hover, similar to process-icon */
+}
+
+/* 100+ Happy Clients Text */
+.happy-clients {
+  visibility: hidden; /* Completely hide initially */
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.8s ease, visibility 0s linear; /* Fade in with easing */
+}
+
+.happy-clients.animate {
+  visibility: visible; /* Show when animated */
+  opacity: 0.7; /* Matches spaced-uppercase opacity */
+  transition: opacity 0.8s ease, visibility 0s linear; /* Smooth transition */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .testimonial-row {
+    gap: var(--space-xs); /* Smaller gap on mobile */
+  }
+
+  .testimonial-images-container {
+    width: 100px; /* Adjusted for smaller circles */
+    height: 25px;
+  }
+
+  .testimonial-circle {
+    width: 25px; /* Smaller size for mobile */
+    height: 25px;
+  }
+
+  .testimonial-circle-1 {
+    left: 0;
+  }
+
+  .testimonial-circle-2 {
+    left: 16px; /* Adjusted overlap for 25px circles */
+  }
+
+  .testimonial-circle-3 {
+    left: 32px;
+  }
+
+  .testimonial-circle-4 {
+    left: 48px;
+  }
+
+  .testimonial-circle-5 {
+    left: 64px;
+  }
+
+  /* Adjust animation start positions for smaller size */
+  .testimonial-circle-1 {
+    transform: translateX(120px);
+  }
+
+  .testimonial-circle-2 {
+    transform: translateX(136px);
+  }
+
+  .testimonial-circle-3 {
+    transform: translateX(152px);
+  }
+
+  .testimonial-circle-4 {
+    transform: translateX(168px);
+  }
+
+  .testimonial-circle-5 {
+    transform: translateX(184px);
+  }
+}
+
 /* About Section (Matches Mission) */
 .about {
   padding: var(--space-lg) 0;
