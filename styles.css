@@ -331,7 +331,7 @@ input:checked + .slider:before {
 /* Intro Section */
 .intro {
   position: relative;
-  padding: 72px var(--intro-padding);
+  padding: 42px var(--intro-padding);
   text-align: left;
   /*background-image: url('assets/image-covers/SVG/intro-grid.svg')
   background-size: cover;
@@ -1090,7 +1090,7 @@ a:hover {
 
 /* Portfolio */
 .portfolio {
-  padding: var(--space-lg) 0;
+  padding: var(--space-MD) 0;
 }
 
 .grid-container {
@@ -2172,6 +2172,27 @@ body.night-mode .process-icon {
 }
 
 /* Services Section Enhancements */
+
+/* this for # links landing accuracy site wide */
+.service-section:target,
+.service-section:target::before {
+  padding-top: 0;
+  margin-top: 0;
+  content: none;
+}
+/* Add scroll padding for anchor links */
+html {
+  scroll-padding-top: calc(
+    80px + var(--container-padding)
+  ); /* Navbar height + container padding */
+}
+
+/* Ensure normal stacking (optional, for safety) */
+.service-section {
+  position: relative;
+  z-index: 1;
+}
+
 .service-section {
   margin-bottom: var(--space-xl);
   background: var(--card-bg);
