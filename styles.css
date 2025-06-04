@@ -525,12 +525,12 @@ input:checked + .slider:before {
   text-transform: uppercase;
   margin: 0 0 var(--space-lg);
   text-align: left;
-  margin-bottom: 0.5rem; /* Reduced from implicit 1rem gap */
+  margin-bottom: var(--space-sm); /* Reduced from implicit 1rem gap */
 }
 
 .service-description {
   font-family: var(--font-body);
-  font-size: var(--text-normal);
+  font-size: var(--text-size);
   color: var(--secondary-text);
   letter-spacing: 0;
   text-align: left;
@@ -1682,18 +1682,38 @@ body.night-mode .process-icon {
 }
 
 /* Word Cycle Animation */
+/* Word Cycle Animation */
 .word-cycle {
-  display: inline-block; /* Ensures the span respects text alignment */
-  min-width: 100px; /* Prevents layout shift due to varying word lengths */
-  text-align: left; /* Aligns text consistently */
-  color: var(--text-color); /* #0c0c0c light mode, #ffffff dark mode */
-  opacity: 1;
-  transition: opacity 0.5s ease, color 0.5s ease; /* Transition both opacity and color */
+  display: inline-block;
+  min-width: 200px; /* Accommodates "TRANSFORM BRANDS" */
+  text-align: left;
+  color: var(--text-color);
+  opacity: 0; /* Hide initially */
+  transform: translateY(20px); /* Start below */
+  transition: opacity 0.5s ease, color 0.5s ease, transform 0.5s ease;
 }
-
 .word-cycle.fade {
-  opacity: 0; /* Fades out during transition */
-  color: var(--accent-color); /* Yellow (#dfb011) during transition */
+  opacity: 0;
+  color: var(--accent-color); /* Yellow (#dfb011) */
+}
+.word-cycle.slide-up {
+  animation: slideUp 0.5s ease-in-out forwards; /* 0.5s slide-up */
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Reset for fade transitions after initial animation */
+.word-cycle.cycled {
+  animation: none; /* Clear animation */
+  opacity: 1; /* Default for fade transitions */
+  transform: translateY(0);
 }
 
 /* FAQs Section (Unchanged) */
@@ -1947,7 +1967,7 @@ body.night-mode .process-icon {
 
 .service-image {
   width: 100%;
-  height: 400px;
+  height: 500px;
   overflow: hidden;
 }
 
@@ -1959,9 +1979,9 @@ body.night-mode .process-icon {
   transition: transform 0.3s ease;
 }
 
-.service-section:hover .service-hero-img {
+/*.service-section:hover .service-hero-img {
   transform: scale(1.05);
-}
+}*/
 
 .service-content {
   display: flex;
@@ -2040,13 +2060,13 @@ body.night-mode .process-icon {
   }
 
   .service-image {
-    height: 300px;
+    height: 500px;
   }
 }
 
 @media (max-width: 500px) {
   .service-image {
-    height: 200px;
+    height: 400px;
   }
 
   .service-details .button-1 {

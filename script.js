@@ -398,29 +398,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const words = [
-    "TRANSFORM BRANDS",
-    "TURN HEADS",
-    "DISRUPT MARKETS",
-    "THINK BRAVE",
-    "CONNECT THE DOTS",
-    "CRACK THE CODE",
-    "IMPACT",
+    "DEFINE.",
+    "INSPIRE.",
+    "RESONATE.",
+    "INFLUENCE.",
+    "ENDURE.",
+    "LAST.",
   ];
   let currentIndex = 0;
 
-  function changeWord() {
+  function changeWord(isFirstLoad = false) {
+    if (isFirstLoad) {
+      // Slide up "LAST." after 1 second
+      setTimeout(() => {
+        wordCycle.classList.add("slide-up");
+        console.log("Sliding up 'LAST.' after 1s delay");
+      }, 1000);
+      // Transition to first word after 3 seconds
+      setTimeout(() => {
+        wordCycle.classList.remove("slide-up");
+        wordCycle.classList.add("cycled"); // Enable fade transitions
+        console.log("Removing slide-up, starting fade cycle with cycled class");
+        changeWord(); // Show first word
+        // Start cycling after initial sequence
+        setInterval(() => {
+          console.log("Cycling to next word");
+          changeWord();
+        }, 3000);
+      }, 4000); // 1s delay + 3s display
+      return;
+    }
+
+    // Fade animation for subsequent words
+    console.log("Fading to next word:", words[currentIndex]);
     wordCycle.classList.add("fade");
     setTimeout(() => {
       wordCycle.textContent = words[currentIndex];
       wordCycle.classList.remove("fade");
       currentIndex = (currentIndex + 1) % words.length;
-    }, 500);
+      console.log("Changed word to:", wordCycle.textContent);
+    }, 500); // 0.5s fade duration matches CSS
   }
 
-  setTimeout(() => {
-    changeWord();
-    setInterval(changeWord, 2000);
-  }, 3000);
+  // Start animation
+  console.log("Starting word cycle animation");
+  changeWord(true);
 });
 
 // Mobile touch/click effect for service and testimonial cards
