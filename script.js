@@ -397,7 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const words = ["UNFORGETTABLE.", "CONNECT THE DOTS.", "LAST."];
+  const words = ["UNFORGETTABLE.", "CONNECT.", "LAST."];
   let currentIndex = 0;
   let isFirstLoad = true;
 
