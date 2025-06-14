@@ -1303,18 +1303,20 @@ a:hover {
   text-underline-offset: 3px;
 }
 
+/* Slideshow */
 .slideshow {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; /* Maintains full card height */
   background: var(--card-bg);
   z-index: 2;
   opacity: 1;
   user-select: none; /* Prevent text/image selection during drag */
   -webkit-user-drag: none; /* Prevent image dragging in Safari */
   touch-action: pan-y; /* Allow vertical scrolling, block horizontal */
+  overflow: hidden; /* Ensure slides don’t overflow */
 }
 
 .slide {
@@ -1323,14 +1325,78 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease;
-  border-radius: 2px;
+  transition: opacity 0.5s ease; /* Faster transition for smoother slides */
+  display: hidden; /* Hide inactive slides */
+  border-radius: 2px; /* Matches your existing style */
 }
 
 .slide.active {
   opacity: 1;
+  display: visible; /* Show active slide */
+}
+
+.slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures SVGs and images scale correctly */
+  display: block; /* Ensures proper rendering */
+}
+
+.slideshow-prev,
+.slideshow-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent-color); /* #dfb011 from your --accent-color */
+  color: var(--bg-color); /* White in light, black in dark */
+  border: none;
+  font-size: var(--small-text-size); /* 0.7rem */
+  font-weight: 200;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  z-index: 5;
+  transition: background 0.3s ease;
+  border-top-right-radius: 9px; /* Default for prev */
+  border-bottom-right-radius: 9px;
+  border-top-left-radius: 9px; /* Default for next */
+  border-bottom-left-radius: 9px;
+}
+
+.slideshow-prev {
+  left: 0;
+  border-top-left-radius: 0; /* Remove left-side radius for prev */
+  border-bottom-left-radius: 0;
+}
+
+.slideshow-next {
+  right: 0;
+  border-top-right-radius: 0; /* Remove right-side radius for next */
+  border-bottom-right-radius: 0;
+}
+
+.slideshow-prev:hover,
+.slideshow-next:hover {
+  background: var(--text-color); /* Black in light, white in dark */
+}
+
+.grid-item-content {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+}
+
+.grid-item.expanded .grid-item-content {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
 /* Design Brief */
@@ -1435,41 +1501,6 @@ a:hover {
   .nav-toggles {
     gap: 1.25rem;
   }
-}
-
-/* Slideshow Controls */
-/* Slideshow Controls */
-.slideshow-prev,
-.slideshow-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--accent-color);
-  color: var(--bg-color);
-  border: none;
-  font-size: var(--small-text-size);
-  font-weight: 200;
-  padding: 0.5rem 0.75rem;
-  cursor: pointer;
-  z-index: 5;
-  transition: background 0.3s ease;
-}
-
-.slideshow-prev:hover,
-.slideshow-next:hover {
-  background: var(--text-color);
-}
-
-.slideshow-prev {
-  left: 0;
-  border-top-right-radius: 9px; /* Rounded top-right */
-  border-bottom-right-radius: 9px; /* Rounded bottom-right */
-}
-
-.slideshow-next {
-  right: 0;
-  border-top-left-radius: 9px; /* Rounded top-left */
-  border-bottom-left-radius: 9px; /* Rounded bottom-left */
 }
 
 /* Contact Section */
