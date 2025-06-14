@@ -331,7 +331,7 @@ input:checked + .slider:before {
 /* Intro Section */
 .intro {
   position: relative;
-  padding: 144px var(--intro-padding);
+  padding: 72px var(--intro-padding);
   text-align: left;
   /*background-image: url('assets/image-covers/SVG/intro-grid.svg')
   background-size: cover;
@@ -384,7 +384,7 @@ input:checked + .slider:before {
 
 @media (max-width: 500px) {
   .intro {
-    padding: 42px var(--intro-padding);
+    padding: 36px var(--intro-padding);
   }
 }
 
