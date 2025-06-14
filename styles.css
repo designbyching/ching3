@@ -17,8 +17,8 @@
   --secondary-text: #4d4d4d; /* Medium-grey for secondary text */
 
   /* Shadows */
-  --shadow-portfolio: 0 0 15px rgba(0, 0, 0, 0.4); /* Portfolio card hover */
-  --shadow-button: 0 0 15px rgba(0, 0, 0, 0.4); /* Button hover */
+  --shadow-portfolio: 0 0 15px rgba(0, 0, 0, 0.3); /* Portfolio card hover */
+  --shadow-button: 0 0 15px rgba(0, 0, 0, 0.3); /* Button hover */
 
   /* Font Settings */
   --font-heading: "Lato", sans-serif;
@@ -84,8 +84,8 @@ body.night-mode {
   --card-bg: #303030;
   --frost-bg: rgba(0, 0, 0, 0.8);
   --secondary-text: #cccccc;
-  --shadow-portfolio: 0 0 15px rgba(255, 196, 0, 0.4);
-  --shadow-button: 0 0 15px rgb(255, 196, 0, 0.4);
+  --shadow-portfolio: 0 0 15px rgba(255, 196, 0, 0.2);
+  --shadow-button: 0 0 15px rgb(255, 196, 0, 0.2);
 }
 
 /* Global Reset */
@@ -406,98 +406,158 @@ input:checked + .slider:before {
   position: relative;
   display: flex;
   align-items: center;
-  width: 132px; /* Approximate width for 5 overlapping 33px images */
-  height: 33px; /* Matches new circle size */
-  text-decoration: none; /* Remove underline from link */
+  width: 162px; /* Increased from 132px to accommodate 33px circles with 27px gaps (33 + 4*27 = 141px, rounded up) */
+  height: 33px; /* Matches circle size */
+  text-decoration: none; /* Unchanged */
 }
 
 /* Testimonial Circle Images */
 .testimonial-circle {
-  width: 33px; /* Slightly larger than process-icon (27px) */
+  width: 33px; /* Unchanged */
   height: 33px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--border-color);
   position: absolute;
   opacity: 0; /* Hidden initially for animation */
-  transition: transform 0.8s ease, opacity 0.8s ease; /* Easing animation */
+  transition: transform 0.8s ease, opacity 0.8s ease; /* Unchanged */
 }
 
 /* Overlapping Positions for 5 Circles */
 .testimonial-circle-1 {
-  left: 0;
+  left: 0; /* Unchanged */
   z-index: 5;
 }
 
 .testimonial-circle-2 {
-  left: 22px; /* Overlap by ~1/3 of 33px (~11px visible per overlap) */
+  left: 27px; /* Increased from 22px for more spacing */
   z-index: 4;
 }
 
 .testimonial-circle-3 {
-  left: 44px;
+  left: 54px; /* Increased from 44px (27px step) */
   z-index: 3;
 }
 
 .testimonial-circle-4 {
-  left: 66px;
+  left: 81px; /* Increased from 66px (27px step) */
   z-index: 2;
 }
 
 .testimonial-circle-5 {
-  left: 88px;
+  left: 108px; /* Increased from 88px (27px step) */
   z-index: 1;
 }
 
 /* Animation for Circles (Slide from Right to Left) */
-.testimonial-circle-1.animate {
-  opacity: 1;
-  transform: translateX(0);
+.testimonial-circle-1 {
+  transform: translateX(150px); /* Unchanged, base start position */
 }
 
-.testimonial-circle-1 {
-  transform: translateX(150px); /* Start off-screen to the right */
+.testimonial-circle-1.animate {
+  opacity: 1;
+  transform: translateX(0); /* Unchanged */
+}
+
+.testimonial-circle-2 {
+  transform: translateX(177px); /* Increased from 172px (150 + 27) */
 }
 
 .testimonial-circle-2.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0); /* Unchanged */
 }
 
-.testimonial-circle-2 {
-  transform: translateX(172px); /* Staggered start positions */
+.testimonial-circle-3 {
+  transform: translateX(204px); /* Increased from 194px (150 + 27*2) */
 }
 
 .testimonial-circle-3.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0); /* Unchanged */
 }
 
-.testimonial-circle-3 {
-  transform: translateX(194px);
+.testimonial-circle-4 {
+  transform: translateX(231px); /* Increased from 216px (150 + 27*3) */
 }
 
 .testimonial-circle-4.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0); /* Unchanged */
 }
 
-.testimonial-circle-4 {
-  transform: translateX(216px);
+.testimonial-circle-5 {
+  transform: translateX(258px); /* Increased from 238px (150 + 27*4) */
 }
 
 .testimonial-circle-5.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0); /* Unchanged */
 }
 
-.testimonial-circle-5 {
-  transform: translateX(238px);
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .testimonial-images-container {
+    width: 120px; /* Increased from 100px for 25px circles with 20px gaps (25 + 4*20 = 105px, rounded up) */
+    height: 25px; /* Unchanged */
+  }
+
+  .testimonial-circle {
+    width: 25px; /* Unchanged */
+    height: 25px; /* Unchanged */
+  }
+
+  .testimonial-circle-1 {
+    left: 0; /* Unchanged */
+  }
+
+  .testimonial-circle-2 {
+    left: 20px; /* Increased from 16px for more spacing */
+  }
+
+  .testimonial-circle-3 {
+    left: 40px; /* Increased from 32px (20px step) */
+  }
+
+  .testimonial-circle-4 {
+    left: 60px; /* Increased from 48px (20px step) */
+  }
+
+  .testimonial-circle-5 {
+    left: 80px; /* Increased from 64px (20px step) */
+  }
+
+  /* Adjust animation start positions for smaller size */
+  .testimonial-circle-1 {
+    transform: translateX(120px); /* Unchanged */
+  }
+
+  .testimonial-circle-2 {
+    transform: translateX(140px); /* Increased from 136px (120 + 20) */
+  }
+
+  .testimonial-circle-3 {
+    transform: translateX(160px); /* Increased from 152px (120 + 20*2) */
+  }
+
+  .testimonial-circle-4 {
+    transform: translateX(180px); /* Increased from 168px (120 + 20*3) */
+  }
+
+  .testimonial-circle-5 {
+    transform: translateX(200px); /* Increased from 184px (120 + 20*4) */
+  }
 }
 
 /* Hover Effect for Testimonial Images */
 .testimonial-images-container:hover .testimonial-circle {
-  opacity: 0.8; /* Slight fade on hover, similar to process-icon */
+  transform: scale(1.1); /* Subtle zoom on hover */
+  transition: transform 0.5s ease-in, box-shadow 0.5s ease-in;
+  box-shadow: var(--shadow-portfolio); /* Add drop shadow */
+}
+
+body.night-mode .testimonial-images-container:hover .testimonial-circle {
+  box-shadow: 0 0 15px rgba(223, 176, 17, 0.2); /* 50% transparent accent shadow */
 }
 
 /* 100+ Happy Clients Text */
@@ -516,58 +576,58 @@ input:checked + .slider:before {
 /* Responsive Adjustments */
 @media (max-width: 500px) {
   .testimonial-row {
-    gap: var(--space-xs); /* Smaller gap on mobile */
+    gap: var(--space-xs); /* Unchanged: Smaller gap on mobile */
   }
 
   .testimonial-images-container {
-    width: 100px; /* Adjusted for smaller circles */
-    height: 25px;
+    width: 120px; /* Increased from 100px for 25px circles with 20px gaps (25 + 4*20 = 105px, rounded up) */
+    height: 25px; /* Unchanged */
   }
 
   .testimonial-circle {
-    width: 25px; /* Smaller size for mobile */
-    height: 25px;
+    width: 25px; /* Unchanged: Smaller size for mobile */
+    height: 25px; /* Unchanged */
   }
 
   .testimonial-circle-1 {
-    left: 0;
+    left: 0; /* Unchanged */
   }
 
   .testimonial-circle-2 {
-    left: 16px; /* Adjusted overlap for 25px circles */
+    left: 20px; /* Increased from 16px for more spacing */
   }
 
   .testimonial-circle-3 {
-    left: 32px;
+    left: 40px; /* Increased from 32px (20px step) */
   }
 
   .testimonial-circle-4 {
-    left: 48px;
+    left: 60px; /* Increased from 48px (20px step) */
   }
 
   .testimonial-circle-5 {
-    left: 64px;
+    left: 80px; /* Increased from 64px (20px step) */
   }
 
   /* Adjust animation start positions for smaller size */
   .testimonial-circle-1 {
-    transform: translateX(120px);
+    transform: translateX(120px); /* Unchanged: Base start position */
   }
 
   .testimonial-circle-2 {
-    transform: translateX(136px);
+    transform: translateX(140px); /* Increased from 136px (120 + 20) */
   }
 
   .testimonial-circle-3 {
-    transform: translateX(152px);
+    transform: translateX(160px); /* Increased from 152px (120 + 20*2) */
   }
 
   .testimonial-circle-4 {
-    transform: translateX(168px);
+    transform: translateX(180px); /* Increased from 168px (120 + 20*3) */
   }
 
   .testimonial-circle-5 {
-    transform: translateX(184px);
+    transform: translateX(200px); /* Increased from 184px (120 + 20*4) */
   }
 }
 
