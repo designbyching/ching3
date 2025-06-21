@@ -2741,3 +2741,60 @@ html {
     padding: 0.4rem 0.8rem; /* Matches filter-button mobile */
   }
 }
+
+/* Portfolio Testimonials */
+.portfolio-testimonials {
+  margin-top: var(--space-lg); /* 2rem spacing above testimonial */
+  text-align: left; /* Ensure left alignment */
+}
+
+.portfolio-testimonial-quote {
+  font-family: var(--font-body);
+  font-size: var(--text-normal); /* 0.9rem */
+  color: var(--text-color);
+  font-style: italic; /* Matches previous testimonial style */
+  margin: 0 0 var(--space-md); /* 1rem below quote */
+}
+
+.portfolio-testimonial-author-container {
+  display: flex;
+  align-items: center; /* Vertically align image and text */
+  gap: var(--space-md); /* 1rem between image and text */
+}
+
+.portfolio-testimonial-image {
+  width: 50px; /* Matches previous mobile size */
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.portfolio-testimonial-author-info {
+  display: flex;
+  flex-direction: column; /* Stack name and position */
+  gap: var(--space-sm); /* 0.1rem between name and position */
+}
+
+.portfolio-testimonial-author {
+  font-family: var(--font-body);
+  font-size: var(--small-text-size); /* 0.7rem */
+  color: var(--text-color);
+  text-transform: uppercase; /* Matches previous style */
+  margin: 0;
+}
+
+.portfolio-testimonial-company {
+  font-family: var(--font-body);
+  font-size: calc(var(--small-text-size) - 0.05rem); /* ~0.65rem */
+  color: var(--secondary-text); /* Matches previous style */
+  margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .portfolio-testimonial-image {
+    width: 40px; /* Slightly smaller for mobile */
+    height: 40px;
+  }
+}
