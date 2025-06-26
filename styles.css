@@ -1409,6 +1409,7 @@ a:hover {
   top: 50%;
   transform: translateY(-50%);
   background: var(--accent-color); /* #dfb011 from your --accent-color */
+  /* altrenative background: rgba(255, 255, 255, 0.5); /* Frosted white, not from --frost-bg */
   color: var(--bg-color); /* White in light, black in dark */
   border: none;
   font-size: var(--small-text-size); /* 0.7rem */
