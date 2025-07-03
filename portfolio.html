@@ -89,43 +89,675 @@
       <section class="portfolio" id="portfolio">
         <div class="container">
           <h2>Our Portfolio:</h2>
-          <!-- Filter Buttons -->
-          <div class="portfolio-filters">
-            <button
-              class="filter-button active"
-              data-filter="all"
-              aria-pressed="true"
-            >
-              All
-            </button>
-            <button
-              class="filter-button"
-              data-filter="logo-design"
-              aria-pressed="false"
-            >
-              Logo Design
-            </button>
-            <button
-              class="filter-button"
-              data-filter="branding"
-              aria-pressed="false"
-            >
-              Branding
-            </button>
-            <button
-              class="filter-button"
-              data-filter="ui-ux"
-              aria-pressed="false"
-            >
-              UI/UX
-            </button>
-          </div>
           <div class="grid-container">
-            <!-- Portfolio Card 1 -->
+            <!-- Zhai Associates -->
+            <article
+              class="card grid-item"
+              data-project="zhai-associates"
+              role="button"
+              aria-label="Toggle Zhai and Associates slideshow"
+            >
+              <picture>
+                <source
+                  srcset="
+                    assets/clients/zhai-associates/zhai-card/raymond-zhai.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="assets/clients/zhai-associates/zhai-card/raymond-zhai.jpg"
+                  alt="Zhai Associates Brand Design Project Cover Image"
+                  class="project-image"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card-header">
+                <span class="project-title">The Criminal Lawyer</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/zhai-associates.html" class="view-item"
+                    >VIEW PROJECT</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/zhai-associates/zhai-card/zhai-associate-1.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/zhai-associates/zhai-card/zhai-associate-1.jpg"
+                      alt="Zhai Associates project image"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/zhai-associates/zhai-card/drugs-offences.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/zhai-associates/zhai-card/drugs-offences.jpg"
+                      alt="Zhai Associates drugs offences design"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/zhai-associates/zhai-card/bail-services.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/zhai-associates/zhai-card/bail-services.jpg"
+                      alt="Zhai Associates bail services design"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Ozstream -->
+            <article
+              class="card grid-item"
+              data-project="ozstream"
+              role="button"
+              aria-label="Toggle Ozstream slideshow"
+            >
+              <picture>
+                <source
+                  srcset="
+                    assets/clients/ozstream/ozstream-card/ozstream-cover.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="assets/clients/ozstream/ozstream-card/ozstream-cover.jpg"
+                  alt="Ozstream Brand Design Project"
+                  class="project-image"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card-header">
+                <span class="project-title">Empowering Australians</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/ozstream.html" class="view-item"
+                    >VIEW PROJECT</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/ozstream/ozstream-card/ozstream-user-experience.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/ozstream/ozstream-card/ozstream-user-experience.jpg"
+                      alt="Ozstream user experience design"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/ozstream/ozstream-card/ozstream-promotional-poster.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/ozstream/ozstream-card/ozstream-promotional-poster.jpg"
+                      alt="Ozstream promotional poster"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/ozstream/ozstream-card/ozstream-tshirt-1.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/ozstream/ozstream-card/ozstream-tshirt-1.jpg"
+                      alt="Ozstream t-shirt design"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Petti Petti -->
+            <article
+              class="card grid-item"
+              data-project="petti-petti"
+              role="button"
+              aria-label="Toggle Petti Petti project slideshow"
+            >
+              <picture>
+                <source
+                  srcset="
+                    assets/clients/petti-petti/petti-card/pett-petti-mirissa-brand-identity-design.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="assets/clients/petti-petti/petti-card/pett-petti-mirissa-brand-identity-design.jpg"
+                  alt="Petti Petti Mirissa Brand Identity Design"
+                  class="project-image"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card-header">
+                <span class="project-title">Creating Destinations</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/petti-petti.html" class="view-item"
+                    >VIEW PROJECT</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/petti-petti/petti-card/petti-petti-mirissa-restaurant-bar-&-pool.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/petti-petti/petti-card/petti-petti-mirissa-restaurant-bar-&-pool.jpg"
+                      alt="Petti Petti Mirissa Restaurant Bar & Pool"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/petti-petti/petti-card/pett-petti-mirissa-live-music.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/petti-petti/petti-card/pett-petti-mirissa-live-music.jpg"
+                      alt="Petti Petti Mirissa Live Music"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/petti-petti/petti-card/pett-petti-restaurant-&-bar-night-vibes.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/petti-petti/petti-card/pett-petti-restaurant-&-bar-night-vibes.jpg"
+                      alt="Petti Petti Restaurant & Bar Night Vibes"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Alpha Vet Clinic -->
+            <article
+              class="card grid-item"
+              data-project="alpha-vet-clinic"
+              role="button"
+              aria-label="Toggle Alpha Vet Clinic project slideshow"
+            >
+              <picture>
+                <source
+                  srcset="
+                    assets/clients/alpha-vet-clinic/alpha-vet-card/alpha-vet-clinic-ambulance.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="assets/clients/alpha-vet-clinic/alpha-vet-card/alpha-vet-clinic-ambulance.jpg"
+                  alt="Alpha Vet Clinic Dubai ambulance vehicle branding design"
+                  class="project-image"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card-header">
+                <span class="project-title">Alpha Vet Dubai</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/alpha-vet-clinic.html" class="view-item"
+                    >VIEW PROJECT</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/alpha-vet-clinic/alpha-vet-card/i-need-a-dogtor.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/alpha-vet-clinic/alpha-vet-card/i-need-a-dogtor.jpg"
+                      alt="I Need a Dogtor"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/alpha-vet-clinic/alpha-vet-card/alpha-vet-clinic-uniform.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/alpha-vet-clinic/alpha-vet-card/alpha-vet-clinic-uniform.jpg"
+                      alt="Alpha Vet Clinic Uniform"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/alpha-vet-clinic/alpha-vet-card/dr-karim-ragab-alpha-vet-uniform.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/alpha-vet-clinic/alpha-vet-card/dr-karim-ragab-alpha-vet-uniform.jpg"
+                      alt="Dr Karim Ragab Alpha Vet Uniform"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Walaan Skin -->
+            <article
+              class="card grid-item"
+              data-project="walaan-skin"
+              role="button"
+              aria-label="Toggle Walaan Skin project slideshow"
+            >
+              <picture>
+                <source
+                  srcset="
+                    assets/clients/walaan-skin/walaan-card/walaan-skin-logo-design.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="assets/clients/walaan-skin/walaan-card/walaan-skin-logo-design.jpg"
+                  alt="Walaan Skin Logo Design"
+                  class="project-image"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card-header">
+                <span class="project-title">Product Design</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/walaan-skin.html" class="view-item"
+                    >VIEW PROJECT</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/walaan-skin/walaan-card/walaan-skin-brand-identity-design.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/walaan-skin/walaan-card/walaan-skin-brand-identity-design.jpg"
+                      alt="Walaan Skin Brand Identity Design"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/walaan-skin/walaan-card/walaan-skin-cosmetics-bottle-design.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/walaan-skin/walaan-card/walaan-skin-cosmetics-bottle-design.jpg"
+                      alt="Walaan Skin Cosmetics Bottle Design"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/walaan-skin/walaan-card/walaan-skin-packaging-design.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/walaan-skin/walaan-card/walaan-skin-packaging-design.jpg"
+                      alt="Walaan Skin Packaging Design"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- The Software Firm -->
+            <article
+              class="card grid-item"
+              data-project="the-software-firm"
+              role="button"
+              aria-label="Toggle The Software Firm project slideshow"
+            >
+              <picture>
+                <source
+                  srcset="
+                    assets/clients/the-software-firm/tsf-card/the-software-firm-brand-identity-design.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="assets/clients/the-software-firm/tsf-card/the-software-firm-brand-identity-design.jpg"
+                  alt="The Software Firm Brand Identity Design"
+                  class="project-image"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card-header">
+                <span class="project-title">Branding Tech</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/the-software-firm.html" class="view-item"
+                    >VIEW PROJECT</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/the-software-firm/tsf-card/the-software-firm-employee-badge.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/the-software-firm/tsf-card/the-software-firm-employee-badge.jpg"
+                      alt="The Software Firm Employee Badge"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/the-software-firm/tsf-card/the-software-firm-apple-watch.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/the-software-firm/tsf-card/the-software-firm-apple-watch.jpg"
+                      alt="The Software Firm Apple Watch"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/the-software-firm/tsf-card/the-software-firm-posters.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/the-software-firm/tsf-card/the-software-firm-posters.jpg"
+                      alt="The Software Firm Posters"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- FHIIT -->
+            <article
+              class="card grid-item"
+              data-project="fhiit"
+              role="button"
+              aria-label="Toggle FHIIT project slideshow"
+            >
+              <img
+                src="assets/clients/fhiit/fhiit-card/fhiit-brand-identity-design-cover.webp"
+                alt="FHIIT Brand Identity Design Cover"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Get Fhiit</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/fhiit.html" class="view-item"
+                    >VIEW PROJECT</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/fhiit/fhiit-card/fhiit-fist-pump-cover.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/fhiit/fhiit-card/fhiit-fist-pump-cover.jpg"
+                      alt="FHIIT Fist Pump Cover"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/fhiit/fhiit-card/fhiit-team-work-cover.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/fhiit/fhiit-card/fhiit-team-work-cover.jpg"
+                      alt="FHIIT Team Work Cover"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/fhiit/fhiit-card/fhiit-dumbbells-cover.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/fhiit/fhiit-card/fhiit-dumbbells-cover.jpg"
+                      alt="FHIIT Dumbbells Cover"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Upkeep and Co -->
+            <article
+              class="card grid-item"
+              data-project="upkeep-and-co"
+              role="button"
+              aria-label="Toggle Upkeep and Co project slideshow"
+            >
+              <picture>
+                <source
+                  srcset="
+                    assets/clients/upkeep-and-co/upkeep-card/upkeep-and-co-book-online-cover.webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="assets/clients/upkeep-and-co/upkeep-card/upkeep-and-co-book-online-cover.jpg"
+                  alt="Upkeep and Co Book Online Cover – Cleaning Sydney Brand Identity Project"
+                  class="project-image"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="card-header">
+                <span class="project-title">Cleaning Sydney</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/upkeep-and-co.html" class="view-item"
+                    >VIEW PROJECT</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/upkeep-and-co/upkeep-card/upkeep-and-co-book-online-cover.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/upkeep-and-co/upkeep-card/upkeep-and-co-book-online-cover.jpg"
+                      alt="Upkeep and Co Book Online Cover"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/upkeep-and-co/upkeep-card/upkeep-and-co-cleaning-brush.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/upkeep-and-co/upkeep-card/upkeep-and-co-cleaning-brush.jpg"
+                      alt="Upkeep and Co Cleaning Brush"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <picture>
+                    <source
+                      srcset="
+                        assets/clients/upkeep-and-co/upkeep-card/upkeep-and-co-staff-uniforms-cover.webp
+                      "
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/clients/upkeep-and-co/upkeep-card/upkeep-and-co-staff-uniforms-cover.jpg"
+                      alt="Upkeep and Co Staff Uniforms Cover"
+                      class="slide"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Logo Project 1 -->
             <article
               class="card grid-item"
               data-project="logo-1"
-              data-category="logo-design"
               role="button"
               aria-label="Toggle Logo Project 1 slideshow"
             >
@@ -165,24 +797,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-05.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-06.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-07.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -192,11 +806,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 2 -->
+            <!-- Logo Project 2 -->
             <article
               class="card grid-item"
               data-project="logo-2"
-              data-category="branding"
               role="button"
               aria-label="Toggle Logo Project 2 slideshow"
             >
@@ -236,24 +849,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-11.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-12.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-13.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -263,11 +858,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 3 -->
+            <!-- Logo Project 3 -->
             <article
               class="card grid-item"
               data-project="logo-3"
-              data-category="ui-ux"
               role="button"
               aria-label="Toggle Logo Project 3 slideshow"
             >
@@ -307,24 +901,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-18.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-19.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-20.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -334,11 +910,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 4 -->
+            <!-- Logo Project 4 -->
             <article
               class="card grid-item"
               data-project="logo-4"
-              data-category="logo-design"
               role="button"
               aria-label="Toggle Logo Project 4 slideshow"
             >
@@ -378,24 +953,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-25.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-26.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-27.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -405,11 +962,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 5 -->
+            <!-- Logo Project 5 -->
             <article
               class="card grid-item"
               data-project="logo-5"
-              data-category="branding"
               role="button"
               aria-label="Toggle Logo Project 5 slideshow"
             >
@@ -449,24 +1005,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-32.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-33.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-34.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -476,11 +1014,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 6 -->
+            <!-- Logo Project 6 -->
             <article
               class="card grid-item"
               data-project="logo-6"
-              data-category="ui-ux"
               role="button"
               aria-label="Toggle Logo Project 6 slideshow"
             >
@@ -520,24 +1057,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-39.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-40.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-41.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -547,11 +1066,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 7 -->
+            <!-- Logo Project 7 -->
             <article
               class="card grid-item"
               data-project="logo-7"
-              data-category="logo-design"
               role="button"
               aria-label="Toggle Logo Project 7 slideshow"
             >
@@ -591,24 +1109,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-46.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-47.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-48.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -618,11 +1118,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 8 -->
+            <!-- Logo Project 8 -->
             <article
               class="card grid-item"
               data-project="logo-8"
-              data-category="branding"
               role="button"
               aria-label="Toggle Logo Project 8 slideshow"
             >
@@ -662,24 +1161,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-53.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-54.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-55.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -689,11 +1170,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 9 -->
+            <!-- Logo Project 9 -->
             <article
               class="card grid-item"
               data-project="logo-9"
-              data-category="ui-ux"
               role="button"
               aria-label="Toggle Logo Project 9 slideshow"
             >
@@ -733,24 +1213,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-60.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-61.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-62.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -760,11 +1222,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 10 -->
+            <!-- Logo Project 10 -->
             <article
               class="card grid-item"
               data-project="logo-10"
-              data-category="logo-design"
               role="button"
               aria-label="Toggle Logo Project 10 slideshow"
             >
@@ -804,24 +1265,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-67.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-68.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-69.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -831,11 +1274,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 11 -->
+            <!-- Logo Project 11 -->
             <article
               class="card grid-item"
               data-project="logo-11"
-              data-category="branding"
               role="button"
               aria-label="Toggle Logo Project 11 slideshow"
             >
@@ -875,24 +1317,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-74.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-75.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-76.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -902,11 +1326,10 @@
                 </div>
               </div>
             </article>
-            <!-- Portfolio Card 12 -->
+            <!-- Logo Project 12 -->
             <article
               class="card grid-item"
               data-project="logo-12"
-              data-category="ui-ux"
               role="button"
               aria-label="Toggle Logo Project 12 slideshow"
             >
@@ -946,24 +1369,6 @@
                     class="slide"
                     loading="lazy"
                   />
-                  <img
-                    src="assets/logo/DBC63-81.png"
-                    alt="Slide 4"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-82.png"
-                    alt="Slide 5"
-                    class="slide"
-                    loading="lazy"
-                  />
-                  <img
-                    src="assets/logo/DBC63-83.png"
-                    alt="Slide 6"
-                    class="slide"
-                    loading="lazy"
-                  />
                   <button class="slideshow-prev" aria-label="Previous slide">
                     <
                   </button>
@@ -974,10 +1379,11 @@
               </div>
             </article>
           </div>
-          <div class="portfolio-buttons">
-            <a href="contact.html" class="view-full-portfolio"
-              >START A PROJECT</a
-            >
+
+          <!-- Project Buttons -->
+          <div class="project-buttons" style="margin-bottom: 2rem">
+            <a href="../index.html" class="button-2">Back to Home</a>
+            <a href="../contact.html" class="button-1">Start a Project</a>
           </div>
         </div>
       </section>
@@ -991,6 +1397,7 @@
       </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="../script.js" defer></script>
+    <script src="../project-slideshow.js" defer></script>
   </body>
 </html>

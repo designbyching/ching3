@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Design by Ching portfolio. Explore our logo design, branding, and digital transformation projects."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="logo design, branding, digital transformation, portfolio, UI/UX, web development"
+    />
+    <meta
+      property="og:title"
+      content="Design by Ching Portfolio—Directed by Mike Ching"
+    />
+    <meta
+      property="og:description"
+      content="Discover our portfolio of logo design, branding, and digital transformation projects."
+    />
+    <meta property="og:url" content="https://www.designbyching.com/portfolio" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Design by Ching Portfolio—Directed by Mike Ching"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover our portfolio of logo design, branding, and digital transformation projects."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' https://images.unsplash.com data:;"
+    />
+    <title>Design by Ching Portfolio—Directed by Mike Ching</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <!-- Header with Sticky Navbar -->
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="container nav-container">
+          <a href="index.html" class="nav-logo" aria-current="page">
+            <img
+              src="assets/logo/dbc-logo.svg"
+              alt="Design by Ching Logo"
+              class="logo-img"
+            />
+          </a>
+          <div class="nav-toggles">
+            <div class="theme-toggle-container">
+              <label class="switch" title="Toggle day/night mode">
+                <input
+                  id="toggle"
+                  type="checkbox"
+                  aria-label="Toggle day/night mode"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="menu-toggle-container">
+              <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="toggle-text">MENU</span>
+              </button>
+            </div>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="portfolio.html" aria-current="page">PORTFOLIO</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="testimonials.html">TESTIMONIALS</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Portfolio Section -->
+      <section class="portfolio" id="portfolio">
+        <div class="container">
+          <h2>Our Portfolio:</h2>
+          <!-- Filter Buttons -->
+          <div class="portfolio-filters">
+            <button
+              class="filter-button active"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              All
+            </button>
+            <button
+              class="filter-button"
+              data-filter="logo-design"
+              aria-pressed="false"
+            >
+              Logo Design
+            </button>
+            <button
+              class="filter-button"
+              data-filter="branding"
+              aria-pressed="false"
+            >
+              Branding
+            </button>
+            <button
+              class="filter-button"
+              data-filter="ui-ux"
+              aria-pressed="false"
+            >
+              UI/UX
+            </button>
+          </div>
+          <div class="grid-container">
+            <!-- Portfolio Card 1 -->
+            <article
+              class="card grid-item"
+              data-project="logo-1"
+              data-category="logo-design"
+              role="button"
+              aria-label="Toggle Logo Project 1 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-01.png"
+                alt="Logo Project 1"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 1</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-1.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-02.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-03.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-04.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-05.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-06.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-07.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 2 -->
+            <article
+              class="card grid-item"
+              data-project="logo-2"
+              data-category="branding"
+              role="button"
+              aria-label="Toggle Logo Project 2 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-07.png"
+                alt="Logo Project 2"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 2</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-2.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-08.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-09.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-10.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-11.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-12.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-13.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 3 -->
+            <article
+              class="card grid-item"
+              data-project="logo-3"
+              data-category="ui-ux"
+              role="button"
+              aria-label="Toggle Logo Project 3 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-14.png"
+                alt="Logo Project 3"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 3</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-3.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-15.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-16.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-17.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-18.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-19.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-20.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 4 -->
+            <article
+              class="card grid-item"
+              data-project="logo-4"
+              data-category="logo-design"
+              role="button"
+              aria-label="Toggle Logo Project 4 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-21.png"
+                alt="Logo Project 4"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 4</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-4.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-22.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-23.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-24.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-25.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-26.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-27.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 5 -->
+            <article
+              class="card grid-item"
+              data-project="logo-5"
+              data-category="branding"
+              role="button"
+              aria-label="Toggle Logo Project 5 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-28.png"
+                alt="Logo Project 5"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 5</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-5.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-29.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-30.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-31.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-32.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-33.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-34.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 6 -->
+            <article
+              class="card grid-item"
+              data-project="logo-6"
+              data-category="ui-ux"
+              role="button"
+              aria-label="Toggle Logo Project 6 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-35.png"
+                alt="Logo Project 6"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 6</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-6.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-36.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-37.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-38.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-39.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-40.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-41.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 7 -->
+            <article
+              class="card grid-item"
+              data-project="logo-7"
+              data-category="logo-design"
+              role="button"
+              aria-label="Toggle Logo Project 7 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-42.png"
+                alt="Logo Project 7"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 7</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-7.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-43.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-44.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-45.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-46.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-47.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-48.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 8 -->
+            <article
+              class="card grid-item"
+              data-project="logo-8"
+              data-category="branding"
+              role="button"
+              aria-label="Toggle Logo Project 8 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-49.png"
+                alt="Logo Project 8"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 8</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-8.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-50.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-51.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-52.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-53.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-54.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-55.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 9 -->
+            <article
+              class="card grid-item"
+              data-project="logo-9"
+              data-category="ui-ux"
+              role="button"
+              aria-label="Toggle Logo Project 9 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-56.png"
+                alt="Logo Project 9"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 9</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-9.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-57.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-58.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-59.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-60.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-61.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-62.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 10 -->
+            <article
+              class="card grid-item"
+              data-project="logo-10"
+              data-category="logo-design"
+              role="button"
+              aria-label="Toggle Logo Project 10 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-63.png"
+                alt="Logo Project 10"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 10</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-10.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-64.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-65.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-66.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-67.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-68.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-69.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 11 -->
+            <article
+              class="card grid-item"
+              data-project="logo-11"
+              data-category="branding"
+              role="button"
+              aria-label="Toggle Logo Project 11 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-70.png"
+                alt="Logo Project 11"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 11</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-11.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-71.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-72.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-73.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-74.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-75.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-76.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+            <!-- Portfolio Card 12 -->
+            <article
+              class="card grid-item"
+              data-project="logo-12"
+              data-category="ui-ux"
+              role="button"
+              aria-label="Toggle Logo Project 12 slideshow"
+            >
+              <img
+                src="assets/logo/DBC63-77.png"
+                alt="Logo Project 12"
+                class="project-image"
+                loading="lazy"
+              />
+              <div class="card-header">
+                <span class="project-title">Logo Project 12</span>
+                <span class="toggle-expand">+</span>
+              </div>
+              <div class="grid-item-content">
+                <div class="expanded-header">
+                  <a href="portfolio/logo-project-12.html" class="view-item"
+                    >VIEW ITEM</a
+                  >
+                  <span class="toggle-collapse">×</span>
+                </div>
+                <div class="slideshow">
+                  <img
+                    src="assets/logo/DBC63-78.png"
+                    alt="Slide 1"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-79.png"
+                    alt="Slide 2"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-80.png"
+                    alt="Slide 3"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-81.png"
+                    alt="Slide 4"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-82.png"
+                    alt="Slide 5"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <img
+                    src="assets/logo/DBC63-83.png"
+                    alt="Slide 6"
+                    class="slide"
+                    loading="lazy"
+                  />
+                  <button class="slideshow-prev" aria-label="Previous slide">
+                    <
+                  </button>
+                  <button class="slideshow-next" aria-label="Next slide">
+                    >
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="portfolio-buttons">
+            <a href="contact.html" class="view-full-portfolio"
+              >START A PROJECT</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <p class="small-text">DBC | ©COPYRIGHTS 2025</p>
+        <a href="#top" class="back-to-top small-text">BACK TO TOP</a>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
