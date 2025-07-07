@@ -365,7 +365,7 @@ input:checked + .slider:before {
   flex-direction: column;
   gap: var(--space-sm);
   max-width: 600px;
-  margin-left: -27px; /* Align with logo */
+  margin-left: 0px; /* Align with logo */
   margin-right: auto; /* Center within container */
 }
 
@@ -2797,5 +2797,183 @@ html {
   .portfolio-testimonial-image {
     width: 40px; /* Slightly smaller for mobile */
     height: 40px;
+  }
+}
+
+/* Footer */
+.footer {
+  padding: var(--space-lg) 0;
+  background: var(--frost-bg);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  transition: background 0.5s ease;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 200px auto; /* Fixed logo width, remaining space for links */
+  align-items: start; /* Align all items to the top */
+  max-width: 1200px;
+  margin: var(--space-lg) auto 0 auto; /* Add top margin space-lg */
+  padding: 0 var(--container-padding);
+  gap: calc(var(--space-md) * 2.618); /* ~2.618rem */
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left-align logo, copyright, back-to-top */
+  gap: var(--space-md); /* Consistent spacing */
+  width: 200px; /* Fixed width for proportion */
+  flex-shrink: 0; /* Prevent shrinking */
+  margin: 0; /* No margins */
+  padding: 0; /* No padding */
+}
+
+.footer-logo .footer-logo-img {
+  width: 150px; /* Consistent logo size */
+  height: 30px;
+  margin: -27px; /* Explicitly no negative margins */
+  padding: 0;
+  display: block; /* Ensure block display */
+  object-fit: contain; /* Prevent SVG distortion */
+}
+
+.footer-logo > * {
+  margin: 0; /* Remove default margins on all children */
+  padding: 0; /* Remove default padding on all children */
+}
+
+.footer-copyright {
+  font-family: var(--font-body);
+  font-size: var(--small-text-size);
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+}
+
+.back-to-top {
+  font-family: var(--font-body);
+  font-size: var(--small-text-size);
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+.back-to-top:hover {
+  color: var(--accent-color);
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: var(--space-md);
+  align-items: start; /* Align to top */
+  margin: 0;
+  padding: 0;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-title {
+  font-family: var(--font-heading);
+  font-size: var(--heading-size);
+  color: var(--text-color);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.footer-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link {
+  font-family: var(--font-body);
+  font-size: var(--small-text-size);
+  color: var(--secondary-text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+.footer-link:hover {
+  color: var(--accent-color);
+}
+
+body.night-mode .footer-logo .footer-logo-img {
+  filter: brightness(0) invert(1); /* Night mode for footer logo */
+}
+
+/* Medium Breakpoint (≤1024px) */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-areas:
+      "logo"
+      "links";
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .footer-logo {
+    grid-area: logo;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    grid-area: links;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+}
+
+/* Mobile Breakpoint (≤768px) */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-areas:
+      "logo"
+      "links";
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .footer-logo {
+    grid-area: logo;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    grid-area: links;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    width: 100%;
+    gap: var(--space-md);
+  }
+
+  .footer-column:nth-child(3) {
+    grid-column: span 2; /* Resources spans both columns */
+  }
+
+  .footer-column {
+    width: 100%;
   }
 }
