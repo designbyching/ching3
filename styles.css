@@ -690,8 +690,7 @@ body.night-mode .testimonial-images-container:hover .testimonial-circle {
 .about-intro-image {
   width: 100%;
   max-width: 1200px; /* Matches .container max-width */
-  margin: margin: var(--space-lg) auto var(--space-md) auto;
-
+  margin: var(--space-lg) auto var(--space-md) auto;
 }
 
 .about-hero-img {
@@ -728,8 +727,6 @@ body.night-mode .testimonial-images-container:hover .testimonial-circle {
 /* About Team Section */
 .about-team {
   padding: var(--space-md) 0 var(--space-lg) 0;
-
-
 }
 
 .team-grid {
