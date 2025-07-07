@@ -682,9 +682,54 @@ body.night-mode .testimonial-images-container:hover .testimonial-circle {
   margin-top: var(--space-lg);
 }
 
+/* About Hero Section */
+.about-hero {
+  padding: var(--space-lg) 0 var(--space-md) 0;
+}
+
+.about-intro-image {
+  width: 100%;
+  max-width: 1200px; /* Matches .container max-width */
+  margin: margin: var(--space-lg) auto var(--space-md) auto;
+
+}
+
+.about-hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2; /* Matches .project-hero-img */
+  object-fit: cover; /* Matches .project-hero-img */
+  border-radius: var(--border-radius); /* 3px */
+  border: 1px solid var(--border-color); /* Matches .project-hero-img */
+  transition: transform 0.3s ease; /* Matches .project-hero-img */
+}
+
+/* Hover Effect (Optional, matches .project-intro-image) 
+.about-intro-image:hover .about-hero-img {
+  transform: scale(1.02); /* Slight zoom, matches .blog-card-img 
+  box-shadow: var(--shadow-portfolio);  Matches .project-intro-image hover 
+} */
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+  .about-hero {
+    padding: var(--space-md) 0; /* Reduced padding for mobile */
+  }
+
+  .about-intro-image {
+    margin: var(--space-md) auto; /* Reduced margin for mobile */
+  }
+
+  .about-hero-img {
+    aspect-ratio: 3 / 2; /* Maintain aspect ratio */
+  }
+}
+
 /* About Team Section */
 .about-team {
-  padding: var(--space-lg) 0;
+  padding: var(--space-md) 0 var(--space-lg) 0;
+
+
 }
 
 .team-grid {
