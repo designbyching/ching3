@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -95,7 +95,20 @@
             We’re committed to amplifying your success—fill out the form to
             start your transformation today.
           </p>
-          <form class="contact-form" id="contact-form">
+          <form
+            class="contact-form"
+            id="contact-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <!-- Honeypot field for basic spam protection (must be hidden) -->
+            <input type="hidden" name="bot-field" />
+
+            <!-- Required hidden field for Netlify to identify the form -->
+            <input type="hidden" name="form-name" value="contact" />
+
             <!-- Name -->
             <div class="form-group">
               <label for="name" class="form-label">Name</label>
