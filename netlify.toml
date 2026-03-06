@@ -8,3 +8,4 @@
   minify = true
 [build.processing.html]
   pretty_urls = true
+  collapse_whitespace = true
