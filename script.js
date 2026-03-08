@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Switched to slide:",
         activeSlideImg ? activeSlideImg.src : activeSlide,
         "Index:",
-        index
+        index,
       );
     }
 
@@ -152,19 +152,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (prevButton) {
       addTrackedListener(prevButton, "click", (event) =>
-        handleButtonClick(event, "prev")
+        handleButtonClick(event, "prev"),
       );
       addTrackedListener(prevButton, "touchstart", (event) =>
-        handleButtonClick(event, "prev")
+        handleButtonClick(event, "prev"),
       );
     }
 
     if (nextButton) {
       addTrackedListener(nextButton, "click", (event) =>
-        handleButtonClick(event, "next")
+        handleButtonClick(event, "next"),
       );
       addTrackedListener(nextButton, "touchstart", (event) =>
-        handleButtonClick(event, "next")
+        handleButtonClick(event, "next"),
       );
     }
 
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
       slideshow.__slideshowState.listeners.forEach(
         ({ element, event, handler }) => {
           element.removeEventListener(event, handler);
-        }
+        },
       );
     }
 
@@ -312,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
           item.dataset.project,
           "Target:",
           target.tagName,
-          target.className
+          target.className,
         );
 
         if (link || isNavButton || isCollapseToggle) {
@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
           e.preventDefault();
           console.log(
             "Filter button activated via keyboard:",
-            button.dataset.filter
+            button.dataset.filter,
           );
           button.click();
         }
@@ -441,34 +441,72 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Form Validation
+  // ────────────────────────────────────────────────
+  // Form Validation - FIXED: page-specific for both forms
+  // ────────────────────────────────────────────────
   const contactForm = document.querySelector(".contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
-      console.log("Contact form submitted:", "");
+      console.log("Form submitted on:", window.location.pathname);
+
       const name = contactForm.querySelector("#name")?.value.trim();
       const email = contactForm.querySelector("#email")?.value?.trim();
       const message = contactForm.querySelector("#message")?.value.trim();
-      const service = contactForm.querySelector(
-        'input[name="service"]:checked'
-      );
-      const businessSize = contactForm.querySelector(
-        'input[name="business-size"]:checked'
-      );
 
-      if (!name || !email || !message || !service || !businessSize) {
-        e.preventDefault();
-        alert(
-          "Please fill out all required fields: Name, Email, Service Type, Business Size, and Project Details."
-        );
+      // ── Simple contact page ────────────────────────
+      if (
+        window.location.pathname.includes("/contact") ||
+        window.location.pathname === "/contact.html"
+      ) {
+        if (!name || !email || !message) {
+          e.preventDefault();
+          alert("Please fill out Name, Email, and Message.");
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          e.preventDefault();
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        // All good → proceed to Netlify POST
         return;
       }
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        e.preventDefault();
-        alert("Please enter a valid email address.");
+      // ── Project brief page ─────────────────────────
+      if (
+        window.location.pathname.includes("/project-brief") ||
+        window.location.pathname === "/project-brief.html"
+      ) {
+        const service = contactForm.querySelector(
+          'input[name="service"]:checked',
+        );
+        const businessSize = contactForm.querySelector(
+          'input[name="business-size"]:checked',
+        );
+
+        if (!name || !email || !message || !service || !businessSize) {
+          e.preventDefault();
+          alert(
+            "Please fill out all required fields: Name, Email, Service Type, Business Size, and Project Details.",
+          );
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          e.preventDefault();
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        // All good
+        return;
       }
+
+      // Fallback (if path doesn't match) → just let it submit
     });
   }
 
@@ -484,7 +522,7 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggle.addEventListener("change", () => {
       console.log(
         "Theme toggle changed:",
-        themeToggle.checked ? "night" : "day"
+        themeToggle.checked ? "night" : "day",
       );
       if (themeToggle.checked) {
         document.body.classList.add("night-mode");
@@ -609,7 +647,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Multiple Project and Service Slideshows
   const slideshows = document.querySelectorAll(
-    ".project-slideshow, .service-slideshow"
+    ".project-slideshow, .service-slideshow",
   );
   slideshows.forEach((slideshow, slideshowIndex) => {
     const isServiceSlideshow =
@@ -632,14 +670,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (index >= slides.length) index = 0;
       if (index < 0) index = slides.length - 1;
       slides.forEach((slide, i) =>
-        slide.classList.toggle("active", i === index)
+        slide.classList.toggle("active", i === index),
       );
       dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
       currentIndex = index;
       console.log(
         `${isServiceSlideshow ? "Service" : "Project"} slideshow ${
           slideshowIndex + 1
-        } showing slide ${index + 1}`
+        } showing slide ${index + 1}`,
       );
     }
 
@@ -812,7 +850,7 @@ document.addEventListener("DOMContentLoaded", () => {
               happyClients.classList.add("animate");
               const targetNumber = parseInt(
                 happyClientsNumber.getAttribute("data-target"),
-                10
+                10,
               );
               animateCountUp(happyClientsNumber, targetNumber, 1500);
             }, circleAnimationDelay);
@@ -821,7 +859,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     observer.observe(introTestimonials);
