@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found — Design by Ching</title>
+
+    <meta
+      name="description"
+      content="The page you're looking for doesn't exist. Return to Design by Ching, Sydney brand design studio."
+    />
+    <meta name="robots" content="noindex" />
+
+    <meta
+      property="og:title"
+      content="404 — Page Not Found | Design by Ching"
+    />
+    <meta
+      property="og:description"
+      content="The page you're looking for doesn't exist."
+    />
+    <meta property="og:url" content="https://www.designbyching.com/404" />
+    <meta property="og:type" content="website" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top" class="night-mode">
+    <!-- you can remove night-mode if you want to start in light -->
+
+    <!-- Header with Sticky Navbar (same as your site) -->
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="container nav-container">
+          <a href="index.html" class="nav-logo">
+            <img
+              src="assets/logo/dbc-logo.svg"
+              alt="Design by Ching Logo"
+              class="logo-img"
+            />
+          </a>
+
+          <div class="nav-toggles">
+            <div class="theme-toggle-container">
+              <label class="switch" title="Toggle day/night mode">
+                <input
+                  id="toggle"
+                  type="checkbox"
+                  aria-label="Toggle day/night mode"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="menu-toggle-container">
+              <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="toggle-text">MENU</span>
+              </button>
+            </div>
+          </div>
+
+          <ul class="nav-links" id="nav-links">
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li><a href="index.html#services">SERVICES</a></li>
+            <li><a href="index.html#testimonials">TESTIMONIALS</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main 404 content -->
+    <main
+      style="
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 70vh;
+      "
+    >
+      <div class="container" style="max-width: 700px; padding: 4rem 1rem">
+        <h1
+          class="heading-large"
+          style="font-size: 4rem; margin-bottom: 1.5rem; line-height: 1"
+        >
+          404
+        </h1>
+        <h2 style="font-size: 1.8rem; margin-bottom: 2rem; opacity: 0.9">
+          Page Not Found
+        </h2>
+
+        <p
+          style="
+            font-size: 1.2rem;
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.85;
+          "
+        >
+          The page you’re looking for doesn’t exist (or has been moved).
+        </p>
+
+        <div
+          class="brief-buttons"
+          style="justify-content: center; gap: 1.5rem; flex-wrap: wrap"
+        >
+          <a href="index.html" class="button-1">Back to Home</a>
+          <a href="contact.html" class="button-2">Contact Us</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer (same as your site) -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-logo">
+          <a
+            href="index.html"
+            class="nav-logo"
+            aria-label="Design by Ching Home"
+          >
+            <img
+              src="assets/logo/dbc-logo.svg"
+              alt="Design by Ching Logo"
+              class="footer-logo-img"
+              loading="lazy"
+            />
+          </a>
+          <p class="small-text footer-copyright">DBC | © 2025</p>
+          <a href="#top" class="back-to-top small-text">
+            BACK TO TOP
+            <span
+              aria-hidden="true"
+              class="top-arrow"
+              style="font-size: 1.2em; margin-left: 0.3em"
+              >↑</span
+            >
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <!-- same columns as your original footer -->
+          <div class="footer-column">
+            <h3 class="footer-title">Explore</h3>
+            <ul>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li>
+                <a href="portfolio.html" class="footer-link">Portfolio</a>
+              </li>
+              <li><a href="services.html" class="footer-link">Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 class="footer-title">Connect</h3>
+            <ul>
+              <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+              <li>
+                <a href="testimonials.html" class="footer-link">Testimonials</a>
+              </li>
+              <li><a href="blog.html" class="footer-link">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 class="footer-title">Resources</h3>
+            <ul>
+              <li><a href="faqs.html" class="footer-link">FAQs</a></li>
+              <li>
+                <a href="privacy-policy.html" class="footer-link"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="terms-conditions.html" class="footer-link"
+                  >Terms & Conditions</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
