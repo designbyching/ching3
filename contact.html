@@ -1,187 +1,290 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Get in touch with Design by Ching, Mike Ching's Sydney-based brand design studio, for questions, collaborations, or to say hello." />
-  <meta name="robots" content="index, follow" />
-  <meta name="keywords" content="contact, mike ching, brand design, sydney studio, get in touch" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Get in touch with Design by Ching, Mike Ching's Sydney-based brand design studio, for questions, collaborations, or to say hello."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="contact, mike ching, brand design, sydney studio, get in touch"
+    />
 
-  <meta property="og:title" content="Contact — Design by Ching" />
-  <meta property="og:description" content="Reach out to discuss branding, web design, strategy, or just to say hi." />
-  <meta property="og:url" content="https://www.designbyching.com/contact" />
-  <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact — Design by Ching" />
+    <meta
+      property="og:description"
+      content="Reach out to discuss branding, web design, strategy, or just to say hi."
+    />
+    <meta property="og:url" content="https://www.designbyching.com/contact" />
+    <meta property="og:type" content="website" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact — Design by Ching" />
-  <meta name="twitter:description" content="Reach out to discuss branding, web design, strategy, or just to say hi." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact — Design by Ching" />
+    <meta
+      name="twitter:description"
+      content="Reach out to discuss branding, web design, strategy, or just to say hi."
+    />
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:;" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:;"
+    />
 
-  <title>Contact — Design by Ching</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body id="top">
-  <!-- Header with Sticky Navbar -->
-  <header class="site-header">
-    <nav class="navbar">
-      <div class="container nav-container">
-        <a href="index.html" class="nav-logo">
-          <img src="assets/logo/dbc-logo.svg" alt="Design by Ching Logo" class="logo-img" />
-        </a>
-        <div class="nav-toggles">
-          <div class="theme-toggle-container">
-            <label class="switch" title="Toggle day/night mode">
-              <input id="toggle" type="checkbox" aria-label="Toggle day/night mode" />
-              <span class="slider"></span>
-            </label>
-          </div>
-          <div class="menu-toggle-container">
-            <button class="nav-toggle" aria-label="Toggle navigation">
-              <span class="toggle-text">MENU</span>
-            </button>
-          </div>
-        </div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="index.html#portfolio">PORTFOLIO</a></li>
-          <li><a href="index.html#services">SERVICES</a></li>
-          <li><a href="index.html#testimonials">TESTIMONIALS</a></li>
-          <li><a href="blog.html">BLOG</a></li>
-          <li><a href="contact.html" aria-current="page">CONTACT</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-      <div class="container contact-content">
-        <h2>Get in Touch</h2>
-        <p class="spaced-uppercase">SAY HELLO • ASK A QUESTION • START A CONVERSATION</p>
-        <p class="text-normal">
-          Have a question, idea, or just want to chat? Fill out the form below, and we’ll get back to you soon to start the conversation.
-        </p>
-        <form
-          class="contact-form"
-          id="contact-form"
-          name="simple-contact"
-          method="POST"
-          action="/thank-you-contact.html" 
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
-          <!-- Honeypot field for spam protection -->
-          <input type="hidden" name="bot-field" />
-          <!-- Required hidden field for Netlify -->
-          <input type="hidden" name="form-name" value="simple-contact" />
-
-          <!-- Name -->
-          <div class="form-group">
-            <label for="name" class="form-label">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              class="form-input"
-              placeholder="Your Name"
-              required
-              aria-required="true"
+    <title>Contact — Design by Ching</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <!-- Header with Sticky Navbar -->
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="container nav-container">
+          <a href="index.html" class="nav-logo">
+            <img
+              src="assets/logo/dbc-logo.svg"
+              alt="Design by Ching Logo"
+              class="logo-img"
             />
+          </a>
+          <div class="nav-toggles">
+            <div class="theme-toggle-container">
+              <label class="switch" title="Toggle day/night mode">
+                <input
+                  id="toggle"
+                  type="checkbox"
+                  aria-label="Toggle day/night mode"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="menu-toggle-container">
+              <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="toggle-text">MENU</span>
+              </button>
+            </div>
           </div>
-          <!-- Email -->
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-input"
-              placeholder="Your Email"
-              required
-              aria-required="true"
-            />
-          </div>
-          <!-- Phone Number -->
-          <div class="form-group">
-            <label for="phone" class="form-label">Phone Number (Optional)</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              class="form-input"
-              placeholder="Your Phone Number"
-            />
-          </div>
-          <!-- Message -->
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              class="form-input"
-              placeholder="What’s on your mind? Feel free to share your thoughts, questions, or ideas."
-              required
-              aria-required="true"
-            ></textarea>
-          </div>
-          <button type="submit" class="button-2">SUBMIT</button>
-          <!-- Process Strip (same as original) -->
-          
-          </div>
-        </form>
-        <div style="text-align: center; margin-top: 3rem;">
-          <p class="text-normal">Ready to start a project?</p><br>
-          <a href="project-brief.html" class="button-2">Fill out the Project Brief →</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer (matching your full footer from index.html) -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <div class="footer-logo">
-        <a href="index.html" class="nav-logo" aria-label="Design by Ching Home">
-          <img src="assets/logo/dbc-logo.svg" alt="Design by Ching Logo" class="footer-logo-img" loading="lazy" />
-        </a>
-        <p class="small-text footer-copyright">DBC | © 2025</p>
-        <a href="#top" class="back-to-top small-text">
-          BACK TO TOP <span aria-hidden="true" class="top-arrow" style="font-size:1.2em; margin-left:0.3em;">↑</span>
-        </a>
-      </div>
-      <div class="footer-links">
-        <div class="footer-column">
-          <h3 class="footer-title">Explore</h3>
-          <ul>
-            <li><a href="about.html" class="footer-link">About Us</a></li>
-            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
-            <li><a href="index.html#services" class="footer-link">Services</a></li>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="index.html#portfolio">PORTFOLIO</a></li>
+            <li><a href="index.html#services">SERVICES</a></li>
+            <li><a href="index.html#testimonials">TESTIMONIALS</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="contact.html" aria-current="page">CONTACT</a></li>
           </ul>
         </div>
-        <div class="footer-column">
-          <h3 class="footer-title">Connect</h3>
-          <ul>
-            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
-            <li><a href="index.html#testimonials" class="footer-link">Testimonials</a></li>
-            <li><a href="blog.html" class="footer-link">Blog</a></li>
-          </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Contact Section -->
+      <section class="contact" id="contact">
+        <div class="container contact-content">
+          <h2>Get in Touch</h2>
+          <p class="spaced-uppercase">
+            SAY HELLO • ASK A QUESTION • START A CONVERSATION
+          </p>
+          <p class="text-normal">
+            Have a question, idea, or just want to chat? Fill out the form
+            below, and we’ll get back to you soon.
+          </p>
+
+          <form
+            class="contact-form"
+            id="contact-form"
+            name="simple-contact"
+            method="POST"
+            action="/thank-you-contact.html"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="simple-contact" />
+            <input type="hidden" name="bot-field" />
+
+            <!-- Name -->
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="Your Name"
+                required
+                aria-required="true"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="Your Email"
+                required
+                aria-required="true"
+              />
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label for="phone" class="form-label"
+                >Phone Number (Optional)</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-input"
+                placeholder="Your Phone Number"
+              />
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-input"
+                placeholder="What’s on your mind? Feel free to share your thoughts, questions, or ideas."
+                required
+                aria-required="true"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="button-2">SUBMIT</button>
+
+            <!-- Process Strip -->
+            <div class="process-strip">
+              <div class="process-step">
+                <img
+                  src="assets/icons/design-brief.svg"
+                  alt="Design Brief Icon"
+                  class="process-icon"
+                />
+                <h3>Design Brief</h3>
+                <p class="text-normal">
+                  We collaborate to define your goals and vision.
+                </p>
+              </div>
+              <div class="process-step">
+                <img
+                  src="assets/icons/design-develop.svg"
+                  alt="Develop Icon"
+                  class="process-icon"
+                />
+                <h3>Develop</h3>
+                <p class="text-normal">
+                  Our team crafts and refines your solution.
+                </p>
+              </div>
+              <div class="process-step">
+                <img
+                  src="assets/icons/deliver-support.svg"
+                  alt="Deliver Icon"
+                  class="process-icon"
+                />
+                <h3>Deliver</h3>
+                <p class="text-normal">
+                  We launch your project with ongoing support.
+                </p>
+              </div>
+            </div>
+          </form>
+
+          <div style="text-align: center; margin-top: 3rem">
+            <p class="text-normal">Ready to start a project?</p>
+            <br />
+            <a href="project-brief.html" class="button-2"
+              >Fill out the Project Brief →</a
+            >
+          </div>
         </div>
-        <div class="footer-column">
-          <h3 class="footer-title">Resources</h3>
-          <ul>
-            <li><a href="faqs.html" class="footer-link">FAQs</a></li>
-            <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-            <li><a href="terms-conditions.html" class="footer-link">Terms & Conditions</a></li>
-          </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-logo">
+          <a
+            href="index.html"
+            class="nav-logo"
+            aria-label="Design by Ching Home"
+          >
+            <img
+              src="assets/logo/dbc-logo.svg"
+              alt="Design by Ching Logo"
+              class="footer-logo-img"
+              loading="lazy"
+            />
+          </a>
+          <p class="small-text footer-copyright">DBC | © 2025</p>
+          <a href="#top" class="back-to-top small-text">
+            BACK TO TOP
+            <span
+              aria-hidden="true"
+              class="top-arrow"
+              style="font-size: 1.2em; margin-left: 0.3em"
+              >↑</span
+            >
+          </a>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3 class="footer-title">Explore</h3>
+            <ul>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li>
+                <a href="portfolio.html" class="footer-link">Portfolio</a>
+              </li>
+              <li>
+                <a href="index.html#services" class="footer-link">Services</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 class="footer-title">Connect</h3>
+            <ul>
+              <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+              <li>
+                <a href="index.html#testimonials" class="footer-link"
+                  >Testimonials</a
+                >
+              </li>
+              <li><a href="blog.html" class="footer-link">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 class="footer-title">Resources</h3>
+            <ul>
+              <li><a href="faqs.html" class="footer-link">FAQs</a></li>
+              <li>
+                <a href="privacy-policy.html" class="footer-link"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="terms-conditions.html" class="footer-link"
+                  >Terms & Conditions</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="script.js" defer></script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>
